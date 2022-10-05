@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Reference Include="CData.EntityFrameworkCore.QuickBooks">
+	    <HintPath>..\..\..\..\..\..\Program Files\CData\CData ADO.NET Provider for QuickBooks 2022\lib\net6.0\EFCORE60\CData.EntityFrameworkCore.QuickBooks.dll</HintPath>
+	  </Reference>
+	  <Reference Include="System.Data.CData.QuickBooks">
+	    <HintPath>..\..\..\..\..\..\Program Files\CData\CData ADO.NET Provider for QuickBooks 2022\lib\System.Data.CData.QuickBooks.dll</HintPath>
+	  </Reference>
+	  <Reference Include="System.Data.CData.QuickBooks.Entities.EF6">
+	    <HintPath>..\..\..\..\..\..\Program Files\CData\CData ADO.NET Provider for QuickBooks 2022\lib\System.Data.CData.QuickBooks.Entities.EF6.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+</Project>
