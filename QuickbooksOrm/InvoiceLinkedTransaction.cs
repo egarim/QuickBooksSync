@@ -156,6 +156,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Invoice;
             set => SetPropertyValue(nameof(Invoice), ref _Invoice, value);
         }
-       
+        public const string QueriableProperties="Id,InvoiceId,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Account,AccountId,Date,TransactionId,TransactionAmount,TransactionDate,TransactionReferenceNumber,TransactionType,TransactionLinkType,TimeModified,TimeCreated,AccountNavigation,Customer,Invoice";
     }
 }

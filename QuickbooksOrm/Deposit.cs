@@ -192,6 +192,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _PayeeNavigation;
             set => SetPropertyValue(nameof(PayeeNavigation), ref _PayeeNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,TxnNumber,Date,CashBackAccount,CashBackAccountId,CashBackAmount,CashBackId,CashBackMemo,DepositToAccount,DepositToAccountId,Memo,TotalDeposit,ItemCount,ItemAggregate,CurrencyName,CurrencyId,ExchangeRate,CustomFields,TimeModified,TimeCreated,Payee,PayeeId,CashBackAccountNavigation,Currency,DepositToAccountNavigation,PayeeNavigation";
     }
 }

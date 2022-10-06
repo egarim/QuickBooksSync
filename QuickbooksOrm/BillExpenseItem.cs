@@ -282,6 +282,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Vendor;
             set => SetPropertyValue(nameof(Vendor), ref _Vendor, value);
         }
-       
+        public const string QueriableProperties="Id,BillId,VendorName,VendorId,ReferenceNumber,Date,TxnNumber,DueDate,Terms,TermsId,AccountsPayable,AccountsPayableId,Amount,Memo,IsPaid,IsTaxIncluded,ExpenseLineId,ExpenseLineNumber,ExpenseAccount,ExpenseAccountId,ExpenseAmount,ExpenseBillableStatus,ExpenseCustomer,ExpenseCustomerId,ExpenseClass,ExpenseClassId,ExpenseMemo,ExpenseTaxCode,ExpenseTaxCodeId,ExpenseCustomFields,ExchangeRate,TimeModified,TimeCreated,OpenAmount,AccountsPayableNavigation,Bill,ExpenseAccountNavigation,ExpenseClassNavigation,ExpenseCustomerNavigation,ExpenseTaxCodeNavigation,Vendor";
     }
 }

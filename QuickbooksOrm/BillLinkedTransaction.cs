@@ -102,6 +102,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Bill;
             set => SetPropertyValue(nameof(Bill), ref _Bill, value);
         }
-       
+        public const string QueriableProperties="Id,BillId,TransactionId,TransactionAmount,TransactionDate,TransactionReferenceNumber,TransactionType,TransactionLinkType,TimeModified,TimeCreated,Bill";
     }
 }

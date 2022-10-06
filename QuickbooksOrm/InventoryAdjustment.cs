@@ -162,6 +162,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _InventorySiteNavigation;
             set => SetPropertyValue(nameof(InventorySiteNavigation), ref _InventorySiteNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,ReferenceNumber,Account,AccountId,Class,ClassId,CustomerName,CustomerId,Memo,InventorySite,InventorySiteId,Date,ItemCount,ItemAggregate,EditSequence,TimeModified,TimeCreated,AccountNavigation,ClassNavigation,Customer,InventorySiteNavigation";
     }
 }

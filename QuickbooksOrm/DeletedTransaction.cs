@@ -65,6 +65,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _TimeDeleted;
             set => SetPropertyValue(nameof(TimeDeleted), ref _TimeDeleted, value);
         }
-       
+        public const string QueriableProperties="TxnId,TxnDelType,RefNumber,TimeCreated,TimeDeleted";
     }
 }

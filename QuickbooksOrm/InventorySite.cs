@@ -162,6 +162,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _IsDefaultSite;
             set => SetPropertyValue(nameof(IsDefaultSite), ref _IsDefaultSite, value);
         }
-       
+        public const string QueriableProperties="Id,Name,IsActive,SiteDesc,Contact,Phone,Fax,Email,SiteAddressAddr1,SiteAddressAddr2,SiteAddressAddr3,SiteAddressAddr4,SiteAddressAddr5,SiteAddressCity,SiteAddressState,SiteAddressPostalCode,SiteAddressCountry,EditSequence,TimeCreated,TimeModified,IsDefaultSite";
     }
 }

@@ -150,6 +150,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _TransferToAccountRefList;
             set => SetPropertyValue(nameof(TransferToAccountRefList), ref _TransferToAccountRefList, value);
         }
-       
+        public const string QueriableProperties="Id,TxnNumber,TxnDate,TransferFromAccountRefListId,TransferFromAccountRefFullName,FromAccountBalance,TransferToAccountRefListId,TransferToAccountRefFullName,ToAccountBalance,ClassRefListId,ClassRefFullName,Amount,Memo,TimeCreated,TimeModified,EditSequence,ClassRefList,TransferFromAccountRefList,TransferToAccountRefList";
     }
 }

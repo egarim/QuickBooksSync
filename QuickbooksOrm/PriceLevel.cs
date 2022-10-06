@@ -108,6 +108,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _PriceLevelPerItemRetCurrencyRefList;
             set => SetPropertyValue(nameof(PriceLevelPerItemRetCurrencyRefList), ref _PriceLevelPerItemRetCurrencyRefList, value);
         }
-       
+        public const string QueriableProperties="Id,Name,PriceLevelType,IsActive,PriceLevelFixedPercentage,PriceLevelPerItemAggregate,PriceLevelPerItemRetCurrencyRefListId,PriceLevelPerItemRetCurrencyRefFullName,TimeCreated,TimeModified,EditSequence,PriceLevelPerItemRetCurrencyRefList";
     }
 }

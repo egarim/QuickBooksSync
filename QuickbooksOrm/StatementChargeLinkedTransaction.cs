@@ -138,6 +138,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _StatementCharge;
             set => SetPropertyValue(nameof(StatementCharge), ref _StatementCharge, value);
         }
-       
+        public const string QueriableProperties="Id,StatementChargeId,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Date,TransactionId,TransactionAmount,TransactionDate,TransactionReferenceNumber,TransactionType,TransactionLinkType,TimeModified,TimeCreated,Customer,StatementCharge";
     }
 }

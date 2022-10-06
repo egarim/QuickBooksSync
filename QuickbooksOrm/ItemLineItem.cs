@@ -282,6 +282,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _TaxCodeNavigation;
             set => SetPropertyValue(nameof(TaxCodeNavigation), ref _TaxCodeNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,ItemId,Name,FullName,Type,Barcode,Account,AccountId,Cogsaccount,CogsaccountId,AssetAccount,AssetAccountId,LineItemNumber,LineItemId,LineItemName,LineItemQuantity,LineItemUnitOfMeasure,ParentName,ParentId,Description,Price,AverageCost,IsActive,PurchaseCost,PurchaseDescription,PreferredVendor,PreferredVendorId,TaxCode,TaxCodeId,IsTaxIncluded,CustomFields,TimeModified,TimeCreated,AccountNavigation,AssetAccountNavigation,CogsaccountNavigation,Item,LineItem,Parent,PreferredVendorNavigation,TaxCodeNavigation";
     }
 }

@@ -101,6 +101,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Balance;
             set => SetPropertyValue(nameof(Balance), ref _Balance, value);
         }
-       
+        public const string QueriableProperties="Label,Type,Date,Num,Name,Memo,Class,Clr,Split,Amount,Balance";
     }
 }

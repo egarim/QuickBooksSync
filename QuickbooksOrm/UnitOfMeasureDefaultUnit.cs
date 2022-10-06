@@ -114,6 +114,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _UnitOfMeasureSet;
             set => SetPropertyValue(nameof(UnitOfMeasureSet), ref _UnitOfMeasureSet, value);
         }
-       
+        public const string QueriableProperties="Id,UnitOfMeasureSetId,Name,IsActive,UnitOfMeasureType,BaseUnitName,BaseUnitAbbreviation,DefaultUnitUnitUsedFor,DefaultUnitUnit,EditSequence,TimeCreated,TimeModified,UnitOfMeasureSet";
     }
 }

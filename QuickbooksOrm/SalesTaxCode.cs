@@ -114,6 +114,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ItemSalesTaxRefList;
             set => SetPropertyValue(nameof(ItemSalesTaxRefList), ref _ItemSalesTaxRefList, value);
         }
-       
+        public const string QueriableProperties="Id,Name,Description,IsActive,IsTaxable,ItemPurchaseTaxRefFullName,ItemPurchaseTaxRefListId,ItemSalesTaxRefFullName,ItemSalesTaxRefListId,TimeCreated,TimeModified,EditSequence,ItemSalesTaxRefList";
     }
 }

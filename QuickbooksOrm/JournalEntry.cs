@@ -186,6 +186,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Currency;
             set => SetPropertyValue(nameof(Currency), ref _Currency, value);
         }
-       
+        public const string QueriableProperties="Id,ReferenceNumber,TxnNumber,Date,CreditLineCount,DebitLineCount,FirstCreditAccount,FirstCreditAmount,FirstCreditMemo,FirstCreditEntityName,FirstCreditEntityId,FirstDebitAccount,FirstDebitAmount,FirstDebitMemo,FirstDebitEntityName,FirstDebitEntityId,LineAggregate,CurrencyName,CurrencyId,ExchangeRate,IsHomeCurrencyAdjustment,EditSequence,TimeModified,TimeCreated,Currency";
     }
 }

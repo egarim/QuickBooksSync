@@ -83,6 +83,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _DataExtFormatString;
             set => SetPropertyValue(nameof(DataExtFormatString), ref _DataExtFormatString, value);
         }
-       
+        public const string QueriableProperties="DataExtId,OwnerId,DataExtName,DataExtType,AssignToObject,DataExtListRequire,DataExtTxnRequire,DataExtFormatString";
     }
 }

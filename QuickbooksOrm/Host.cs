@@ -77,6 +77,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _QbfileMode;
             set => SetPropertyValue(nameof(QbfileMode), ref _QbfileMode, value);
         }
-       
+        public const string QueriableProperties="ProductName,MajorVersion,MinorVersion,Country,SupportedQbxmlversion,IsAutomaticLogin,QbfileMode";
     }
 }

@@ -276,6 +276,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _OpenedCompanyFile;
             set => SetPropertyValue(nameof(OpenedCompanyFile), ref _OpenedCompanyFile, value);
         }
-       
+        public const string QueriableProperties="Id,Name,Type,Address,Line1,Line2,Line3,Line4,Line5,City,State,PostalCode,Country,Note,Email,Phone,Fax,Ssn,Taxform,Website,FirstMonthFiscal,FirstMonthTax,LegalAddress,LegalCity,LegalCountry,LegalState,LegalZip,LegalName,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,OpenedCompanyFile";
     }
 }

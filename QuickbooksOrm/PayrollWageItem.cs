@@ -96,6 +96,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ExpenseAccountRefList;
             set => SetPropertyValue(nameof(ExpenseAccountRefList), ref _ExpenseAccountRefList, value);
         }
-       
+        public const string QueriableProperties="Id,Name,IsActive,WageType,ExpenseAccountRefFullName,ExpenseAccountRefListId,TimeCreated,TimeModified,EditSequence,ExpenseAccountRefList";
     }
 }

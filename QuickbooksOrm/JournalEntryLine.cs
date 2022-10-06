@@ -228,6 +228,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _LineTaxItemNavigation;
             set => SetPropertyValue(nameof(LineTaxItemNavigation), ref _LineTaxItemNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,JournalEntryId,ReferenceNumber,TxnNumber,Date,CreditLineCount,DebitLineCount,LineId,LineType,LineAccount,LineAccountId,LineAmount,LineEntityName,LineEntityId,LineMemo,LineClass,LineClassId,LineStatus,LineTaxItem,LineTaxItemId,CurrencyName,CurrencyId,ExchangeRate,IsHomeCurrencyAdjustment,EditSequence,TimeModified,TimeCreated,Currency,JournalEntry,LineAccountNavigation,LineClassNavigation,LineTaxItemNavigation";
     }
 }

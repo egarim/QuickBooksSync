@@ -132,6 +132,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Customer;
             set => SetPropertyValue(nameof(Customer), ref _Customer, value);
         }
-       
+        public const string QueriableProperties="Id,CustomerId,Name,FullName,ContactId,ContactEditSequence,ContactFirstName,ContactMiddleName,ContactLastName,ContactJobTitle,ContactSalutation,ContactMethods,EditSequence,TimeModified,TimeCreated,Customer";
     }
 }

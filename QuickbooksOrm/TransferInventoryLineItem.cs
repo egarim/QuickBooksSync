@@ -204,6 +204,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _TransferInventoryLineRetItemRefList;
             set => SetPropertyValue(nameof(TransferInventoryLineRetItemRefList), ref _TransferInventoryLineRetItemRefList, value);
         }
-       
+        public const string QueriableProperties="Id,TransferInventoryId,TxnDate,TxnNumber,RefNumber,FromInventorySiteRefListId,FromInventorySiteRefFullName,ToInventorySiteRefListId,ToInventorySiteRefFullName,Memo,ExternalGuid,TransferInventoryLineRetTxnLineId,TransferInventoryLineRetItemRefListId,TransferInventoryLineRetItemRefFullName,TransferInventoryLineRetFromInventorySiteLocationRefListId,TransferInventoryLineRetFromInventorySiteLocationRefFullName,TransferInventoryLineRetToInventorySiteLocationRefListId,TransferInventoryLineRetToInventorySiteLocationRefFullName,TransferInventoryLineRetQuantityToTransfer,TransferInventoryLineRetQuantityTransferred,TransferInventoryLineRetSerialNumber,TransferInventoryLineRetLotNumber,TimeCreated,TimeModified,EditSequence,FromInventorySiteRefList,ToInventorySiteRefList,TransferInventoryLineRetItemRefList";
     }
 }

@@ -144,6 +144,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Payee;
             set => SetPropertyValue(nameof(Payee), ref _Payee, value);
         }
-       
+        public const string QueriableProperties="Id,Date,ReferenceNumber,AccountName,AccountId,Memo,PayeeName,PayeeId,IsTaxIncluded,ItemCount,ItemAggregate,ExpenseItemCount,ExpenseItemAggregate,CustomFields,TimeModified,TimeCreated,Account,Payee";
     }
 }

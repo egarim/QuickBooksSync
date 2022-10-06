@@ -132,6 +132,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ToInventorySiteRefList;
             set => SetPropertyValue(nameof(ToInventorySiteRefList), ref _ToInventorySiteRefList, value);
         }
-       
+        public const string QueriableProperties="Id,TxnDate,TxnNumber,RefNumber,FromInventorySiteRefListId,FromInventorySiteRefFullName,ToInventorySiteRefListId,ToInventorySiteRefFullName,Memo,ExternalGuid,TransferInventoryLineAggregate,TimeCreated,TimeModified,EditSequence,FromInventorySiteRefList,ToInventorySiteRefList";
     }
 }

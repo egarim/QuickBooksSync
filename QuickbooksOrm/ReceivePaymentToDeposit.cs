@@ -120,6 +120,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _CustomerRefList;
             set => SetPropertyValue(nameof(CustomerRefList), ref _CustomerRefList, value);
         }
-       
+        public const string QueriableProperties="Id,TxnType,TxnLineId,CustomerRefListId,CustomerRefFullName,TxnDate,RefNumber,Amount,CurrencyId,CurrencyName,ExchangeRate,AmountInHomeCurrency,Currency,CustomerRefList";
     }
 }

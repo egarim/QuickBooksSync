@@ -108,6 +108,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Employee;
             set => SetPropertyValue(nameof(Employee), ref _Employee, value);
         }
-       
+        public const string QueriableProperties="Id,Name,PayPeriod,EmployeeId,EarningsId,EarningsWageName,EarningsWageId,EarningsRate,EarningsRatePercent,TimeModified,TimeCreated,Employee";
     }
 }

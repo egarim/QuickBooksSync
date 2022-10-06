@@ -102,6 +102,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }
-       
+        public const string QueriableProperties="Id,Notes,IsActive,Type,Priority,IsDone,ReminderDate,ReminderTime,EditSequence,TimeCreated,TimeModified";
     }
 }

@@ -114,6 +114,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _LiabilityAccountRefList;
             set => SetPropertyValue(nameof(LiabilityAccountRefList), ref _LiabilityAccountRefList, value);
         }
-       
+        public const string QueriableProperties="Id,Name,IsActive,NonWageType,ExpenseAccountRefFullName,ExpenseAccountRefListId,LiabilityAccountRefFullName,LiabilityAccountRefListId,TimeCreated,TimeModified,EditSequence,ExpenseAccountRefList,LiabilityAccountRefList";
     }
 }

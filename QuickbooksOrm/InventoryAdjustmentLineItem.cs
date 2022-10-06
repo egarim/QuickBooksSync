@@ -246,6 +246,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Item;
             set => SetPropertyValue(nameof(Item), ref _Item, value);
         }
-       
+        public const string QueriableProperties="Id,InventoryAdjustmentId,ReferenceNumber,Account,AccountId,Class,ClassId,CustomerName,CustomerId,Memo,InventorySite,InventorySiteId,Date,ItemLineId,ItemLineNumber,ItemName,ItemId,ItemNewQuantity,ItemNewValue,ItemQuantityDiff,ItemValueDiff,ItemLotNumber,ItemSerialNumber,ItemSerialNumberAddedOrRemoved,ItemInventorySiteLocationId,ItemInventorySiteLocationName,EditSequence,TimeModified,TimeCreated,AccountNavigation,ClassNavigation,Customer,InventoryAdjustment,InventorySiteNavigation,Item";
     }
 }

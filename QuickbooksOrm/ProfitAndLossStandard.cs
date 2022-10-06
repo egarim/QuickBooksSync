@@ -53,6 +53,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _RowType;
             set => SetPropertyValue(nameof(RowType), ref _RowType, value);
         }
-       
+        public const string QueriableProperties="Label,Amount,RowType";
     }
 }

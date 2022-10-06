@@ -228,6 +228,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Payee;
             set => SetPropertyValue(nameof(Payee), ref _Payee, value);
         }
-       
+        public const string QueriableProperties="Id,BillPaymentId,PayeeName,PayeeId,ReferenceNumber,TxnNumber,Date,AccountsPayable,AccountsPayableId,BankAccountId,BankAccountName,IsToBePrinted,Memo,ExchangeRate,AmountInHomeCurrency,CustomFields,AppliedToRefId,AppliedToAmount,AppliedToBalanceRemaining,AppliedToCreditAmount,AppliedToCreditMemoId,AppliedToDiscountAccountId,AppliedToDiscountAccountName,AppliedToDiscountAmount,AppliedToPaymentAmount,AppliedToReferenceNumber,AppliedToTxnDate,AppliedToTxnType,TimeModified,TimeCreated,BillPayment,Payee";
     }
 }

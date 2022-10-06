@@ -174,6 +174,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ServiceItem;
             set => SetPropertyValue(nameof(ServiceItem), ref _ServiceItem, value);
         }
-       
+        public const string QueriableProperties="Id,BillableStatus,Date,CustomerName,CustomerId,Duration,EmployeeName,EmployeeId,Notes,Class,ClassId,PayrollWageItemName,PayrollWageItemId,ServiceItemName,ServiceItemId,EditSequence,TimeModified,TimeCreated,ClassNavigation,Customer,Employee,PayrollWageItem,ServiceItem";
     }
 }

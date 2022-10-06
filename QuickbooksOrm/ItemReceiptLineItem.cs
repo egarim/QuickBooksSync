@@ -342,6 +342,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Vendor;
             set => SetPropertyValue(nameof(Vendor), ref _Vendor, value);
         }
-       
+        public const string QueriableProperties="Id,ItemReceiptId,VendorName,VendorId,Date,ReferenceNumber,AccountsPayable,AccountsPayableId,Memo,Amount,TxnNumber,ExchangeRate,IsTaxIncluded,ItemLineId,ItemLineNumber,ItemName,ItemId,ItemGroup,ItemGroupId,ItemDescription,ItemQuantity,ItemTaxCode,ItemTaxCodeId,ItemUnitOfMeasure,ItemInventorySiteId,ItemInventorySiteName,ItemInventorySiteLocationId,ItemInventorySiteLocationName,ItemSerialNumber,ItemLotNumber,ItemCost,ItemAmount,ItemBillableStatus,ItemCustomer,ItemCustomerId,ItemClass,ItemClassId,ItemCustomFields,CustomFields,EditSequence,TimeModified,TimeCreated,AccountsPayableNavigation,Item,ItemClassNavigation,ItemCustomerNavigation,ItemGroupNavigation,ItemInventorySiteNameNavigation,ItemReceipt,ItemTaxCodeNavigation,Vendor";
     }
 }

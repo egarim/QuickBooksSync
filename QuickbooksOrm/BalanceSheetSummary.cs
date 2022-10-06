@@ -47,6 +47,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Total;
             set => SetPropertyValue(nameof(Total), ref _Total, value);
         }
-       
+        public const string QueriableProperties="Account,Total";
     }
 }

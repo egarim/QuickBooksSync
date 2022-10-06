@@ -348,6 +348,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _PayeeNavigation;
             set => SetPropertyValue(nameof(PayeeNavigation), ref _PayeeNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,CheckId,ReferenceNumber,TxnNumber,Account,AccountId,Payee,PayeeId,Date,Amount,Memo,Address,Line1,Line2,Line3,Line4,Line5,City,State,PostalCode,Country,Note,CustomFields,ExpenseLineId,ExpenseLineNumber,ExpenseAccount,ExpenseAccountId,ExpenseAmount,ExpenseBillableStatus,ExpenseCustomer,ExpenseCustomerId,ExpenseClass,ExpenseClassId,ExpenseTaxCode,ExpenseTaxCodeId,ExpenseMemo,ExpenseCustomFields,IsToBePrinted,IsTaxIncluded,CurrencyName,CurrencyId,ExchangeRate,TimeModified,TimeCreated,AccountNavigation,Check,Currency,ExpenseAccountNavigation,ExpenseClassNavigation,ExpenseCustomerNavigation,ExpenseTaxCodeNavigation,PayeeNavigation";
     }
 }

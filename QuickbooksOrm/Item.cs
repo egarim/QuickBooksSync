@@ -516,6 +516,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _UnitOfMeasureNavigation;
             set => SetPropertyValue(nameof(UnitOfMeasureNavigation), ref _UnitOfMeasureNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,Name,FullName,Type,Account,AccountId,Cogsaccount,CogsaccountId,AssetAccount,AssetAccountId,Class,ClassId,DateSold,PurchaseDate,ItemCount,ParentName,ParentId,Description,Price,PricePercent,AverageCost,IsActive,PurchaseCost,PurchaseDescription,ExpenseAccount,ExpenseAccountId,PreferredVendor,PreferredVendorId,QuantityOnHand,QuantityOnOrder,QuantityOnSalesOrder,InventoryDate,ReorderPoint,Barcode,TaxCode,TaxCodeId,IsTaxIncluded,PurchaseTaxCode,PurchaseTaxCodeId,PartNumber,PaymentMethodName,PaymentMethodId,TaxRate,TaxVendorName,TaxVendorId,SpecialItemType,VendorOrPayeeName,IsPrintItemsInGroup,SalesExpense,AssetAcquiredAs,AssetDescription,AssetLocation,AssetPonumber,AssetSerialNumber,AssetWarrantyExpires,AssetNotes,AssetNumber,AssetCostBasis,AssetDepreciation,AssetBookValue,UnitOfMeasure,UnitOfMeasureId,Sublevel,LineAggregate,CustomFields,EditSequence,TimeModified,TimeCreated,AccountNavigation,AssetAccountNavigation,ClassNavigation,CogsaccountNavigation,ExpenseAccountNavigation,Parent,PaymentMethod,PreferredVendorNavigation,PurchaseTaxCodeNavigation,TaxCodeNavigation,TaxVendor,UnitOfMeasureNavigation";
     }
 }

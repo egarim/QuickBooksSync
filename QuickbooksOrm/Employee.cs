@@ -396,6 +396,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _PayrollClass;
             set => SetPropertyValue(nameof(PayrollClass), ref _PayrollClass, value);
         }
-       
+        public const string QueriableProperties="Id,Name,Salutation,FirstName,MiddleInitial,LastName,JobTitle,AccountNumber,Ssn,EmployeeType,Gender,Address,Line1,Line2,City,State,PostalCode,AlternatePhone,Email,PrintAs,MobilePhone,Pager,PagerPin,Fax,BirthDate,Uscitizen,Ethnicity,Disabled,DisabilityDescription,FormOnFile,Usveteran,MilitaryStatus,HiredDate,IsActive,Notes,PayPeriod,PayrollClassName,PayrollClassId,Phone,ReleasedDate,TimeDataForPaychecks,SickTimeAccrualPeriod,SickTimeAccrualStartDate,SickTimeAccrued,SickTimeAvailable,SickTimeMaximum,SickTimeYearlyReset,SickTimeUsed,VacationTimeAccrualPeriod,VacationTimeAccrualStartDate,VacationTimeAccrued,VacationTimeAvailable,VacationTimeMaximum,VacationTimeYearlyReset,VacationTimeUsed,CustomFields,EditSequence,TimeModified,TimeCreated,PayrollClass";
     }
 }

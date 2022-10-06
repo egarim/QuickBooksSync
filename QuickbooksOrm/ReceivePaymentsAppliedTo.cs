@@ -282,6 +282,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ReceivePayment;
             set => SetPropertyValue(nameof(ReceivePayment), ref _ReceivePayment, value);
         }
-       
+        public const string QueriableProperties="Id,ReceivePaymentId,ReferenceNumber,TxnNumber,Date,UnusedPayment,Amount,AccountsReceivableName,AccountsReceivableId,CustomerName,CustomerId,DepositToAccountName,DepositToAccountId,PaymentMethodName,PaymentMethodId,Memo,ExchangeRate,TotalAmountInHomeCurrency,AutoApply,CustomFields,AppliedToRefId,AppliedToAmount,AppliedToBalanceRemaining,AppliedToCreditAppliedAmount,AppliedToCreditMemoId,AppliedToDiscountAccountName,AppliedToDiscountAccountId,AppliedToDiscountAmount,AppliedToPaymentAmount,AppliedToReferenceNumber,AppliedToTxnDate,AppliedToTxnType,TimeModified,TimeCreated,AccountsReceivable,AppliedToCreditMemo,AppliedToDiscountAccount,Customer,DepositToAccount,PaymentMethod,ReceivePayment";
     }
 }

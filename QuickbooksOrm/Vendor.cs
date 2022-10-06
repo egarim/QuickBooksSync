@@ -408,6 +408,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Currency;
             set => SetPropertyValue(nameof(Currency), ref _Currency, value);
         }
-       
+        public const string QueriableProperties="Id,Name,Salutation,FirstName,MiddleInitial,LastName,Company,Contact,AccountNumber,Type,TypeId,CreditLimit,TaxIdentity,SalesTaxCountry,AlternateContact,Phone,Fax,AlternatePhone,Email,Cc,Notes,Address,Line1,Line2,Line3,Line4,Line5,City,State,PostalCode,Country,Note,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,Balance,Terms,TermsId,EligibleFor1099,NameOnCheck,CurrencyName,CurrencyId,IsActive,CustomFields,EditSequence,TimeModified,TimeCreated,PrefillAccountId1,PrefillAccountName1,PrefillAccountId2,PrefillAccountName2,PrefillAccountId3,PrefillAccountName3,Currency";
     }
 }

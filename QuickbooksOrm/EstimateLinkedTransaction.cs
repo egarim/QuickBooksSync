@@ -138,6 +138,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Estimate;
             set => SetPropertyValue(nameof(Estimate), ref _Estimate, value);
         }
-       
+        public const string QueriableProperties="Id,EstimateId,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Date,TransactionId,TransactionAmount,TransactionDate,TransactionReferenceNumber,TransactionType,TransactionLinkType,TimeModified,TimeCreated,Customer,Estimate";
     }
 }

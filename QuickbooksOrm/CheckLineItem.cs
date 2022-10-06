@@ -414,6 +414,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _PayeeNavigation;
             set => SetPropertyValue(nameof(PayeeNavigation), ref _PayeeNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,CheckId,ReferenceNumber,TxnNumber,Account,AccountId,Payee,PayeeId,Date,Amount,Memo,Address,Line1,Line2,Line3,Line4,Line5,City,State,PostalCode,Country,Note,CustomFields,ItemLineId,ItemLineNumber,ItemName,ItemId,ItemGroup,ItemGroupId,ItemDescription,ItemQuantity,ItemUnitOfMeasure,ItemCost,ItemAmount,ItemBillableStatus,ItemCustomer,ItemCustomerId,ItemClass,ItemClassId,ItemInventorySiteId,ItemInventorySiteName,ItemInventorySiteLocationId,ItemInventorySiteLocationName,ItemTaxCode,ItemTaxCodeId,ItemCustomFields,IsToBePrinted,IsTaxIncluded,CurrencyName,CurrencyId,ExchangeRate,TimeModified,TimeCreated,AccountNavigation,Check,Currency,Item,ItemClassNavigation,ItemCustomerNavigation,ItemGroupNavigation,ItemInventorySite,ItemTaxCodeNavigation,PayeeNavigation";
     }
 }

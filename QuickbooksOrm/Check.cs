@@ -252,6 +252,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _PayeeNavigation;
             set => SetPropertyValue(nameof(PayeeNavigation), ref _PayeeNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,ReferenceNumber,TxnNumber,Account,AccountId,Payee,PayeeId,Date,Amount,Memo,Address,Line1,Line2,Line3,Line4,Line5,City,State,PostalCode,Country,Note,ItemCount,ItemAggregate,ExpenseItemCount,ExpenseItemAggregate,IsToBePrinted,IsTaxIncluded,CurrencyName,CurrencyId,ExchangeRate,CustomFields,TimeModified,TimeCreated,AccountNavigation,Currency,PayeeNavigation";
     }
 }

@@ -12,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using XafWinBackgroundWorker.Module.BusinessObjects;
 
 namespace QuickBooksSync.Module.BusinessObjects
 {
@@ -21,7 +22,7 @@ namespace QuickBooksSync.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class Company : BaseObject
+    public class Company : BaseObject, IReportProgress
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
@@ -35,6 +36,8 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        int max;
+        int progress;
         ScheduleBase schedule;
         string targetDb;
         string filePath;
@@ -54,20 +57,33 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(FilePath), ref filePath, value);
         }
 
-
-        [Size(SizeAttribute.Unlimited)]
+        //[ModelDefault("RowCount","3")]
+        [Size(100)]
         public string TargetDb
         {
             get => targetDb;
             set => SetPropertyValue(nameof(TargetDb), ref targetDb, value);
         }
-        
+
         public ScheduleBase Schedule
         {
             get => schedule;
             set => SetPropertyValue(nameof(Schedule), ref schedule, value);
         }
-     
+        [ModelDefault(nameof(IModelCommonMemberViewItem.PropertyEditorType), "XafWinBackgroundWorker.Module.Win.Editors.ProgressBarPropertyEditor")]
+        public int Progress
+        {
+            get => progress;
+            set => SetPropertyValue(nameof(Progress), ref progress, value);
+        }
+        [Browsable(false)]
+        [NonPersistent()]
+        public int Max
+        {
+            get => max;
+            set => SetPropertyValue(nameof(Max), ref max, value);
+        }
+
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
         //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]

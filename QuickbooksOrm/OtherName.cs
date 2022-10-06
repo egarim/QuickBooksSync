@@ -222,6 +222,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
-       
+        public const string QueriableProperties="Id,Name,IsActive,CompanyName,Salutation,FirstName,MiddleName,LastName,OtherNameAddressAddr1,OtherNameAddressAddr2,OtherNameAddressAddr3,OtherNameAddressAddr4,OtherNameAddressAddr5,OtherNameAddressCity,OtherNameAddressState,OtherNameAddressPostalCode,OtherNameAddressCountry,OtherNameAddressNote,Phone,AltPhone,Fax,Email,Contact,AltContact,AccountNumber,Notes,ExternalGuid,CustomFields,TimeCreated,TimeModified,EditSequence";
     }
 }

@@ -102,6 +102,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ParentRefList;
             set => SetPropertyValue(nameof(ParentRefList), ref _ParentRefList, value);
         }
-       
+        public const string QueriableProperties="Id,Name,FullName,IsActive,ParentRefFullName,ParentRefListId,Sublevel,EditSequence,TimeCreated,TimeModified,ParentRefList";
     }
 }

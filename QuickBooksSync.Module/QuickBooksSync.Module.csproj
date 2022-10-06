@@ -14,6 +14,7 @@
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
   </ItemGroup>
   <ItemGroup>
+	<PackageReference Include="CData.QuickBooks" Version="22.0.8257" />
     <PackageReference Include="DevExpress.ExpressApp" Version="22.1.5" />
     <PackageReference Include="DevExpress.ExpressApp.AuditTrail.Xpo" Version="22.1.5" />
     <PackageReference Include="DevExpress.ExpressApp.Chart" Version="22.1.5" />

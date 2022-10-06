@@ -61,6 +61,16 @@ public class Updater : ModuleUpdater {
         }
         adminRole.IsAdministrative = true;
 		userAdmin.Roles.Add(adminRole);
+
+        if(this.ObjectSpace.GetObjectsCount(typeof(Company),null)==0)
+        {
+            var Company = this.ObjectSpace.CreateObject<Company>();
+            Company.Name = "Test";
+            Company.FilePath = "C:\\Users\\User\\Desktop\\exe logistics incTesting\\exe lines incTesting.qbw";
+        }
+       
+       
+
         ObjectSpace.CommitChanges(); //This line persists created object(s).
     }
     public override void UpdateDatabaseBeforeUpdateSchema() {

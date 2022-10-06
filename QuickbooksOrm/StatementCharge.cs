@@ -228,6 +228,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _OverrideUnitOfMeasureNavigation;
             set => SetPropertyValue(nameof(OverrideUnitOfMeasureNavigation), ref _OverrideUnitOfMeasureNavigation, value);
         }
-       
+        public const string QueriableProperties="Id,TxnNumber,ReferenceNumber,CustomerName,CustomerId,Date,ItemName,ItemId,Quantity,UnitOfMeasure,OverrideUnitOfMeasure,OverrideUnitOfMeasureId,Rate,Amount,Balance,Description,AccountsReceivable,AccountsReceivableId,Class,ClassId,BilledDate,DueDate,IsPaid,CustomFields,EditSequence,TimeModified,TimeCreated,AccountsReceivableNavigation,ClassNavigation,Customer,Item,OverrideUnitOfMeasureNavigation";
     }
 }

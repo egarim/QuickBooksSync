@@ -300,6 +300,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Payee;
             set => SetPropertyValue(nameof(Payee), ref _Payee, value);
         }
-       
+        public const string QueriableProperties="Id,CccreditId,Date,ReferenceNumber,AccountName,AccountId,Memo,PayeeName,PayeeId,IsTaxIncluded,ItemLineId,ItemLineNumber,ItemName,ItemId,ItemGroup,ItemGroupId,ItemDescription,ItemQuantity,ItemUnitOfMeasure,ItemCost,ItemAmount,ItemBillableStatus,ItemCustomer,ItemCustomerId,ItemClass,ItemClassId,ItemTaxCode,ItemTaxCodeId,ItemInventorySiteId,ItemInventorySiteName,ItemInventorySiteLocationId,ItemInventorySiteLocationName,ExchangeRate,TimeModified,TimeCreated,Account,Cccredit,Item,ItemClassNavigation,ItemCustomerNavigation,ItemGroupNavigation,ItemInventorySite,ItemTaxCodeNavigation,Payee";
     }
 }

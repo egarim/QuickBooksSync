@@ -180,6 +180,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ItemInventoryAssemblyRefList;
             set => SetPropertyValue(nameof(ItemInventoryAssemblyRefList), ref _ItemInventoryAssemblyRefList, value);
         }
-       
+        public const string QueriableProperties="Id,TxnNumber,ItemInventoryAssemblyRefListId,ItemInventoryAssemblyRefFullName,InventorySiteRefListId,InventorySiteRefFullName,SerialNumber,LotNumber,TxnDate,RefNumber,Memo,IsPending,QuantityToBuild,QuantityCanBuild,QuantityOnHand,QuantityOnSalesOrder,MarkPendingIfRequired,ExternalGuid,BuildAssemblyLineAggregate,TimeCreated,TimeModified,EditSequence,InventorySiteRefList,ItemInventoryAssemblyRefList";
     }
 }

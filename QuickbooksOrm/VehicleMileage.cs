@@ -192,6 +192,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _ItemRefList;
             set => SetPropertyValue(nameof(ItemRefList), ref _ItemRefList, value);
         }
-       
+        public const string QueriableProperties="Id,VehicleRefFullName,VehicleRefListId,CustomerRefFullName,CustomerRefListId,ItemRefFullName,ItemRefListId,ClassRefFullName,ClassRefListId,TripStartDate,TripEndDate,OdometerStart,OdometerEnd,TotalMiles,Notes,BillableStatus,StandardMileageRate,StandardMileageTotalAmount,BillableRate,BillableAmount,EditSequence,TimeCreated,TimeModified,ClassRefList,CustomerRefList,ItemRefList";
     }
 }

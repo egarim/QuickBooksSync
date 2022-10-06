@@ -120,6 +120,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }
-       
+        public const string QueriableProperties="Id,Name,IsActive,CurrencyCode,CurrencyFormatThousandSeparator,CurrencyFormatThousandSeparatorGrouping,CurrencyFormatDecimalPlaces,CurrencyFormatDecimalSeparator,IsUserDefinedCurrency,ExchangeRate,AsOfDate,EditSequence,TimeCreated,TimeModified";
     }
 }

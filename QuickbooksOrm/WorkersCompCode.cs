@@ -108,6 +108,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
-       
+        public const string QueriableProperties="Id,Name,Desc,CurrentRate,CurrentEffectiveDate,NextRate,NextEffectiveDate,RateHistory,IsActive,TimeCreated,TimeModified,EditSequence";
     }
 }
