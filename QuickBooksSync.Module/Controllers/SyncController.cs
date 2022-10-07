@@ -110,16 +110,18 @@ namespace QuickBooksSync.Module.Controllers
             StartTime = DateTime.Now;
             currentCompany = this.View.CurrentObject as Company;
             currentCompany.Progress = 0;
-
+            //HACK tables list
             //List<string> Entities = new List<string>() { "Account", "BalanceSheetDetail", "BalanceSheetStandard", "BalanceSheetSummary", "Bill" };
             Dictionary<string,string> Entities = new Dictionary<string, string>();
-            Entities.Add("Bill", "Bills");
-            Entities.Add("Account", "Accounts");
-            Entities.Add("Class", "Class");
-            Entities.Add("Customer", "Customers");
-            Entities.Add("CreditCardChargeExpenseItem", "CreditCardChargeExpenseItems");
-            Entities.Add("CreditCardChargeLineItem", "CreditCardChargeLineItems");
-            Entities.Add("CreditCardCharge", "CreditCardCharges");
+            //Entities.Add("Bill", "Bills");
+            //Entities.Add("Account", "Accounts");
+            //Entities.Add("Class", "Class");
+            //Entities.Add("Customer", "Customers");
+            //Entities.Add("CreditCardChargeExpenseItem", "CreditCardChargeExpenseItems");
+            //Entities.Add("CreditCardChargeLineItem", "CreditCardChargeLineItems");
+            //Entities.Add("CreditCardCharge", "CreditCardCharges");
+            Entities.Add("JournalEntry", "JournalEntries");
+            Entities.Add("JournalEntryLine", "JournalEntryLines");
             foreach (var entity in Entities)
             {
                 var EntityType = this.Application.TypesInfo.FindTypeInfo("QuickBooksSync.Module.BusinessObjects." + entity.Key);
@@ -155,7 +157,7 @@ namespace QuickBooksSync.Module.Controllers
                     if(RunningWorkers==0)
                     {
                         Debug.Write("Commiting");
-                        currentCompany.SyncTime= DateTime.Now.Subtract(StartTime).TotalSeconds.ToString();
+                        currentCompany.SyncTime= DateTime.Now.Subtract(StartTime).ToString("g");
                         this.View.ObjectSpace.CommitChanges();
                         this.View.Refresh();
                     }

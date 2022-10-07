@@ -65,6 +65,8 @@ public sealed class QuickBooksSyncModule : ModuleBase {
         AdditionalExportedTypes.Add(typeof(Customer));
         AdditionalExportedTypes.Add(typeof(CreditCardChargeExpenseItem));
         AdditionalExportedTypes.Add(typeof(CreditCardChargeLineItem));
+        AdditionalExportedTypes.Add(typeof(JournalEntry));
+        AdditionalExportedTypes.Add(typeof(JournalEntryLine));
 
     }
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
