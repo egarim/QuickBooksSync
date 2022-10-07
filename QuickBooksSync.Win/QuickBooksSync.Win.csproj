@@ -11,6 +11,11 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="Controllers\SyncController.cs" />
+    <Compile Remove="Controllers\SyncController.Designer.cs" />
+    <Compile Remove="Controllers\SyncControllerWin.cs" />
+  </ItemGroup>
+  <ItemGroup>
 	<Using Include="DevExpress.ExpressApp.ListView" Alias="ListView" />
   </ItemGroup>
   <ItemGroup>

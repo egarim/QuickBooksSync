@@ -50,7 +50,7 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(Name), ref name, value);
         }
 
-        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+       
         public string FilePath
         {
             get => filePath;

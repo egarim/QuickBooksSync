@@ -66,9 +66,42 @@ namespace QuickBooksSync.Module.Controllers
 
             // Execute your business logic (https://docs.devexpress.com/eXpressAppFramework/112737/).
         }
+        protected virtual void ExecuteDoEvents()
+        {
+            
+        }
+        protected virtual void backgroundWorker_ProgressChanged(object RP_sender, ProgressChangedEventArgs RP_e)
+        {
+
+
+            BackgroundWorker worker = RP_sender as BackgroundWorker;
+            if (worker.CancellationPending)
+                return;
+
+
+
+            //HACK here we are back to the main thread so we can use the object space to create objects
+
+            (Dictionary<string, object> Reader, string Entity, string Properties) WorkerArgs = ((Dictionary<string, object> Reader, string Entity, string Properties))RP_e.UserState;
+
+
+            var Instance = this.View.ObjectSpace.CreateObject<Account>();
+            //var PropList = WorkerArgs.Properties.Split(',');
+            foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
+            {
+
+                Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
+            }
+
+            //ExecuteDoEvents();
+            currentCompany.Progress = currentCompany.Progress + 1; ;
+
+
+        }
         private void Sybc_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             currentCompany = this.View.CurrentObject as Company;
+            currentCompany.Progress = 0;
             var bWorker = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true };
             bWorker.DoWork += backgroundWorker_DoWork;
             bWorker.ProgressChanged += backgroundWorker_ProgressChanged;
@@ -83,17 +116,10 @@ namespace QuickBooksSync.Module.Controllers
                 CountCommand.CommandText = "SELECT COUNT(id) from Accounts";
                 int RecordCount;
                 RecordCount = (int)CountCommand.ExecuteScalar();
-               
-               
                 currentCompany.Max = RecordCount;
-                //var accountsCommand = connection.CreateCommand();
-                //accountsCommand.CommandText = "SELECT * FROM Accounts";
-                //QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
-                //while (rdr.Read())
-                //{
-                //}
+               
             }
-
+       
             void BWorker_RunWorkerCompleted(object WC_sender, RunWorkerCompletedEventArgs WC_e)
             {
                 BackgroundWorker worker = WC_sender as BackgroundWorker;
@@ -105,36 +131,8 @@ namespace QuickBooksSync.Module.Controllers
 
                 this.View.ObjectSpace.CommitChanges();
             }
-            void backgroundWorker_ProgressChanged(object RP_sender, ProgressChangedEventArgs RP_e)
-            {
-
-
-                BackgroundWorker worker = RP_sender as BackgroundWorker;
-                if (worker.CancellationPending)
-                    return;
-
-
-             
-                //HACK here we are back to the main thread so we can use the object space to create objects
-
-                (QuickBooksDataReader Reader, string Entity, string Properties) WorkerArgs = ((QuickBooksDataReader Reader, string Entity,string Properties))RP_e.UserState;
-
-                var PropList = WorkerArgs.Properties.Split(',');
-                foreach (string item in PropList)
-                {
-                    Debug.WriteLine($"{item};{WorkerArgs.Reader[item]}");
-                }
-                currentCompany.Progress++;
-
-                //WorkerArgs.c
-
-                //var File = this.View.ObjectSpace.CreateObject<DirectoryFile>();
-                //File.File = this.View.ObjectSpace.CreateObject<FileData>();
-                //File.File.LoadFromStream(WorkerArgs.FileName, new MemoryStream(WorkerArgs.Data));
-                //CurrentDirectory.DirectoryFiles.Add(File);
-                //CurrentDirectory.Progress++;
-                //resultLabel.Text = (e.ProgressPercentage.ToString() + "%");
-            }
+        
+           
             void backgroundWorker_DoWork(object BW_sender, DoWorkEventArgs BW_e)
             {
                 BackgroundWorker worker = BW_sender as BackgroundWorker;
@@ -147,46 +145,55 @@ namespace QuickBooksSync.Module.Controllers
                     var accountsCommand = connection.CreateCommand();
                     accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
                     QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
+                    int currentRecord = 0;
                     while (rdr.Read())
                     {
-                        System.Threading.Thread.Sleep(500);
-                        var ProgressArgs = (rdr, WorkerArgs.Entity, WorkerArgs.Properties);
-                        worker.ReportProgress(0, ProgressArgs);
+                        if (worker.CancellationPending == true)
+                        {
+                            BW_e.Cancel = true;
+                            break;
+                        }
+                        else
+                        {
+                            Dictionary<string, object> values = new Dictionary<string, object>();
+                            var PropList = WorkerArgs.Properties.Split(',');
+                            foreach (var property in PropList)
+                            {
+                                object value = rdr.GetValue(property);
+                                //Debug.WriteLine(value.GetType());
+                                if (value.GetType() == typeof(Double))
+                                {
+                                    value = Convert.ChangeType(value, typeof(float));
+                                }
+                                if (value.GetType() == typeof(DBNull))
+
+                                {
+
+                                    value = null;
+                                }
+                                values.Add(property, value);
+                            }
+                           
+                            //Debug.WriteLine($"record:{currentRecord} val count:{values.Count}");
+                            currentRecord++;
+                            var ProgressArgs = (values, WorkerArgs.Entity, WorkerArgs.Properties);
+                            worker.ReportProgress(0, ProgressArgs);
+                           
+                            //if (rdr.VisibleFieldCount > 0)
+                            //    worker.ReportProgress(0, ProgressArgs);
+                        }
                         
                     }
 
 
                 }
 
-
-                //(Faker Faker, int FilesToGenerate) WorkerArgs = ((Faker Faker, int FilesToGenerate))BW_e.Argument;
-
-                //for (int i = 1; i <= WorkerArgs.FilesToGenerate; i++)
-                //{
-                //    if (worker.CancellationPending == true)
-                //    {
-                //        BW_e.Cancel = true;
-                //        break;
-                //    }
-                //    else
-                //    {
-                //        //HACK We generate a filename and a random text as bytes to return to the main thread
-                //        var DataForMainThread = ($"{WorkerArgs.Faker.Name.FirstName()}_{WorkerArgs.Faker.Name.LastName()}.txt", Encoding.ASCII.GetBytes(WorkerArgs.Faker.Lorem.Sentence(50)));
-
-
-                //        //HACK if the process is too fast we can add delay to show the progress effect performing a time consuming operation and report progress.
-                //        System.Threading.Thread.Sleep(500);
-
-                //        worker.ReportProgress(i, DataForMainThread);
-                //    }
-                //}
+             
             }
 
 
-
-
             //Using tuples to pass arguments to the backgrown worker
-            var WokerArgs = (currentCompany.FilePath, "Accounts",Account.QueriableProperties);
+            var WokerArgs = (currentCompany.FilePath, "Accounts",Account.QueryableProperties);
 
             bWorker.RunWorkerAsync(WokerArgs);
         }

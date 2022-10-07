@@ -42,72 +42,72 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private String? _PriceLevelType;
-        public String? PriceLevelType
+        private String _PriceLevelType;
+        [Size(300)]
+        public String PriceLevelType
         {
             get => _PriceLevelType;
             set => SetPropertyValue(nameof(PriceLevelType), ref _PriceLevelType, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private Single _PriceLevelFixedPercentage;
-        public Single PriceLevelFixedPercentage
+        private Single? _PriceLevelFixedPercentage;
+        public Single? PriceLevelFixedPercentage
         {
             get => _PriceLevelFixedPercentage;
             set => SetPropertyValue(nameof(PriceLevelFixedPercentage), ref _PriceLevelFixedPercentage, value);
         }  
-        private String? _PriceLevelPerItemAggregate;
-        public String? PriceLevelPerItemAggregate
+        private String _PriceLevelPerItemAggregate;
+        [Size(300)]
+        public String PriceLevelPerItemAggregate
         {
             get => _PriceLevelPerItemAggregate;
             set => SetPropertyValue(nameof(PriceLevelPerItemAggregate), ref _PriceLevelPerItemAggregate, value);
         }  
-        private String? _PriceLevelPerItemRetCurrencyRefListId;
-        public String? PriceLevelPerItemRetCurrencyRefListId
+        private String _PriceLevelPerItemRetCurrencyRefListId;
+        [Size(300)]
+        public String PriceLevelPerItemRetCurrencyRefListId
         {
             get => _PriceLevelPerItemRetCurrencyRefListId;
             set => SetPropertyValue(nameof(PriceLevelPerItemRetCurrencyRefListId), ref _PriceLevelPerItemRetCurrencyRefListId, value);
         }  
-        private String? _PriceLevelPerItemRetCurrencyRefFullName;
-        public String? PriceLevelPerItemRetCurrencyRefFullName
+        private String _PriceLevelPerItemRetCurrencyRefFullName;
+        [Size(300)]
+        public String PriceLevelPerItemRetCurrencyRefFullName
         {
             get => _PriceLevelPerItemRetCurrencyRefFullName;
             set => SetPropertyValue(nameof(PriceLevelPerItemRetCurrencyRefFullName), ref _PriceLevelPerItemRetCurrencyRefFullName, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
-        }  
-        private string _PriceLevelPerItemRetCurrencyRefList;
-        public string PriceLevelPerItemRetCurrencyRefList
-        {
-            get => _PriceLevelPerItemRetCurrencyRefList;
-            set => SetPropertyValue(nameof(PriceLevelPerItemRetCurrencyRefList), ref _PriceLevelPerItemRetCurrencyRefList, value);
         }
-        public const string QueriableProperties="Id,Name,PriceLevelType,IsActive,PriceLevelFixedPercentage,PriceLevelPerItemAggregate,PriceLevelPerItemRetCurrencyRefListId,PriceLevelPerItemRetCurrencyRefFullName,TimeCreated,TimeModified,EditSequence,PriceLevelPerItemRetCurrencyRefList";
+        public const string QueryableProperties="Id,Name,PriceLevelType,IsActive,PriceLevelFixedPercentage,PriceLevelPerItemAggregate,PriceLevelPerItemRetCurrencyRefListId,PriceLevelPerItemRetCurrencyRefFullName,TimeCreated,TimeModified,EditSequence";
     }
 }

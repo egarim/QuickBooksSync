@@ -42,66 +42,65 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private String? _FullName;
-        public String? FullName
+        private String _FullName;
+        [Size(300)]
+        public String FullName
         {
             get => _FullName;
             set => SetPropertyValue(nameof(FullName), ref _FullName, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private String? _ParentRefFullName;
-        public String? ParentRefFullName
+        private String _ParentRefFullName;
+        [Size(300)]
+        public String ParentRefFullName
         {
             get => _ParentRefFullName;
             set => SetPropertyValue(nameof(ParentRefFullName), ref _ParentRefFullName, value);
         }  
-        private String? _ParentRefListId;
-        public String? ParentRefListId
+        private String _ParentRefListId;
+        [Size(300)]
+        public String ParentRefListId
         {
             get => _ParentRefListId;
             set => SetPropertyValue(nameof(ParentRefListId), ref _ParentRefListId, value);
         }  
-        private Int32 _Sublevel;
-        public Int32 Sublevel
+        private Int32? _Sublevel;
+        public Int32? Sublevel
         {
             get => _Sublevel;
             set => SetPropertyValue(nameof(Sublevel), ref _Sublevel, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
-        }  
-        private string _ParentRefList;
-        public string ParentRefList
-        {
-            get => _ParentRefList;
-            set => SetPropertyValue(nameof(ParentRefList), ref _ParentRefList, value);
         }
-        public const string QueriableProperties="Id,Name,FullName,IsActive,ParentRefFullName,ParentRefListId,Sublevel,EditSequence,TimeCreated,TimeModified,ParentRefList";
+        public const string QueryableProperties="Id,Name,FullName,IsActive,ParentRefFullName,ParentRefListId,Sublevel,EditSequence,TimeCreated,TimeModified";
     }
 }

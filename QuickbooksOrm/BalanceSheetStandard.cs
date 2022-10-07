@@ -35,18 +35,19 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
          
-        private String? _Label;
-        public String? Label
+        private String _Label;
+        [Size(300)]
+        public String Label
         {
             get => _Label;
             set => SetPropertyValue(nameof(Label), ref _Label, value);
         }  
-        private Single _Total;
-        public Single Total
+        private Single? _Total;
+        public Single? Total
         {
             get => _Total;
             set => SetPropertyValue(nameof(Total), ref _Total, value);
         }
-        public const string QueriableProperties="Label,Total";
+        public const string QueryableProperties="Label,Total";
     }
 }

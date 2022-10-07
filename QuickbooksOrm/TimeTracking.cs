@@ -42,138 +42,122 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _BillableStatus;
-        public String? BillableStatus
+        private String _BillableStatus;
+        [Size(300)]
+        public String BillableStatus
         {
             get => _BillableStatus;
             set => SetPropertyValue(nameof(BillableStatus), ref _BillableStatus, value);
         }  
-        private DateTime _Date;
-        public DateTime Date
+        private DateTime? _Date;
+        public DateTime? Date
         {
             get => _Date;
             set => SetPropertyValue(nameof(Date), ref _Date, value);
         }  
-        private String? _CustomerName;
-        public String? CustomerName
+        private String _CustomerName;
+        [Size(300)]
+        public String CustomerName
         {
             get => _CustomerName;
             set => SetPropertyValue(nameof(CustomerName), ref _CustomerName, value);
         }  
-        private String? _CustomerId;
-        public String? CustomerId
+        private String _CustomerId;
+        [Size(300)]
+        public String CustomerId
         {
             get => _CustomerId;
             set => SetPropertyValue(nameof(CustomerId), ref _CustomerId, value);
         }  
-        private String? _Duration;
-        public String? Duration
+        private String _Duration;
+        [Size(300)]
+        public String Duration
         {
             get => _Duration;
             set => SetPropertyValue(nameof(Duration), ref _Duration, value);
         }  
-        private String? _EmployeeName;
-        public String? EmployeeName
+        private String _EmployeeName;
+        [Size(300)]
+        public String EmployeeName
         {
             get => _EmployeeName;
             set => SetPropertyValue(nameof(EmployeeName), ref _EmployeeName, value);
         }  
-        private String? _EmployeeId;
-        public String? EmployeeId
+        private String _EmployeeId;
+        [Size(300)]
+        public String EmployeeId
         {
             get => _EmployeeId;
             set => SetPropertyValue(nameof(EmployeeId), ref _EmployeeId, value);
         }  
-        private String? _Notes;
-        public String? Notes
+        private String _Notes;
+        [Size(300)]
+        public String Notes
         {
             get => _Notes;
             set => SetPropertyValue(nameof(Notes), ref _Notes, value);
         }  
-        private String? _Class;
-        public String? Class
+        private String _Class;
+        [Size(300)]
+        public String Class
         {
             get => _Class;
             set => SetPropertyValue(nameof(Class), ref _Class, value);
         }  
-        private String? _ClassId;
-        public String? ClassId
+        private String _ClassId;
+        [Size(300)]
+        public String ClassId
         {
             get => _ClassId;
             set => SetPropertyValue(nameof(ClassId), ref _ClassId, value);
         }  
-        private String? _PayrollWageItemName;
-        public String? PayrollWageItemName
+        private String _PayrollWageItemName;
+        [Size(300)]
+        public String PayrollWageItemName
         {
             get => _PayrollWageItemName;
             set => SetPropertyValue(nameof(PayrollWageItemName), ref _PayrollWageItemName, value);
         }  
-        private String? _PayrollWageItemId;
-        public String? PayrollWageItemId
+        private String _PayrollWageItemId;
+        [Size(300)]
+        public String PayrollWageItemId
         {
             get => _PayrollWageItemId;
             set => SetPropertyValue(nameof(PayrollWageItemId), ref _PayrollWageItemId, value);
         }  
-        private String? _ServiceItemName;
-        public String? ServiceItemName
+        private String _ServiceItemName;
+        [Size(300)]
+        public String ServiceItemName
         {
             get => _ServiceItemName;
             set => SetPropertyValue(nameof(ServiceItemName), ref _ServiceItemName, value);
         }  
-        private String? _ServiceItemId;
-        public String? ServiceItemId
+        private String _ServiceItemId;
+        [Size(300)]
+        public String ServiceItemId
         {
             get => _ServiceItemId;
             set => SetPropertyValue(nameof(ServiceItemId), ref _ServiceItemId, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _ClassNavigation;
-        public string ClassNavigation
-        {
-            get => _ClassNavigation;
-            set => SetPropertyValue(nameof(ClassNavigation), ref _ClassNavigation, value);
-        }  
-        private string _Customer;
-        public string Customer
-        {
-            get => _Customer;
-            set => SetPropertyValue(nameof(Customer), ref _Customer, value);
-        }  
-        private string _Employee;
-        public string Employee
-        {
-            get => _Employee;
-            set => SetPropertyValue(nameof(Employee), ref _Employee, value);
-        }  
-        private string _PayrollWageItem;
-        public string PayrollWageItem
-        {
-            get => _PayrollWageItem;
-            set => SetPropertyValue(nameof(PayrollWageItem), ref _PayrollWageItem, value);
-        }  
-        private string _ServiceItem;
-        public string ServiceItem
-        {
-            get => _ServiceItem;
-            set => SetPropertyValue(nameof(ServiceItem), ref _ServiceItem, value);
         }
-        public const string QueriableProperties="Id,BillableStatus,Date,CustomerName,CustomerId,Duration,EmployeeName,EmployeeId,Notes,Class,ClassId,PayrollWageItemName,PayrollWageItemId,ServiceItemName,ServiceItemId,EditSequence,TimeModified,TimeCreated,ClassNavigation,Customer,Employee,PayrollWageItem,ServiceItem";
+        public const string QueryableProperties="Id,BillableStatus,Date,CustomerName,CustomerId,Duration,EmployeeName,EmployeeId,Notes,Class,ClassId,PayrollWageItemName,PayrollWageItemId,ServiceItemName,ServiceItemId,EditSequence,TimeModified,TimeCreated";
     }
 }

@@ -42,78 +42,73 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private String? _NonWageType;
-        public String? NonWageType
+        private String _NonWageType;
+        [Size(300)]
+        public String NonWageType
         {
             get => _NonWageType;
             set => SetPropertyValue(nameof(NonWageType), ref _NonWageType, value);
         }  
-        private String? _ExpenseAccountRefFullName;
-        public String? ExpenseAccountRefFullName
+        private String _ExpenseAccountRefFullName;
+        [Size(300)]
+        public String ExpenseAccountRefFullName
         {
             get => _ExpenseAccountRefFullName;
             set => SetPropertyValue(nameof(ExpenseAccountRefFullName), ref _ExpenseAccountRefFullName, value);
         }  
-        private String? _ExpenseAccountRefListId;
-        public String? ExpenseAccountRefListId
+        private String _ExpenseAccountRefListId;
+        [Size(300)]
+        public String ExpenseAccountRefListId
         {
             get => _ExpenseAccountRefListId;
             set => SetPropertyValue(nameof(ExpenseAccountRefListId), ref _ExpenseAccountRefListId, value);
         }  
-        private String? _LiabilityAccountRefFullName;
-        public String? LiabilityAccountRefFullName
+        private String _LiabilityAccountRefFullName;
+        [Size(300)]
+        public String LiabilityAccountRefFullName
         {
             get => _LiabilityAccountRefFullName;
             set => SetPropertyValue(nameof(LiabilityAccountRefFullName), ref _LiabilityAccountRefFullName, value);
         }  
-        private String? _LiabilityAccountRefListId;
-        public String? LiabilityAccountRefListId
+        private String _LiabilityAccountRefListId;
+        [Size(300)]
+        public String LiabilityAccountRefListId
         {
             get => _LiabilityAccountRefListId;
             set => SetPropertyValue(nameof(LiabilityAccountRefListId), ref _LiabilityAccountRefListId, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
-        }  
-        private string _ExpenseAccountRefList;
-        public string ExpenseAccountRefList
-        {
-            get => _ExpenseAccountRefList;
-            set => SetPropertyValue(nameof(ExpenseAccountRefList), ref _ExpenseAccountRefList, value);
-        }  
-        private string _LiabilityAccountRefList;
-        public string LiabilityAccountRefList
-        {
-            get => _LiabilityAccountRefList;
-            set => SetPropertyValue(nameof(LiabilityAccountRefList), ref _LiabilityAccountRefList, value);
         }
-        public const string QueriableProperties="Id,Name,IsActive,NonWageType,ExpenseAccountRefFullName,ExpenseAccountRefListId,LiabilityAccountRefFullName,LiabilityAccountRefListId,TimeCreated,TimeModified,EditSequence,ExpenseAccountRefList,LiabilityAccountRefList";
+        public const string QueryableProperties="Id,Name,IsActive,NonWageType,ExpenseAccountRefFullName,ExpenseAccountRefListId,LiabilityAccountRefFullName,LiabilityAccountRefListId,TimeCreated,TimeModified,EditSequence";
     }
 }

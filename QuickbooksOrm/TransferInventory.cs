@@ -42,96 +42,93 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private DateTime _TxnDate;
-        public DateTime TxnDate
+        private DateTime? _TxnDate;
+        public DateTime? TxnDate
         {
             get => _TxnDate;
             set => SetPropertyValue(nameof(TxnDate), ref _TxnDate, value);
         }  
-        private Int32 _TxnNumber;
-        public Int32 TxnNumber
+        private Int32? _TxnNumber;
+        public Int32? TxnNumber
         {
             get => _TxnNumber;
             set => SetPropertyValue(nameof(TxnNumber), ref _TxnNumber, value);
         }  
-        private String? _RefNumber;
-        public String? RefNumber
+        private String _RefNumber;
+        [Size(300)]
+        public String RefNumber
         {
             get => _RefNumber;
             set => SetPropertyValue(nameof(RefNumber), ref _RefNumber, value);
         }  
-        private String? _FromInventorySiteRefListId;
-        public String? FromInventorySiteRefListId
+        private String _FromInventorySiteRefListId;
+        [Size(300)]
+        public String FromInventorySiteRefListId
         {
             get => _FromInventorySiteRefListId;
             set => SetPropertyValue(nameof(FromInventorySiteRefListId), ref _FromInventorySiteRefListId, value);
         }  
-        private String? _FromInventorySiteRefFullName;
-        public String? FromInventorySiteRefFullName
+        private String _FromInventorySiteRefFullName;
+        [Size(300)]
+        public String FromInventorySiteRefFullName
         {
             get => _FromInventorySiteRefFullName;
             set => SetPropertyValue(nameof(FromInventorySiteRefFullName), ref _FromInventorySiteRefFullName, value);
         }  
-        private String? _ToInventorySiteRefListId;
-        public String? ToInventorySiteRefListId
+        private String _ToInventorySiteRefListId;
+        [Size(300)]
+        public String ToInventorySiteRefListId
         {
             get => _ToInventorySiteRefListId;
             set => SetPropertyValue(nameof(ToInventorySiteRefListId), ref _ToInventorySiteRefListId, value);
         }  
-        private String? _ToInventorySiteRefFullName;
-        public String? ToInventorySiteRefFullName
+        private String _ToInventorySiteRefFullName;
+        [Size(300)]
+        public String ToInventorySiteRefFullName
         {
             get => _ToInventorySiteRefFullName;
             set => SetPropertyValue(nameof(ToInventorySiteRefFullName), ref _ToInventorySiteRefFullName, value);
         }  
-        private String? _Memo;
-        public String? Memo
+        private String _Memo;
+        [Size(300)]
+        public String Memo
         {
             get => _Memo;
             set => SetPropertyValue(nameof(Memo), ref _Memo, value);
         }  
-        private String? _ExternalGuid;
-        public String? ExternalGuid
+        private String _ExternalGuid;
+        [Size(300)]
+        public String ExternalGuid
         {
             get => _ExternalGuid;
             set => SetPropertyValue(nameof(ExternalGuid), ref _ExternalGuid, value);
         }  
-        private String? _TransferInventoryLineAggregate;
-        public String? TransferInventoryLineAggregate
+        private String _TransferInventoryLineAggregate;
+        [Size(300)]
+        public String TransferInventoryLineAggregate
         {
             get => _TransferInventoryLineAggregate;
             set => SetPropertyValue(nameof(TransferInventoryLineAggregate), ref _TransferInventoryLineAggregate, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
-        }  
-        private string _FromInventorySiteRefList;
-        public string FromInventorySiteRefList
-        {
-            get => _FromInventorySiteRefList;
-            set => SetPropertyValue(nameof(FromInventorySiteRefList), ref _FromInventorySiteRefList, value);
-        }  
-        private string _ToInventorySiteRefList;
-        public string ToInventorySiteRefList
-        {
-            get => _ToInventorySiteRefList;
-            set => SetPropertyValue(nameof(ToInventorySiteRefList), ref _ToInventorySiteRefList, value);
         }
-        public const string QueriableProperties="Id,TxnDate,TxnNumber,RefNumber,FromInventorySiteRefListId,FromInventorySiteRefFullName,ToInventorySiteRefListId,ToInventorySiteRefFullName,Memo,ExternalGuid,TransferInventoryLineAggregate,TimeCreated,TimeModified,EditSequence,FromInventorySiteRefList,ToInventorySiteRefList";
+        public const string QueryableProperties="Id,TxnDate,TxnNumber,RefNumber,FromInventorySiteRefListId,FromInventorySiteRefFullName,ToInventorySiteRefListId,ToInventorySiteRefFullName,Memo,ExternalGuid,TransferInventoryLineAggregate,TimeCreated,TimeModified,EditSequence";
     }
 }

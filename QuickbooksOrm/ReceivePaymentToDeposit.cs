@@ -42,84 +42,79 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _TxnType;
-        public String? TxnType
+        private String _TxnType;
+        [Size(300)]
+        public String TxnType
         {
             get => _TxnType;
             set => SetPropertyValue(nameof(TxnType), ref _TxnType, value);
         }  
-        private String? _TxnLineId;
-        public String? TxnLineId
+        private String _TxnLineId;
+        [Size(300)]
+        public String TxnLineId
         {
             get => _TxnLineId;
             set => SetPropertyValue(nameof(TxnLineId), ref _TxnLineId, value);
         }  
-        private String? _CustomerRefListId;
-        public String? CustomerRefListId
+        private String _CustomerRefListId;
+        [Size(300)]
+        public String CustomerRefListId
         {
             get => _CustomerRefListId;
             set => SetPropertyValue(nameof(CustomerRefListId), ref _CustomerRefListId, value);
         }  
-        private String? _CustomerRefFullName;
-        public String? CustomerRefFullName
+        private String _CustomerRefFullName;
+        [Size(300)]
+        public String CustomerRefFullName
         {
             get => _CustomerRefFullName;
             set => SetPropertyValue(nameof(CustomerRefFullName), ref _CustomerRefFullName, value);
         }  
-        private DateTime _TxnDate;
-        public DateTime TxnDate
+        private DateTime? _TxnDate;
+        public DateTime? TxnDate
         {
             get => _TxnDate;
             set => SetPropertyValue(nameof(TxnDate), ref _TxnDate, value);
         }  
-        private String? _RefNumber;
-        public String? RefNumber
+        private String _RefNumber;
+        [Size(300)]
+        public String RefNumber
         {
             get => _RefNumber;
             set => SetPropertyValue(nameof(RefNumber), ref _RefNumber, value);
         }  
-        private Decimal _Amount;
-        public Decimal Amount
+        private Decimal? _Amount;
+        public Decimal? Amount
         {
             get => _Amount;
             set => SetPropertyValue(nameof(Amount), ref _Amount, value);
         }  
-        private String? _CurrencyId;
-        public String? CurrencyId
+        private String _CurrencyId;
+        [Size(300)]
+        public String CurrencyId
         {
             get => _CurrencyId;
             set => SetPropertyValue(nameof(CurrencyId), ref _CurrencyId, value);
         }  
-        private String? _CurrencyName;
-        public String? CurrencyName
+        private String _CurrencyName;
+        [Size(300)]
+        public String CurrencyName
         {
             get => _CurrencyName;
             set => SetPropertyValue(nameof(CurrencyName), ref _CurrencyName, value);
         }  
-        private Single _ExchangeRate;
-        public Single ExchangeRate
+        private Single? _ExchangeRate;
+        public Single? ExchangeRate
         {
             get => _ExchangeRate;
             set => SetPropertyValue(nameof(ExchangeRate), ref _ExchangeRate, value);
         }  
-        private Single _AmountInHomeCurrency;
-        public Single AmountInHomeCurrency
+        private Single? _AmountInHomeCurrency;
+        public Single? AmountInHomeCurrency
         {
             get => _AmountInHomeCurrency;
             set => SetPropertyValue(nameof(AmountInHomeCurrency), ref _AmountInHomeCurrency, value);
-        }  
-        private string _Currency;
-        public string Currency
-        {
-            get => _Currency;
-            set => SetPropertyValue(nameof(Currency), ref _Currency, value);
-        }  
-        private string _CustomerRefList;
-        public string CustomerRefList
-        {
-            get => _CustomerRefList;
-            set => SetPropertyValue(nameof(CustomerRefList), ref _CustomerRefList, value);
         }
-        public const string QueriableProperties="Id,TxnType,TxnLineId,CustomerRefListId,CustomerRefFullName,TxnDate,RefNumber,Amount,CurrencyId,CurrencyName,ExchangeRate,AmountInHomeCurrency,Currency,CustomerRefList";
+        public const string QueryableProperties="Id,TxnType,TxnLineId,CustomerRefListId,CustomerRefFullName,TxnDate,RefNumber,Amount,CurrencyId,CurrencyName,ExchangeRate,AmountInHomeCurrency";
     }
 }

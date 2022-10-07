@@ -42,66 +42,71 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Notes;
-        public String? Notes
+        private String _Notes;
+        [Size(300)]
+        public String Notes
         {
             get => _Notes;
             set => SetPropertyValue(nameof(Notes), ref _Notes, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private String? _Type;
-        public String? Type
+        private String _Type;
+        [Size(300)]
+        public String Type
         {
             get => _Type;
             set => SetPropertyValue(nameof(Type), ref _Type, value);
         }  
-        private String? _Priority;
-        public String? Priority
+        private String _Priority;
+        [Size(300)]
+        public String Priority
         {
             get => _Priority;
             set => SetPropertyValue(nameof(Priority), ref _Priority, value);
         }  
-        private Boolean _IsDone;
-        public Boolean IsDone
+        private Boolean? _IsDone;
+        public Boolean? IsDone
         {
             get => _IsDone;
             set => SetPropertyValue(nameof(IsDone), ref _IsDone, value);
         }  
-        private DateTime _ReminderDate;
-        public DateTime ReminderDate
+        private DateTime? _ReminderDate;
+        public DateTime? ReminderDate
         {
             get => _ReminderDate;
             set => SetPropertyValue(nameof(ReminderDate), ref _ReminderDate, value);
         }  
-        private String? _ReminderTime;
-        public String? ReminderTime
+        private String _ReminderTime;
+        [Size(300)]
+        public String ReminderTime
         {
             get => _ReminderTime;
             set => SetPropertyValue(nameof(ReminderTime), ref _ReminderTime, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }
-        public const string QueriableProperties="Id,Notes,IsActive,Type,Priority,IsDone,ReminderDate,ReminderTime,EditSequence,TimeCreated,TimeModified";
+        public const string QueryableProperties="Id,Notes,IsActive,Type,Priority,IsDone,ReminderDate,ReminderTime,EditSequence,TimeCreated,TimeModified";
     }
 }

@@ -42,138 +42,140 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private String? _FullName;
-        public String? FullName
+        private String _FullName;
+        [Size(300)]
+        public String FullName
         {
             get => _FullName;
             set => SetPropertyValue(nameof(FullName), ref _FullName, value);
         }  
-        private String? _Type;
-        public String? Type
+        private String _Type;
+        [Size(300)]
+        public String Type
         {
             get => _Type;
             set => SetPropertyValue(nameof(Type), ref _Type, value);
         }  
-        private String? _SpecialType;
-        public String? SpecialType
+        private String _SpecialType;
+        [Size(300)]
+        public String SpecialType
         {
             get => _SpecialType;
             set => SetPropertyValue(nameof(SpecialType), ref _SpecialType, value);
         }  
-        private String? _Number;
-        public String? Number
+        private String _Number;
+        [Size(300)]
+        public String Number
         {
             get => _Number;
             set => SetPropertyValue(nameof(Number), ref _Number, value);
         }  
-        private Single _Balance;
-        public Single Balance
+        private Single? _Balance;
+        public Single? Balance
         {
             get => _Balance;
             set => SetPropertyValue(nameof(Balance), ref _Balance, value);
         }  
-        private Single _AccountBalance;
-        public Single AccountBalance
+        private Single? _AccountBalance;
+        public Single? AccountBalance
         {
             get => _AccountBalance;
             set => SetPropertyValue(nameof(AccountBalance), ref _AccountBalance, value);
         }  
-        private String? _BankAccount;
-        public String? BankAccount
+        private String _BankAccount;
+        [Size(300)]
+        public String BankAccount
         {
             get => _BankAccount;
             set => SetPropertyValue(nameof(BankAccount), ref _BankAccount, value);
         }  
-        private String? _Description;
-        public String? Description
+        private String _Description;
+        [Size(300)]
+        public String Description
         {
             get => _Description;
             set => SetPropertyValue(nameof(Description), ref _Description, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private String? _ParentName;
-        public String? ParentName
+        private String _ParentName;
+        [Size(300)]
+        public String ParentName
         {
             get => _ParentName;
             set => SetPropertyValue(nameof(ParentName), ref _ParentName, value);
         }  
-        private String? _ParentId;
-        public String? ParentId
+        private String _ParentId;
+        [Size(300)]
+        public String ParentId
         {
             get => _ParentId;
             set => SetPropertyValue(nameof(ParentId), ref _ParentId, value);
         }  
-        private Int32 _Sublevel;
-        public Int32 Sublevel
+        private Int32? _Sublevel;
+        public Int32? Sublevel
         {
             get => _Sublevel;
             set => SetPropertyValue(nameof(Sublevel), ref _Sublevel, value);
         }  
-        private String? _CurrencyName;
-        public String? CurrencyName
+        private String _CurrencyName;
+        [Size(300)]
+        public String CurrencyName
         {
             get => _CurrencyName;
             set => SetPropertyValue(nameof(CurrencyName), ref _CurrencyName, value);
         }  
-        private String? _CurrencyId;
-        public String? CurrencyId
+        private String _CurrencyId;
+        [Size(300)]
+        public String CurrencyId
         {
             get => _CurrencyId;
             set => SetPropertyValue(nameof(CurrencyId), ref _CurrencyId, value);
         }  
-        private String? _CashFlowClassification;
-        public String? CashFlowClassification
+        private String _CashFlowClassification;
+        [Size(300)]
+        public String CashFlowClassification
         {
             get => _CashFlowClassification;
             set => SetPropertyValue(nameof(CashFlowClassification), ref _CashFlowClassification, value);
         }  
-        private String? _TaxLineName;
-        public String? TaxLineName
+        private String _TaxLineName;
+        [Size(300)]
+        public String TaxLineName
         {
             get => _TaxLineName;
             set => SetPropertyValue(nameof(TaxLineName), ref _TaxLineName, value);
         }  
-        private String? _TaxLineId;
-        public String? TaxLineId
+        private String _TaxLineId;
+        [Size(300)]
+        public String TaxLineId
         {
             get => _TaxLineId;
             set => SetPropertyValue(nameof(TaxLineId), ref _TaxLineId, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _Currency;
-        public string Currency
-        {
-            get => _Currency;
-            set => SetPropertyValue(nameof(Currency), ref _Currency, value);
-        }  
-        private string _Parent;
-        public string Parent
-        {
-            get => _Parent;
-            set => SetPropertyValue(nameof(Parent), ref _Parent, value);
         }
-        public const string QueriableProperties="Id,Name,FullName,Type,SpecialType,Number,Balance,AccountBalance,BankAccount,Description,IsActive,ParentName,ParentId,Sublevel,CurrencyName,CurrencyId,CashFlowClassification,TaxLineName,TaxLineId,TimeModified,TimeCreated";
+        public const string QueryableProperties="Id,Name,FullName,Type,SpecialType,Number,Balance,AccountBalance,BankAccount,Description,IsActive,ParentName,ParentId,Sublevel,CurrencyName,CurrencyId,CashFlowClassification,TaxLineName,TaxLineId,TimeModified,TimeCreated";
     }
 }

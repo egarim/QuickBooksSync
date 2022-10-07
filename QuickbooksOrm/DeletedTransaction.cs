@@ -35,36 +35,39 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
          
-        private String? _TxnId;
-        public String? TxnId
+        private String _TxnId;
+        [Size(300)]
+        public String TxnId
         {
             get => _TxnId;
             set => SetPropertyValue(nameof(TxnId), ref _TxnId, value);
         }  
-        private String? _TxnDelType;
-        public String? TxnDelType
+        private String _TxnDelType;
+        [Size(300)]
+        public String TxnDelType
         {
             get => _TxnDelType;
             set => SetPropertyValue(nameof(TxnDelType), ref _TxnDelType, value);
         }  
-        private String? _RefNumber;
-        public String? RefNumber
+        private String _RefNumber;
+        [Size(300)]
+        public String RefNumber
         {
             get => _RefNumber;
             set => SetPropertyValue(nameof(RefNumber), ref _RefNumber, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeDeleted;
-        public DateTime TimeDeleted
+        private DateTime? _TimeDeleted;
+        public DateTime? TimeDeleted
         {
             get => _TimeDeleted;
             set => SetPropertyValue(nameof(TimeDeleted), ref _TimeDeleted, value);
         }
-        public const string QueriableProperties="TxnId,TxnDelType,RefNumber,TimeCreated,TimeDeleted";
+        public const string QueryableProperties="TxnId,TxnDelType,RefNumber,TimeCreated,TimeDeleted";
     }
 }

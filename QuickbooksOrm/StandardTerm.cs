@@ -42,54 +42,56 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private Int32 _StdDueDays;
-        public Int32 StdDueDays
+        private Int32? _StdDueDays;
+        public Int32? StdDueDays
         {
             get => _StdDueDays;
             set => SetPropertyValue(nameof(StdDueDays), ref _StdDueDays, value);
         }  
-        private Int32 _StdDiscountDays;
-        public Int32 StdDiscountDays
+        private Int32? _StdDiscountDays;
+        public Int32? StdDiscountDays
         {
             get => _StdDiscountDays;
             set => SetPropertyValue(nameof(StdDiscountDays), ref _StdDiscountDays, value);
         }  
-        private Single _DiscountPct;
-        public Single DiscountPct
+        private Single? _DiscountPct;
+        public Single? DiscountPct
         {
             get => _DiscountPct;
             set => SetPropertyValue(nameof(DiscountPct), ref _DiscountPct, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }
-        public const string QueriableProperties="Id,Name,IsActive,StdDueDays,StdDiscountDays,DiscountPct,EditSequence,TimeCreated,TimeModified";
+        public const string QueryableProperties="Id,Name,IsActive,StdDueDays,StdDiscountDays,DiscountPct,EditSequence,TimeCreated,TimeModified";
     }
 }

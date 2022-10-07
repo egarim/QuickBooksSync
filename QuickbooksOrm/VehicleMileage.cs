@@ -42,156 +42,151 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _VehicleRefFullName;
-        public String? VehicleRefFullName
+        private String _VehicleRefFullName;
+        [Size(300)]
+        public String VehicleRefFullName
         {
             get => _VehicleRefFullName;
             set => SetPropertyValue(nameof(VehicleRefFullName), ref _VehicleRefFullName, value);
         }  
-        private String? _VehicleRefListId;
-        public String? VehicleRefListId
+        private String _VehicleRefListId;
+        [Size(300)]
+        public String VehicleRefListId
         {
             get => _VehicleRefListId;
             set => SetPropertyValue(nameof(VehicleRefListId), ref _VehicleRefListId, value);
         }  
-        private String? _CustomerRefFullName;
-        public String? CustomerRefFullName
+        private String _CustomerRefFullName;
+        [Size(300)]
+        public String CustomerRefFullName
         {
             get => _CustomerRefFullName;
             set => SetPropertyValue(nameof(CustomerRefFullName), ref _CustomerRefFullName, value);
         }  
-        private String? _CustomerRefListId;
-        public String? CustomerRefListId
+        private String _CustomerRefListId;
+        [Size(300)]
+        public String CustomerRefListId
         {
             get => _CustomerRefListId;
             set => SetPropertyValue(nameof(CustomerRefListId), ref _CustomerRefListId, value);
         }  
-        private String? _ItemRefFullName;
-        public String? ItemRefFullName
+        private String _ItemRefFullName;
+        [Size(300)]
+        public String ItemRefFullName
         {
             get => _ItemRefFullName;
             set => SetPropertyValue(nameof(ItemRefFullName), ref _ItemRefFullName, value);
         }  
-        private String? _ItemRefListId;
-        public String? ItemRefListId
+        private String _ItemRefListId;
+        [Size(300)]
+        public String ItemRefListId
         {
             get => _ItemRefListId;
             set => SetPropertyValue(nameof(ItemRefListId), ref _ItemRefListId, value);
         }  
-        private String? _ClassRefFullName;
-        public String? ClassRefFullName
+        private String _ClassRefFullName;
+        [Size(300)]
+        public String ClassRefFullName
         {
             get => _ClassRefFullName;
             set => SetPropertyValue(nameof(ClassRefFullName), ref _ClassRefFullName, value);
         }  
-        private String? _ClassRefListId;
-        public String? ClassRefListId
+        private String _ClassRefListId;
+        [Size(300)]
+        public String ClassRefListId
         {
             get => _ClassRefListId;
             set => SetPropertyValue(nameof(ClassRefListId), ref _ClassRefListId, value);
         }  
-        private String? _TripStartDate;
-        public String? TripStartDate
+        private String _TripStartDate;
+        [Size(300)]
+        public String TripStartDate
         {
             get => _TripStartDate;
             set => SetPropertyValue(nameof(TripStartDate), ref _TripStartDate, value);
         }  
-        private String? _TripEndDate;
-        public String? TripEndDate
+        private String _TripEndDate;
+        [Size(300)]
+        public String TripEndDate
         {
             get => _TripEndDate;
             set => SetPropertyValue(nameof(TripEndDate), ref _TripEndDate, value);
         }  
-        private Int32 _OdometerStart;
-        public Int32 OdometerStart
+        private Int32? _OdometerStart;
+        public Int32? OdometerStart
         {
             get => _OdometerStart;
             set => SetPropertyValue(nameof(OdometerStart), ref _OdometerStart, value);
         }  
-        private Int32 _OdometerEnd;
-        public Int32 OdometerEnd
+        private Int32? _OdometerEnd;
+        public Int32? OdometerEnd
         {
             get => _OdometerEnd;
             set => SetPropertyValue(nameof(OdometerEnd), ref _OdometerEnd, value);
         }  
-        private Single _TotalMiles;
-        public Single TotalMiles
+        private Single? _TotalMiles;
+        public Single? TotalMiles
         {
             get => _TotalMiles;
             set => SetPropertyValue(nameof(TotalMiles), ref _TotalMiles, value);
         }  
-        private String? _Notes;
-        public String? Notes
+        private String _Notes;
+        [Size(300)]
+        public String Notes
         {
             get => _Notes;
             set => SetPropertyValue(nameof(Notes), ref _Notes, value);
         }  
-        private String? _BillableStatus;
-        public String? BillableStatus
+        private String _BillableStatus;
+        [Size(300)]
+        public String BillableStatus
         {
             get => _BillableStatus;
             set => SetPropertyValue(nameof(BillableStatus), ref _BillableStatus, value);
         }  
-        private Single _StandardMileageRate;
-        public Single StandardMileageRate
+        private Single? _StandardMileageRate;
+        public Single? StandardMileageRate
         {
             get => _StandardMileageRate;
             set => SetPropertyValue(nameof(StandardMileageRate), ref _StandardMileageRate, value);
         }  
-        private Single _StandardMileageTotalAmount;
-        public Single StandardMileageTotalAmount
+        private Single? _StandardMileageTotalAmount;
+        public Single? StandardMileageTotalAmount
         {
             get => _StandardMileageTotalAmount;
             set => SetPropertyValue(nameof(StandardMileageTotalAmount), ref _StandardMileageTotalAmount, value);
         }  
-        private Single _BillableRate;
-        public Single BillableRate
+        private Single? _BillableRate;
+        public Single? BillableRate
         {
             get => _BillableRate;
             set => SetPropertyValue(nameof(BillableRate), ref _BillableRate, value);
         }  
-        private Decimal _BillableAmount;
-        public Decimal BillableAmount
+        private Decimal? _BillableAmount;
+        public Decimal? BillableAmount
         {
             get => _BillableAmount;
             set => SetPropertyValue(nameof(BillableAmount), ref _BillableAmount, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
-        }  
-        private string _ClassRefList;
-        public string ClassRefList
-        {
-            get => _ClassRefList;
-            set => SetPropertyValue(nameof(ClassRefList), ref _ClassRefList, value);
-        }  
-        private string _CustomerRefList;
-        public string CustomerRefList
-        {
-            get => _CustomerRefList;
-            set => SetPropertyValue(nameof(CustomerRefList), ref _CustomerRefList, value);
-        }  
-        private string _ItemRefList;
-        public string ItemRefList
-        {
-            get => _ItemRefList;
-            set => SetPropertyValue(nameof(ItemRefList), ref _ItemRefList, value);
         }
-        public const string QueriableProperties="Id,VehicleRefFullName,VehicleRefListId,CustomerRefFullName,CustomerRefListId,ItemRefFullName,ItemRefListId,ClassRefFullName,ClassRefListId,TripStartDate,TripEndDate,OdometerStart,OdometerEnd,TotalMiles,Notes,BillableStatus,StandardMileageRate,StandardMileageTotalAmount,BillableRate,BillableAmount,EditSequence,TimeCreated,TimeModified,ClassRefList,CustomerRefList,ItemRefList";
+        public const string QueryableProperties="Id,VehicleRefFullName,VehicleRefListId,CustomerRefFullName,CustomerRefListId,ItemRefFullName,ItemRefListId,ClassRefFullName,ClassRefListId,TripStartDate,TripEndDate,OdometerStart,OdometerEnd,TotalMiles,Notes,BillableStatus,StandardMileageRate,StandardMileageTotalAmount,BillableRate,BillableAmount,EditSequence,TimeCreated,TimeModified";
     }
 }

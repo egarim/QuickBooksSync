@@ -42,66 +42,65 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _BillId;
-        public String? BillId
+        private String _BillId;
+        [Size(300)]
+        public String BillId
         {
             get => _BillId;
             set => SetPropertyValue(nameof(BillId), ref _BillId, value);
         }  
-        private String? _TransactionId;
-        public String? TransactionId
+        private String _TransactionId;
+        [Size(300)]
+        public String TransactionId
         {
             get => _TransactionId;
             set => SetPropertyValue(nameof(TransactionId), ref _TransactionId, value);
         }  
-        private Decimal _TransactionAmount;
-        public Decimal TransactionAmount
+        private Decimal? _TransactionAmount;
+        public Decimal? TransactionAmount
         {
             get => _TransactionAmount;
             set => SetPropertyValue(nameof(TransactionAmount), ref _TransactionAmount, value);
         }  
-        private DateTime _TransactionDate;
-        public DateTime TransactionDate
+        private DateTime? _TransactionDate;
+        public DateTime? TransactionDate
         {
             get => _TransactionDate;
             set => SetPropertyValue(nameof(TransactionDate), ref _TransactionDate, value);
         }  
-        private String? _TransactionReferenceNumber;
-        public String? TransactionReferenceNumber
+        private String _TransactionReferenceNumber;
+        [Size(300)]
+        public String TransactionReferenceNumber
         {
             get => _TransactionReferenceNumber;
             set => SetPropertyValue(nameof(TransactionReferenceNumber), ref _TransactionReferenceNumber, value);
         }  
-        private String? _TransactionType;
-        public String? TransactionType
+        private String _TransactionType;
+        [Size(300)]
+        public String TransactionType
         {
             get => _TransactionType;
             set => SetPropertyValue(nameof(TransactionType), ref _TransactionType, value);
         }  
-        private String? _TransactionLinkType;
-        public String? TransactionLinkType
+        private String _TransactionLinkType;
+        [Size(300)]
+        public String TransactionLinkType
         {
             get => _TransactionLinkType;
             set => SetPropertyValue(nameof(TransactionLinkType), ref _TransactionLinkType, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _Bill;
-        public string Bill
-        {
-            get => _Bill;
-            set => SetPropertyValue(nameof(Bill), ref _Bill, value);
         }
-        public const string QueriableProperties="Id,BillId,TransactionId,TransactionAmount,TransactionDate,TransactionReferenceNumber,TransactionType,TransactionLinkType,TimeModified,TimeCreated,Bill";
+        public const string QueryableProperties="Id,BillId,TransactionId,TransactionAmount,TransactionDate,TransactionReferenceNumber,TransactionType,TransactionLinkType,TimeModified,TimeCreated";
     }
 }

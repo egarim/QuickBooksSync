@@ -42,108 +42,105 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private DateTime _Date;
-        public DateTime Date
+        private DateTime? _Date;
+        public DateTime? Date
         {
             get => _Date;
             set => SetPropertyValue(nameof(Date), ref _Date, value);
         }  
-        private String? _ReferenceNumber;
-        public String? ReferenceNumber
+        private String _ReferenceNumber;
+        [Size(300)]
+        public String ReferenceNumber
         {
             get => _ReferenceNumber;
             set => SetPropertyValue(nameof(ReferenceNumber), ref _ReferenceNumber, value);
         }  
-        private String? _AccountName;
-        public String? AccountName
+        private String _AccountName;
+        [Size(300)]
+        public String AccountName
         {
             get => _AccountName;
             set => SetPropertyValue(nameof(AccountName), ref _AccountName, value);
         }  
-        private String? _AccountId;
-        public String? AccountId
+        private String _AccountId;
+        [Size(300)]
+        public String AccountId
         {
             get => _AccountId;
             set => SetPropertyValue(nameof(AccountId), ref _AccountId, value);
         }  
-        private String? _Memo;
-        public String? Memo
+        private String _Memo;
+        [Size(300)]
+        public String Memo
         {
             get => _Memo;
             set => SetPropertyValue(nameof(Memo), ref _Memo, value);
         }  
-        private String? _PayeeName;
-        public String? PayeeName
+        private String _PayeeName;
+        [Size(300)]
+        public String PayeeName
         {
             get => _PayeeName;
             set => SetPropertyValue(nameof(PayeeName), ref _PayeeName, value);
         }  
-        private String? _PayeeId;
-        public String? PayeeId
+        private String _PayeeId;
+        [Size(300)]
+        public String PayeeId
         {
             get => _PayeeId;
             set => SetPropertyValue(nameof(PayeeId), ref _PayeeId, value);
         }  
-        private Boolean _IsTaxIncluded;
-        public Boolean IsTaxIncluded
+        private Boolean? _IsTaxIncluded;
+        public Boolean? IsTaxIncluded
         {
             get => _IsTaxIncluded;
             set => SetPropertyValue(nameof(IsTaxIncluded), ref _IsTaxIncluded, value);
         }  
-        private Int32 _ItemCount;
-        public Int32 ItemCount
+        private Int32? _ItemCount;
+        public Int32? ItemCount
         {
             get => _ItemCount;
             set => SetPropertyValue(nameof(ItemCount), ref _ItemCount, value);
         }  
-        private String? _ItemAggregate;
-        public String? ItemAggregate
+        private String _ItemAggregate;
+        [Size(300)]
+        public String ItemAggregate
         {
             get => _ItemAggregate;
             set => SetPropertyValue(nameof(ItemAggregate), ref _ItemAggregate, value);
         }  
-        private Int32 _ExpenseItemCount;
-        public Int32 ExpenseItemCount
+        private Int32? _ExpenseItemCount;
+        public Int32? ExpenseItemCount
         {
             get => _ExpenseItemCount;
             set => SetPropertyValue(nameof(ExpenseItemCount), ref _ExpenseItemCount, value);
         }  
-        private String? _ExpenseItemAggregate;
-        public String? ExpenseItemAggregate
+        private String _ExpenseItemAggregate;
+        [Size(300)]
+        public String ExpenseItemAggregate
         {
             get => _ExpenseItemAggregate;
             set => SetPropertyValue(nameof(ExpenseItemAggregate), ref _ExpenseItemAggregate, value);
         }  
-        private String? _CustomFields;
-        public String? CustomFields
+        private String _CustomFields;
+        [Size(300)]
+        public String CustomFields
         {
             get => _CustomFields;
             set => SetPropertyValue(nameof(CustomFields), ref _CustomFields, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _Account;
-        public string Account
-        {
-            get => _Account;
-            set => SetPropertyValue(nameof(Account), ref _Account, value);
-        }  
-        private string _Payee;
-        public string Payee
-        {
-            get => _Payee;
-            set => SetPropertyValue(nameof(Payee), ref _Payee, value);
         }
-        public const string QueriableProperties="Id,Date,ReferenceNumber,AccountName,AccountId,Memo,PayeeName,PayeeId,IsTaxIncluded,ItemCount,ItemAggregate,ExpenseItemCount,ExpenseItemAggregate,CustomFields,TimeModified,TimeCreated,Account,Payee";
+        public const string QueryableProperties="Id,Date,ReferenceNumber,AccountName,AccountId,Memo,PayeeName,PayeeId,IsTaxIncluded,ItemCount,ItemAggregate,ExpenseItemCount,ExpenseItemAggregate,CustomFields,TimeModified,TimeCreated";
     }
 }

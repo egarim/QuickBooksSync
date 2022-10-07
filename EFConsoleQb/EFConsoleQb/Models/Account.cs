@@ -87,6 +87,7 @@ namespace EFConsoleQb.Models
         public float? Balance { get; set; }
         public float? AccountBalance { get; set; }
         public string? BankAccount { get; set; }
+      
         public string? Description { get; set; }
         public bool? IsActive { get; set; }
         public string? ParentName { get; set; }

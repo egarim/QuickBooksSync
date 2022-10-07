@@ -42,198 +42,175 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _CccreditId;
-        public String? CccreditId
+        private String _CccreditId;
+        [Size(300)]
+        public String CccreditId
         {
             get => _CccreditId;
             set => SetPropertyValue(nameof(CccreditId), ref _CccreditId, value);
         }  
-        private DateTime _Date;
-        public DateTime Date
+        private DateTime? _Date;
+        public DateTime? Date
         {
             get => _Date;
             set => SetPropertyValue(nameof(Date), ref _Date, value);
         }  
-        private String? _ReferenceNumber;
-        public String? ReferenceNumber
+        private String _ReferenceNumber;
+        [Size(300)]
+        public String ReferenceNumber
         {
             get => _ReferenceNumber;
             set => SetPropertyValue(nameof(ReferenceNumber), ref _ReferenceNumber, value);
         }  
-        private String? _AccountName;
-        public String? AccountName
+        private String _AccountName;
+        [Size(300)]
+        public String AccountName
         {
             get => _AccountName;
             set => SetPropertyValue(nameof(AccountName), ref _AccountName, value);
         }  
-        private String? _AccountId;
-        public String? AccountId
+        private String _AccountId;
+        [Size(300)]
+        public String AccountId
         {
             get => _AccountId;
             set => SetPropertyValue(nameof(AccountId), ref _AccountId, value);
         }  
-        private String? _Memo;
-        public String? Memo
+        private String _Memo;
+        [Size(300)]
+        public String Memo
         {
             get => _Memo;
             set => SetPropertyValue(nameof(Memo), ref _Memo, value);
         }  
-        private String? _PayeeName;
-        public String? PayeeName
+        private String _PayeeName;
+        [Size(300)]
+        public String PayeeName
         {
             get => _PayeeName;
             set => SetPropertyValue(nameof(PayeeName), ref _PayeeName, value);
         }  
-        private String? _PayeeId;
-        public String? PayeeId
+        private String _PayeeId;
+        [Size(300)]
+        public String PayeeId
         {
             get => _PayeeId;
             set => SetPropertyValue(nameof(PayeeId), ref _PayeeId, value);
         }  
-        private Boolean _IsTaxIncluded;
-        public Boolean IsTaxIncluded
+        private Boolean? _IsTaxIncluded;
+        public Boolean? IsTaxIncluded
         {
             get => _IsTaxIncluded;
             set => SetPropertyValue(nameof(IsTaxIncluded), ref _IsTaxIncluded, value);
         }  
-        private String? _ExpenseLineId;
-        public String? ExpenseLineId
+        private String _ExpenseLineId;
+        [Size(300)]
+        public String ExpenseLineId
         {
             get => _ExpenseLineId;
             set => SetPropertyValue(nameof(ExpenseLineId), ref _ExpenseLineId, value);
         }  
-        private String? _ExpenseLineNumber;
-        public String? ExpenseLineNumber
+        private String _ExpenseLineNumber;
+        [Size(300)]
+        public String ExpenseLineNumber
         {
             get => _ExpenseLineNumber;
             set => SetPropertyValue(nameof(ExpenseLineNumber), ref _ExpenseLineNumber, value);
         }  
-        private String? _ExpenseAccount;
-        public String? ExpenseAccount
+        private String _ExpenseAccount;
+        [Size(300)]
+        public String ExpenseAccount
         {
             get => _ExpenseAccount;
             set => SetPropertyValue(nameof(ExpenseAccount), ref _ExpenseAccount, value);
         }  
-        private String? _ExpenseAccountId;
-        public String? ExpenseAccountId
+        private String _ExpenseAccountId;
+        [Size(300)]
+        public String ExpenseAccountId
         {
             get => _ExpenseAccountId;
             set => SetPropertyValue(nameof(ExpenseAccountId), ref _ExpenseAccountId, value);
         }  
-        private Decimal _ExpenseAmount;
-        public Decimal ExpenseAmount
+        private Decimal? _ExpenseAmount;
+        public Decimal? ExpenseAmount
         {
             get => _ExpenseAmount;
             set => SetPropertyValue(nameof(ExpenseAmount), ref _ExpenseAmount, value);
         }  
-        private String? _ExpenseBillableStatus;
-        public String? ExpenseBillableStatus
+        private String _ExpenseBillableStatus;
+        [Size(300)]
+        public String ExpenseBillableStatus
         {
             get => _ExpenseBillableStatus;
             set => SetPropertyValue(nameof(ExpenseBillableStatus), ref _ExpenseBillableStatus, value);
         }  
-        private String? _ExpenseCustomer;
-        public String? ExpenseCustomer
+        private String _ExpenseCustomer;
+        [Size(300)]
+        public String ExpenseCustomer
         {
             get => _ExpenseCustomer;
             set => SetPropertyValue(nameof(ExpenseCustomer), ref _ExpenseCustomer, value);
         }  
-        private String? _ExpenseCustomerId;
-        public String? ExpenseCustomerId
+        private String _ExpenseCustomerId;
+        [Size(300)]
+        public String ExpenseCustomerId
         {
             get => _ExpenseCustomerId;
             set => SetPropertyValue(nameof(ExpenseCustomerId), ref _ExpenseCustomerId, value);
         }  
-        private String? _ExpenseClass;
-        public String? ExpenseClass
+        private String _ExpenseClass;
+        [Size(300)]
+        public String ExpenseClass
         {
             get => _ExpenseClass;
             set => SetPropertyValue(nameof(ExpenseClass), ref _ExpenseClass, value);
         }  
-        private String? _ExpenseClassId;
-        public String? ExpenseClassId
+        private String _ExpenseClassId;
+        [Size(300)]
+        public String ExpenseClassId
         {
             get => _ExpenseClassId;
             set => SetPropertyValue(nameof(ExpenseClassId), ref _ExpenseClassId, value);
         }  
-        private String? _ExpenseMemo;
-        public String? ExpenseMemo
+        private String _ExpenseMemo;
+        [Size(300)]
+        public String ExpenseMemo
         {
             get => _ExpenseMemo;
             set => SetPropertyValue(nameof(ExpenseMemo), ref _ExpenseMemo, value);
         }  
-        private String? _ExpenseTaxCode;
-        public String? ExpenseTaxCode
+        private String _ExpenseTaxCode;
+        [Size(300)]
+        public String ExpenseTaxCode
         {
             get => _ExpenseTaxCode;
             set => SetPropertyValue(nameof(ExpenseTaxCode), ref _ExpenseTaxCode, value);
         }  
-        private String? _ExpenseTaxCodeId;
-        public String? ExpenseTaxCodeId
+        private String _ExpenseTaxCodeId;
+        [Size(300)]
+        public String ExpenseTaxCodeId
         {
             get => _ExpenseTaxCodeId;
             set => SetPropertyValue(nameof(ExpenseTaxCodeId), ref _ExpenseTaxCodeId, value);
         }  
-        private Single _ExchangeRate;
-        public Single ExchangeRate
+        private Single? _ExchangeRate;
+        public Single? ExchangeRate
         {
             get => _ExchangeRate;
             set => SetPropertyValue(nameof(ExchangeRate), ref _ExchangeRate, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _Account;
-        public string Account
-        {
-            get => _Account;
-            set => SetPropertyValue(nameof(Account), ref _Account, value);
-        }  
-        private string _Cccredit;
-        public string Cccredit
-        {
-            get => _Cccredit;
-            set => SetPropertyValue(nameof(Cccredit), ref _Cccredit, value);
-        }  
-        private string _ExpenseAccountNavigation;
-        public string ExpenseAccountNavigation
-        {
-            get => _ExpenseAccountNavigation;
-            set => SetPropertyValue(nameof(ExpenseAccountNavigation), ref _ExpenseAccountNavigation, value);
-        }  
-        private string _ExpenseClassNavigation;
-        public string ExpenseClassNavigation
-        {
-            get => _ExpenseClassNavigation;
-            set => SetPropertyValue(nameof(ExpenseClassNavigation), ref _ExpenseClassNavigation, value);
-        }  
-        private string _ExpenseCustomerNavigation;
-        public string ExpenseCustomerNavigation
-        {
-            get => _ExpenseCustomerNavigation;
-            set => SetPropertyValue(nameof(ExpenseCustomerNavigation), ref _ExpenseCustomerNavigation, value);
-        }  
-        private string _ExpenseTaxCodeNavigation;
-        public string ExpenseTaxCodeNavigation
-        {
-            get => _ExpenseTaxCodeNavigation;
-            set => SetPropertyValue(nameof(ExpenseTaxCodeNavigation), ref _ExpenseTaxCodeNavigation, value);
-        }  
-        private string _Payee;
-        public string Payee
-        {
-            get => _Payee;
-            set => SetPropertyValue(nameof(Payee), ref _Payee, value);
         }
-        public const string QueriableProperties="Id,CccreditId,Date,ReferenceNumber,AccountName,AccountId,Memo,PayeeName,PayeeId,IsTaxIncluded,ExpenseLineId,ExpenseLineNumber,ExpenseAccount,ExpenseAccountId,ExpenseAmount,ExpenseBillableStatus,ExpenseCustomer,ExpenseCustomerId,ExpenseClass,ExpenseClassId,ExpenseMemo,ExpenseTaxCode,ExpenseTaxCodeId,ExchangeRate,TimeModified,TimeCreated,Account,Cccredit,ExpenseAccountNavigation,ExpenseClassNavigation,ExpenseCustomerNavigation,ExpenseTaxCodeNavigation,Payee";
+        public const string QueryableProperties="Id,CccreditId,Date,ReferenceNumber,AccountName,AccountId,Memo,PayeeName,PayeeId,IsTaxIncluded,ExpenseLineId,ExpenseLineNumber,ExpenseAccount,ExpenseAccountId,ExpenseAmount,ExpenseBillableStatus,ExpenseCustomer,ExpenseCustomerId,ExpenseClass,ExpenseClassId,ExpenseMemo,ExpenseTaxCode,ExpenseTaxCodeId,ExchangeRate,TimeModified,TimeCreated";
     }
 }

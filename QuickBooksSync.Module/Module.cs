@@ -56,6 +56,11 @@ public sealed class QuickBooksSyncModule : ModuleBase {
 		RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule));
 
         AdditionalExportedTypes.Add(typeof(Account));
+        AdditionalExportedTypes.Add(typeof(BalanceSheetDetail));
+        AdditionalExportedTypes.Add(typeof(BalanceSheetStandard));
+        AdditionalExportedTypes.Add(typeof(BalanceSheetSummary));
+        AdditionalExportedTypes.Add(typeof(Bill));
+
     }
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
         ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);

@@ -42,60 +42,59 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private String? _WageType;
-        public String? WageType
+        private String _WageType;
+        [Size(300)]
+        public String WageType
         {
             get => _WageType;
             set => SetPropertyValue(nameof(WageType), ref _WageType, value);
         }  
-        private String? _ExpenseAccountRefFullName;
-        public String? ExpenseAccountRefFullName
+        private String _ExpenseAccountRefFullName;
+        [Size(300)]
+        public String ExpenseAccountRefFullName
         {
             get => _ExpenseAccountRefFullName;
             set => SetPropertyValue(nameof(ExpenseAccountRefFullName), ref _ExpenseAccountRefFullName, value);
         }  
-        private String? _ExpenseAccountRefListId;
-        public String? ExpenseAccountRefListId
+        private String _ExpenseAccountRefListId;
+        [Size(300)]
+        public String ExpenseAccountRefListId
         {
             get => _ExpenseAccountRefListId;
             set => SetPropertyValue(nameof(ExpenseAccountRefListId), ref _ExpenseAccountRefListId, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
-        }  
-        private string _ExpenseAccountRefList;
-        public string ExpenseAccountRefList
-        {
-            get => _ExpenseAccountRefList;
-            set => SetPropertyValue(nameof(ExpenseAccountRefList), ref _ExpenseAccountRefList, value);
         }
-        public const string QueriableProperties="Id,Name,IsActive,WageType,ExpenseAccountRefFullName,ExpenseAccountRefListId,TimeCreated,TimeModified,EditSequence,ExpenseAccountRefList";
+        public const string QueryableProperties="Id,Name,IsActive,WageType,ExpenseAccountRefFullName,ExpenseAccountRefListId,TimeCreated,TimeModified,EditSequence";
     }
 }

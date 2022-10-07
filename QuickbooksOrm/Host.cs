@@ -35,48 +35,54 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
          
-        private String? _ProductName;
-        public String? ProductName
+        private String _ProductName;
+        [Size(300)]
+        public String ProductName
         {
             get => _ProductName;
             set => SetPropertyValue(nameof(ProductName), ref _ProductName, value);
         }  
-        private String? _MajorVersion;
-        public String? MajorVersion
+        private String _MajorVersion;
+        [Size(300)]
+        public String MajorVersion
         {
             get => _MajorVersion;
             set => SetPropertyValue(nameof(MajorVersion), ref _MajorVersion, value);
         }  
-        private String? _MinorVersion;
-        public String? MinorVersion
+        private String _MinorVersion;
+        [Size(300)]
+        public String MinorVersion
         {
             get => _MinorVersion;
             set => SetPropertyValue(nameof(MinorVersion), ref _MinorVersion, value);
         }  
-        private String? _Country;
-        public String? Country
+        private String _Country;
+        [Size(300)]
+        public String Country
         {
             get => _Country;
             set => SetPropertyValue(nameof(Country), ref _Country, value);
         }  
-        private String? _SupportedQbxmlversion;
-        public String? SupportedQbxmlversion
+        private String _SupportedQbxmlversion;
+        [Size(300)]
+        public String SupportedQbxmlversion
         {
             get => _SupportedQbxmlversion;
             set => SetPropertyValue(nameof(SupportedQbxmlversion), ref _SupportedQbxmlversion, value);
         }  
-        private Boolean _IsAutomaticLogin;
-        public Boolean IsAutomaticLogin
+        private Boolean? _IsAutomaticLogin;
+        public Boolean? IsAutomaticLogin
         {
             get => _IsAutomaticLogin;
             set => SetPropertyValue(nameof(IsAutomaticLogin), ref _IsAutomaticLogin, value);
         }  
-        private String? _QbfileMode;
-        public String? QbfileMode
+        private String _QbfileMode;
+        [Size(300)]
+        public String QbfileMode
         {
             get => _QbfileMode;
             set => SetPropertyValue(nameof(QbfileMode), ref _QbfileMode, value);
         }
-        public const string QueriableProperties="ProductName,MajorVersion,MinorVersion,Country,SupportedQbxmlversion,IsAutomaticLogin,QbfileMode";
+        public const string QueryableProperties="ProductName,MajorVersion,MinorVersion,Country,SupportedQbxmlversion,IsAutomaticLogin,QbfileMode";
     }
 }

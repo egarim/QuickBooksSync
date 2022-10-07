@@ -35,54 +35,60 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
          
-        private String? _DataExtId;
-        public String? DataExtId
+        private String _DataExtId;
+        [Size(300)]
+        public String DataExtId
         {
             get => _DataExtId;
             set => SetPropertyValue(nameof(DataExtId), ref _DataExtId, value);
         }  
-        private String? _OwnerId;
-        public String? OwnerId
+        private String _OwnerId;
+        [Size(300)]
+        public String OwnerId
         {
             get => _OwnerId;
             set => SetPropertyValue(nameof(OwnerId), ref _OwnerId, value);
         }  
-        private String? _DataExtName;
-        public String? DataExtName
+        private String _DataExtName;
+        [Size(300)]
+        public String DataExtName
         {
             get => _DataExtName;
             set => SetPropertyValue(nameof(DataExtName), ref _DataExtName, value);
         }  
-        private String? _DataExtType;
-        public String? DataExtType
+        private String _DataExtType;
+        [Size(300)]
+        public String DataExtType
         {
             get => _DataExtType;
             set => SetPropertyValue(nameof(DataExtType), ref _DataExtType, value);
         }  
-        private String? _AssignToObject;
-        public String? AssignToObject
+        private String _AssignToObject;
+        [Size(300)]
+        public String AssignToObject
         {
             get => _AssignToObject;
             set => SetPropertyValue(nameof(AssignToObject), ref _AssignToObject, value);
         }  
-        private Boolean _DataExtListRequire;
-        public Boolean DataExtListRequire
+        private Boolean? _DataExtListRequire;
+        public Boolean? DataExtListRequire
         {
             get => _DataExtListRequire;
             set => SetPropertyValue(nameof(DataExtListRequire), ref _DataExtListRequire, value);
         }  
-        private Boolean _DataExtTxnRequire;
-        public Boolean DataExtTxnRequire
+        private Boolean? _DataExtTxnRequire;
+        public Boolean? DataExtTxnRequire
         {
             get => _DataExtTxnRequire;
             set => SetPropertyValue(nameof(DataExtTxnRequire), ref _DataExtTxnRequire, value);
         }  
-        private String? _DataExtFormatString;
-        public String? DataExtFormatString
+        private String _DataExtFormatString;
+        [Size(300)]
+        public String DataExtFormatString
         {
             get => _DataExtFormatString;
             set => SetPropertyValue(nameof(DataExtFormatString), ref _DataExtFormatString, value);
         }
-        public const string QueriableProperties="DataExtId,OwnerId,DataExtName,DataExtType,AssignToObject,DataExtListRequire,DataExtTxnRequire,DataExtFormatString";
+        public const string QueryableProperties="DataExtId,OwnerId,DataExtName,DataExtType,AssignToObject,DataExtListRequire,DataExtTxnRequire,DataExtFormatString";
     }
 }

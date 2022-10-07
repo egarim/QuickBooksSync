@@ -35,36 +35,39 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
          
-        private String? _ListId;
-        public String? ListId
+        private String _ListId;
+        [Size(300)]
+        public String ListId
         {
             get => _ListId;
             set => SetPropertyValue(nameof(ListId), ref _ListId, value);
         }  
-        private String? _ListDelType;
-        public String? ListDelType
+        private String _ListDelType;
+        [Size(300)]
+        public String ListDelType
         {
             get => _ListDelType;
             set => SetPropertyValue(nameof(ListDelType), ref _ListDelType, value);
         }  
-        private String? _FullName;
-        public String? FullName
+        private String _FullName;
+        [Size(300)]
+        public String FullName
         {
             get => _FullName;
             set => SetPropertyValue(nameof(FullName), ref _FullName, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeDeleted;
-        public DateTime TimeDeleted
+        private DateTime? _TimeDeleted;
+        public DateTime? TimeDeleted
         {
             get => _TimeDeleted;
             set => SetPropertyValue(nameof(TimeDeleted), ref _TimeDeleted, value);
         }
-        public const string QueriableProperties="ListId,ListDelType,FullName,TimeCreated,TimeDeleted";
+        public const string QueryableProperties="ListId,ListDelType,FullName,TimeCreated,TimeDeleted";
     }
 }

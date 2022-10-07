@@ -42,246 +42,221 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _ItemId;
-        public String? ItemId
+        private String _ItemId;
+        [Size(300)]
+        public String ItemId
         {
             get => _ItemId;
             set => SetPropertyValue(nameof(ItemId), ref _ItemId, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private String? _FullName;
-        public String? FullName
+        private String _FullName;
+        [Size(300)]
+        public String FullName
         {
             get => _FullName;
             set => SetPropertyValue(nameof(FullName), ref _FullName, value);
         }  
-        private String? _Type;
-        public String? Type
+        private String _Type;
+        [Size(300)]
+        public String Type
         {
             get => _Type;
             set => SetPropertyValue(nameof(Type), ref _Type, value);
         }  
-        private String? _Barcode;
-        public String? Barcode
+        private String _Barcode;
+        [Size(300)]
+        public String Barcode
         {
             get => _Barcode;
             set => SetPropertyValue(nameof(Barcode), ref _Barcode, value);
         }  
-        private String? _Account;
-        public String? Account
+        private String _Account;
+        [Size(300)]
+        public String Account
         {
             get => _Account;
             set => SetPropertyValue(nameof(Account), ref _Account, value);
         }  
-        private String? _AccountId;
-        public String? AccountId
+        private String _AccountId;
+        [Size(300)]
+        public String AccountId
         {
             get => _AccountId;
             set => SetPropertyValue(nameof(AccountId), ref _AccountId, value);
         }  
-        private String? _Cogsaccount;
-        public String? Cogsaccount
+        private String _Cogsaccount;
+        [Size(300)]
+        public String Cogsaccount
         {
             get => _Cogsaccount;
             set => SetPropertyValue(nameof(Cogsaccount), ref _Cogsaccount, value);
         }  
-        private String? _CogsaccountId;
-        public String? CogsaccountId
+        private String _CogsaccountId;
+        [Size(300)]
+        public String CogsaccountId
         {
             get => _CogsaccountId;
             set => SetPropertyValue(nameof(CogsaccountId), ref _CogsaccountId, value);
         }  
-        private String? _AssetAccount;
-        public String? AssetAccount
+        private String _AssetAccount;
+        [Size(300)]
+        public String AssetAccount
         {
             get => _AssetAccount;
             set => SetPropertyValue(nameof(AssetAccount), ref _AssetAccount, value);
         }  
-        private String? _AssetAccountId;
-        public String? AssetAccountId
+        private String _AssetAccountId;
+        [Size(300)]
+        public String AssetAccountId
         {
             get => _AssetAccountId;
             set => SetPropertyValue(nameof(AssetAccountId), ref _AssetAccountId, value);
         }  
-        private Int32 _LineItemNumber;
-        public Int32 LineItemNumber
+        private Int32? _LineItemNumber;
+        public Int32? LineItemNumber
         {
             get => _LineItemNumber;
             set => SetPropertyValue(nameof(LineItemNumber), ref _LineItemNumber, value);
         }  
-        private String? _LineItemId;
-        public String? LineItemId
+        private String _LineItemId;
+        [Size(300)]
+        public String LineItemId
         {
             get => _LineItemId;
             set => SetPropertyValue(nameof(LineItemId), ref _LineItemId, value);
         }  
-        private String? _LineItemName;
-        public String? LineItemName
+        private String _LineItemName;
+        [Size(300)]
+        public String LineItemName
         {
             get => _LineItemName;
             set => SetPropertyValue(nameof(LineItemName), ref _LineItemName, value);
         }  
-        private Single _LineItemQuantity;
-        public Single LineItemQuantity
+        private Single? _LineItemQuantity;
+        public Single? LineItemQuantity
         {
             get => _LineItemQuantity;
             set => SetPropertyValue(nameof(LineItemQuantity), ref _LineItemQuantity, value);
         }  
-        private String? _LineItemUnitOfMeasure;
-        public String? LineItemUnitOfMeasure
+        private String _LineItemUnitOfMeasure;
+        [Size(300)]
+        public String LineItemUnitOfMeasure
         {
             get => _LineItemUnitOfMeasure;
             set => SetPropertyValue(nameof(LineItemUnitOfMeasure), ref _LineItemUnitOfMeasure, value);
         }  
-        private String? _ParentName;
-        public String? ParentName
+        private String _ParentName;
+        [Size(300)]
+        public String ParentName
         {
             get => _ParentName;
             set => SetPropertyValue(nameof(ParentName), ref _ParentName, value);
         }  
-        private String? _ParentId;
-        public String? ParentId
+        private String _ParentId;
+        [Size(300)]
+        public String ParentId
         {
             get => _ParentId;
             set => SetPropertyValue(nameof(ParentId), ref _ParentId, value);
         }  
-        private String? _Description;
-        public String? Description
+        private String _Description;
+        [Size(300)]
+        public String Description
         {
             get => _Description;
             set => SetPropertyValue(nameof(Description), ref _Description, value);
         }  
-        private Single _Price;
-        public Single Price
+        private Single? _Price;
+        public Single? Price
         {
             get => _Price;
             set => SetPropertyValue(nameof(Price), ref _Price, value);
         }  
-        private Single _AverageCost;
-        public Single AverageCost
+        private Single? _AverageCost;
+        public Single? AverageCost
         {
             get => _AverageCost;
             set => SetPropertyValue(nameof(AverageCost), ref _AverageCost, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private Single _PurchaseCost;
-        public Single PurchaseCost
+        private Single? _PurchaseCost;
+        public Single? PurchaseCost
         {
             get => _PurchaseCost;
             set => SetPropertyValue(nameof(PurchaseCost), ref _PurchaseCost, value);
         }  
-        private String? _PurchaseDescription;
-        public String? PurchaseDescription
+        private String _PurchaseDescription;
+        [Size(300)]
+        public String PurchaseDescription
         {
             get => _PurchaseDescription;
             set => SetPropertyValue(nameof(PurchaseDescription), ref _PurchaseDescription, value);
         }  
-        private String? _PreferredVendor;
-        public String? PreferredVendor
+        private String _PreferredVendor;
+        [Size(300)]
+        public String PreferredVendor
         {
             get => _PreferredVendor;
             set => SetPropertyValue(nameof(PreferredVendor), ref _PreferredVendor, value);
         }  
-        private String? _PreferredVendorId;
-        public String? PreferredVendorId
+        private String _PreferredVendorId;
+        [Size(300)]
+        public String PreferredVendorId
         {
             get => _PreferredVendorId;
             set => SetPropertyValue(nameof(PreferredVendorId), ref _PreferredVendorId, value);
         }  
-        private String? _TaxCode;
-        public String? TaxCode
+        private String _TaxCode;
+        [Size(300)]
+        public String TaxCode
         {
             get => _TaxCode;
             set => SetPropertyValue(nameof(TaxCode), ref _TaxCode, value);
         }  
-        private String? _TaxCodeId;
-        public String? TaxCodeId
+        private String _TaxCodeId;
+        [Size(300)]
+        public String TaxCodeId
         {
             get => _TaxCodeId;
             set => SetPropertyValue(nameof(TaxCodeId), ref _TaxCodeId, value);
         }  
-        private Boolean _IsTaxIncluded;
-        public Boolean IsTaxIncluded
+        private Boolean? _IsTaxIncluded;
+        public Boolean? IsTaxIncluded
         {
             get => _IsTaxIncluded;
             set => SetPropertyValue(nameof(IsTaxIncluded), ref _IsTaxIncluded, value);
         }  
-        private String? _CustomFields;
-        public String? CustomFields
+        private String _CustomFields;
+        [Size(300)]
+        public String CustomFields
         {
             get => _CustomFields;
             set => SetPropertyValue(nameof(CustomFields), ref _CustomFields, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _AccountNavigation;
-        public string AccountNavigation
-        {
-            get => _AccountNavigation;
-            set => SetPropertyValue(nameof(AccountNavigation), ref _AccountNavigation, value);
-        }  
-        private string _AssetAccountNavigation;
-        public string AssetAccountNavigation
-        {
-            get => _AssetAccountNavigation;
-            set => SetPropertyValue(nameof(AssetAccountNavigation), ref _AssetAccountNavigation, value);
-        }  
-        private string _CogsaccountNavigation;
-        public string CogsaccountNavigation
-        {
-            get => _CogsaccountNavigation;
-            set => SetPropertyValue(nameof(CogsaccountNavigation), ref _CogsaccountNavigation, value);
-        }  
-        private string _Item;
-        public string Item
-        {
-            get => _Item;
-            set => SetPropertyValue(nameof(Item), ref _Item, value);
-        }  
-        private string _LineItem;
-        public string LineItem
-        {
-            get => _LineItem;
-            set => SetPropertyValue(nameof(LineItem), ref _LineItem, value);
-        }  
-        private string _Parent;
-        public string Parent
-        {
-            get => _Parent;
-            set => SetPropertyValue(nameof(Parent), ref _Parent, value);
-        }  
-        private string _PreferredVendorNavigation;
-        public string PreferredVendorNavigation
-        {
-            get => _PreferredVendorNavigation;
-            set => SetPropertyValue(nameof(PreferredVendorNavigation), ref _PreferredVendorNavigation, value);
-        }  
-        private string _TaxCodeNavigation;
-        public string TaxCodeNavigation
-        {
-            get => _TaxCodeNavigation;
-            set => SetPropertyValue(nameof(TaxCodeNavigation), ref _TaxCodeNavigation, value);
         }
-        public const string QueriableProperties="Id,ItemId,Name,FullName,Type,Barcode,Account,AccountId,Cogsaccount,CogsaccountId,AssetAccount,AssetAccountId,LineItemNumber,LineItemId,LineItemName,LineItemQuantity,LineItemUnitOfMeasure,ParentName,ParentId,Description,Price,AverageCost,IsActive,PurchaseCost,PurchaseDescription,PreferredVendor,PreferredVendorId,TaxCode,TaxCodeId,IsTaxIncluded,CustomFields,TimeModified,TimeCreated,AccountNavigation,AssetAccountNavigation,CogsaccountNavigation,Item,LineItem,Parent,PreferredVendorNavigation,TaxCodeNavigation";
+        public const string QueryableProperties="Id,ItemId,Name,FullName,Type,Barcode,Account,AccountId,Cogsaccount,CogsaccountId,AssetAccount,AssetAccountId,LineItemNumber,LineItemId,LineItemName,LineItemQuantity,LineItemUnitOfMeasure,ParentName,ParentId,Description,Price,AverageCost,IsActive,PurchaseCost,PurchaseDescription,PreferredVendor,PreferredVendorId,TaxCode,TaxCodeId,IsTaxIncluded,CustomFields,TimeModified,TimeCreated";
     }
 }

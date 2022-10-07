@@ -42,150 +42,157 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _ReferenceNumber;
-        public String? ReferenceNumber
+        private String _ReferenceNumber;
+        [Size(300)]
+        public String ReferenceNumber
         {
             get => _ReferenceNumber;
             set => SetPropertyValue(nameof(ReferenceNumber), ref _ReferenceNumber, value);
         }  
-        private Int32 _TxnNumber;
-        public Int32 TxnNumber
+        private Int32? _TxnNumber;
+        public Int32? TxnNumber
         {
             get => _TxnNumber;
             set => SetPropertyValue(nameof(TxnNumber), ref _TxnNumber, value);
         }  
-        private DateTime _Date;
-        public DateTime Date
+        private DateTime? _Date;
+        public DateTime? Date
         {
             get => _Date;
             set => SetPropertyValue(nameof(Date), ref _Date, value);
         }  
-        private Int32 _CreditLineCount;
-        public Int32 CreditLineCount
+        private Int32? _CreditLineCount;
+        public Int32? CreditLineCount
         {
             get => _CreditLineCount;
             set => SetPropertyValue(nameof(CreditLineCount), ref _CreditLineCount, value);
         }  
-        private Int32 _DebitLineCount;
-        public Int32 DebitLineCount
+        private Int32? _DebitLineCount;
+        public Int32? DebitLineCount
         {
             get => _DebitLineCount;
             set => SetPropertyValue(nameof(DebitLineCount), ref _DebitLineCount, value);
         }  
-        private String? _FirstCreditAccount;
-        public String? FirstCreditAccount
+        private String _FirstCreditAccount;
+        [Size(300)]
+        public String FirstCreditAccount
         {
             get => _FirstCreditAccount;
             set => SetPropertyValue(nameof(FirstCreditAccount), ref _FirstCreditAccount, value);
         }  
-        private Decimal _FirstCreditAmount;
-        public Decimal FirstCreditAmount
+        private Decimal? _FirstCreditAmount;
+        public Decimal? FirstCreditAmount
         {
             get => _FirstCreditAmount;
             set => SetPropertyValue(nameof(FirstCreditAmount), ref _FirstCreditAmount, value);
         }  
-        private String? _FirstCreditMemo;
-        public String? FirstCreditMemo
+        private String _FirstCreditMemo;
+        [Size(300)]
+        public String FirstCreditMemo
         {
             get => _FirstCreditMemo;
             set => SetPropertyValue(nameof(FirstCreditMemo), ref _FirstCreditMemo, value);
         }  
-        private String? _FirstCreditEntityName;
-        public String? FirstCreditEntityName
+        private String _FirstCreditEntityName;
+        [Size(300)]
+        public String FirstCreditEntityName
         {
             get => _FirstCreditEntityName;
             set => SetPropertyValue(nameof(FirstCreditEntityName), ref _FirstCreditEntityName, value);
         }  
-        private String? _FirstCreditEntityId;
-        public String? FirstCreditEntityId
+        private String _FirstCreditEntityId;
+        [Size(300)]
+        public String FirstCreditEntityId
         {
             get => _FirstCreditEntityId;
             set => SetPropertyValue(nameof(FirstCreditEntityId), ref _FirstCreditEntityId, value);
         }  
-        private String? _FirstDebitAccount;
-        public String? FirstDebitAccount
+        private String _FirstDebitAccount;
+        [Size(300)]
+        public String FirstDebitAccount
         {
             get => _FirstDebitAccount;
             set => SetPropertyValue(nameof(FirstDebitAccount), ref _FirstDebitAccount, value);
         }  
-        private Decimal _FirstDebitAmount;
-        public Decimal FirstDebitAmount
+        private Decimal? _FirstDebitAmount;
+        public Decimal? FirstDebitAmount
         {
             get => _FirstDebitAmount;
             set => SetPropertyValue(nameof(FirstDebitAmount), ref _FirstDebitAmount, value);
         }  
-        private String? _FirstDebitMemo;
-        public String? FirstDebitMemo
+        private String _FirstDebitMemo;
+        [Size(300)]
+        public String FirstDebitMemo
         {
             get => _FirstDebitMemo;
             set => SetPropertyValue(nameof(FirstDebitMemo), ref _FirstDebitMemo, value);
         }  
-        private String? _FirstDebitEntityName;
-        public String? FirstDebitEntityName
+        private String _FirstDebitEntityName;
+        [Size(300)]
+        public String FirstDebitEntityName
         {
             get => _FirstDebitEntityName;
             set => SetPropertyValue(nameof(FirstDebitEntityName), ref _FirstDebitEntityName, value);
         }  
-        private String? _FirstDebitEntityId;
-        public String? FirstDebitEntityId
+        private String _FirstDebitEntityId;
+        [Size(300)]
+        public String FirstDebitEntityId
         {
             get => _FirstDebitEntityId;
             set => SetPropertyValue(nameof(FirstDebitEntityId), ref _FirstDebitEntityId, value);
         }  
-        private String? _LineAggregate;
-        public String? LineAggregate
+        private String _LineAggregate;
+        [Size(300)]
+        public String LineAggregate
         {
             get => _LineAggregate;
             set => SetPropertyValue(nameof(LineAggregate), ref _LineAggregate, value);
         }  
-        private String? _CurrencyName;
-        public String? CurrencyName
+        private String _CurrencyName;
+        [Size(300)]
+        public String CurrencyName
         {
             get => _CurrencyName;
             set => SetPropertyValue(nameof(CurrencyName), ref _CurrencyName, value);
         }  
-        private String? _CurrencyId;
-        public String? CurrencyId
+        private String _CurrencyId;
+        [Size(300)]
+        public String CurrencyId
         {
             get => _CurrencyId;
             set => SetPropertyValue(nameof(CurrencyId), ref _CurrencyId, value);
         }  
-        private Single _ExchangeRate;
-        public Single ExchangeRate
+        private Single? _ExchangeRate;
+        public Single? ExchangeRate
         {
             get => _ExchangeRate;
             set => SetPropertyValue(nameof(ExchangeRate), ref _ExchangeRate, value);
         }  
-        private Boolean _IsHomeCurrencyAdjustment;
-        public Boolean IsHomeCurrencyAdjustment
+        private Boolean? _IsHomeCurrencyAdjustment;
+        public Boolean? IsHomeCurrencyAdjustment
         {
             get => _IsHomeCurrencyAdjustment;
             set => SetPropertyValue(nameof(IsHomeCurrencyAdjustment), ref _IsHomeCurrencyAdjustment, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _Currency;
-        public string Currency
-        {
-            get => _Currency;
-            set => SetPropertyValue(nameof(Currency), ref _Currency, value);
         }
-        public const string QueriableProperties="Id,ReferenceNumber,TxnNumber,Date,CreditLineCount,DebitLineCount,FirstCreditAccount,FirstCreditAmount,FirstCreditMemo,FirstCreditEntityName,FirstCreditEntityId,FirstDebitAccount,FirstDebitAmount,FirstDebitMemo,FirstDebitEntityName,FirstDebitEntityId,LineAggregate,CurrencyName,CurrencyId,ExchangeRate,IsHomeCurrencyAdjustment,EditSequence,TimeModified,TimeCreated,Currency";
+        public const string QueryableProperties="Id,ReferenceNumber,TxnNumber,Date,CreditLineCount,DebitLineCount,FirstCreditAccount,FirstCreditAmount,FirstCreditMemo,FirstCreditEntityName,FirstCreditEntityId,FirstDebitAccount,FirstDebitAmount,FirstDebitMemo,FirstDebitEntityName,FirstDebitEntityId,LineAggregate,CurrencyName,CurrencyId,ExchangeRate,IsHomeCurrencyAdjustment,EditSequence,TimeModified,TimeCreated";
     }
 }

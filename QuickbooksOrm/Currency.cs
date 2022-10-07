@@ -42,84 +42,91 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private String? _CurrencyCode;
-        public String? CurrencyCode
+        private String _CurrencyCode;
+        [Size(300)]
+        public String CurrencyCode
         {
             get => _CurrencyCode;
             set => SetPropertyValue(nameof(CurrencyCode), ref _CurrencyCode, value);
         }  
-        private String? _CurrencyFormatThousandSeparator;
-        public String? CurrencyFormatThousandSeparator
+        private String _CurrencyFormatThousandSeparator;
+        [Size(300)]
+        public String CurrencyFormatThousandSeparator
         {
             get => _CurrencyFormatThousandSeparator;
             set => SetPropertyValue(nameof(CurrencyFormatThousandSeparator), ref _CurrencyFormatThousandSeparator, value);
         }  
-        private String? _CurrencyFormatThousandSeparatorGrouping;
-        public String? CurrencyFormatThousandSeparatorGrouping
+        private String _CurrencyFormatThousandSeparatorGrouping;
+        [Size(300)]
+        public String CurrencyFormatThousandSeparatorGrouping
         {
             get => _CurrencyFormatThousandSeparatorGrouping;
             set => SetPropertyValue(nameof(CurrencyFormatThousandSeparatorGrouping), ref _CurrencyFormatThousandSeparatorGrouping, value);
         }  
-        private String? _CurrencyFormatDecimalPlaces;
-        public String? CurrencyFormatDecimalPlaces
+        private String _CurrencyFormatDecimalPlaces;
+        [Size(300)]
+        public String CurrencyFormatDecimalPlaces
         {
             get => _CurrencyFormatDecimalPlaces;
             set => SetPropertyValue(nameof(CurrencyFormatDecimalPlaces), ref _CurrencyFormatDecimalPlaces, value);
         }  
-        private String? _CurrencyFormatDecimalSeparator;
-        public String? CurrencyFormatDecimalSeparator
+        private String _CurrencyFormatDecimalSeparator;
+        [Size(300)]
+        public String CurrencyFormatDecimalSeparator
         {
             get => _CurrencyFormatDecimalSeparator;
             set => SetPropertyValue(nameof(CurrencyFormatDecimalSeparator), ref _CurrencyFormatDecimalSeparator, value);
         }  
-        private Boolean _IsUserDefinedCurrency;
-        public Boolean IsUserDefinedCurrency
+        private Boolean? _IsUserDefinedCurrency;
+        public Boolean? IsUserDefinedCurrency
         {
             get => _IsUserDefinedCurrency;
             set => SetPropertyValue(nameof(IsUserDefinedCurrency), ref _IsUserDefinedCurrency, value);
         }  
-        private Single _ExchangeRate;
-        public Single ExchangeRate
+        private Single? _ExchangeRate;
+        public Single? ExchangeRate
         {
             get => _ExchangeRate;
             set => SetPropertyValue(nameof(ExchangeRate), ref _ExchangeRate, value);
         }  
-        private DateTime _AsOfDate;
-        public DateTime AsOfDate
+        private DateTime? _AsOfDate;
+        public DateTime? AsOfDate
         {
             get => _AsOfDate;
             set => SetPropertyValue(nameof(AsOfDate), ref _AsOfDate, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }
-        public const string QueriableProperties="Id,Name,IsActive,CurrencyCode,CurrencyFormatThousandSeparator,CurrencyFormatThousandSeparatorGrouping,CurrencyFormatDecimalPlaces,CurrencyFormatDecimalSeparator,IsUserDefinedCurrency,ExchangeRate,AsOfDate,EditSequence,TimeCreated,TimeModified";
+        public const string QueryableProperties="Id,Name,IsActive,CurrencyCode,CurrencyFormatThousandSeparator,CurrencyFormatThousandSeparatorGrouping,CurrencyFormatDecimalPlaces,CurrencyFormatDecimalSeparator,IsUserDefinedCurrency,ExchangeRate,AsOfDate,EditSequence,TimeCreated,TimeModified";
     }
 }

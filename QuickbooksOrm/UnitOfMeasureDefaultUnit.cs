@@ -42,78 +42,80 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _UnitOfMeasureSetId;
-        public String? UnitOfMeasureSetId
+        private String _UnitOfMeasureSetId;
+        [Size(300)]
+        public String UnitOfMeasureSetId
         {
             get => _UnitOfMeasureSetId;
             set => SetPropertyValue(nameof(UnitOfMeasureSetId), ref _UnitOfMeasureSetId, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private String? _UnitOfMeasureType;
-        public String? UnitOfMeasureType
+        private String _UnitOfMeasureType;
+        [Size(300)]
+        public String UnitOfMeasureType
         {
             get => _UnitOfMeasureType;
             set => SetPropertyValue(nameof(UnitOfMeasureType), ref _UnitOfMeasureType, value);
         }  
-        private String? _BaseUnitName;
-        public String? BaseUnitName
+        private String _BaseUnitName;
+        [Size(300)]
+        public String BaseUnitName
         {
             get => _BaseUnitName;
             set => SetPropertyValue(nameof(BaseUnitName), ref _BaseUnitName, value);
         }  
-        private String? _BaseUnitAbbreviation;
-        public String? BaseUnitAbbreviation
+        private String _BaseUnitAbbreviation;
+        [Size(300)]
+        public String BaseUnitAbbreviation
         {
             get => _BaseUnitAbbreviation;
             set => SetPropertyValue(nameof(BaseUnitAbbreviation), ref _BaseUnitAbbreviation, value);
         }  
-        private String? _DefaultUnitUnitUsedFor;
-        public String? DefaultUnitUnitUsedFor
+        private String _DefaultUnitUnitUsedFor;
+        [Size(300)]
+        public String DefaultUnitUnitUsedFor
         {
             get => _DefaultUnitUnitUsedFor;
             set => SetPropertyValue(nameof(DefaultUnitUnitUsedFor), ref _DefaultUnitUnitUsedFor, value);
         }  
-        private String? _DefaultUnitUnit;
-        public String? DefaultUnitUnit
+        private String _DefaultUnitUnit;
+        [Size(300)]
+        public String DefaultUnitUnit
         {
             get => _DefaultUnitUnit;
             set => SetPropertyValue(nameof(DefaultUnitUnit), ref _DefaultUnitUnit, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
-        }  
-        private string _UnitOfMeasureSet;
-        public string UnitOfMeasureSet
-        {
-            get => _UnitOfMeasureSet;
-            set => SetPropertyValue(nameof(UnitOfMeasureSet), ref _UnitOfMeasureSet, value);
         }
-        public const string QueriableProperties="Id,UnitOfMeasureSetId,Name,IsActive,UnitOfMeasureType,BaseUnitName,BaseUnitAbbreviation,DefaultUnitUnitUsedFor,DefaultUnitUnit,EditSequence,TimeCreated,TimeModified,UnitOfMeasureSet";
+        public const string QueryableProperties="Id,UnitOfMeasureSetId,Name,IsActive,UnitOfMeasureType,BaseUnitName,BaseUnitAbbreviation,DefaultUnitUnitUsedFor,DefaultUnitUnit,EditSequence,TimeCreated,TimeModified";
     }
 }

@@ -35,72 +35,80 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
          
-        private String? _Label;
-        public String? Label
+        private String _Label;
+        [Size(300)]
+        public String Label
         {
             get => _Label;
             set => SetPropertyValue(nameof(Label), ref _Label, value);
         }  
-        private String? _Type;
-        public String? Type
+        private String _Type;
+        [Size(300)]
+        public String Type
         {
             get => _Type;
             set => SetPropertyValue(nameof(Type), ref _Type, value);
         }  
-        private DateTime _Date;
-        public DateTime Date
+        private DateTime? _Date;
+        public DateTime? Date
         {
             get => _Date;
             set => SetPropertyValue(nameof(Date), ref _Date, value);
         }  
-        private String? _Num;
-        public String? Num
+        private String _Num;
+        [Size(300)]
+        public String Num
         {
             get => _Num;
             set => SetPropertyValue(nameof(Num), ref _Num, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private String? _Memo;
-        public String? Memo
+        private String _Memo;
+        [Size(300)]
+        public String Memo
         {
             get => _Memo;
             set => SetPropertyValue(nameof(Memo), ref _Memo, value);
         }  
-        private String? _Class;
-        public String? Class
+        private String _Class;
+        [Size(300)]
+        public String Class
         {
             get => _Class;
             set => SetPropertyValue(nameof(Class), ref _Class, value);
         }  
-        private String? _Clr;
-        public String? Clr
+        private String _Clr;
+        [Size(300)]
+        public String Clr
         {
             get => _Clr;
             set => SetPropertyValue(nameof(Clr), ref _Clr, value);
         }  
-        private String? _Split;
-        public String? Split
+        private String _Split;
+        [Size(300)]
+        public String Split
         {
             get => _Split;
             set => SetPropertyValue(nameof(Split), ref _Split, value);
         }  
-        private Decimal _Amount;
-        public Decimal Amount
+        private Decimal? _Amount;
+        public Decimal? Amount
         {
             get => _Amount;
             set => SetPropertyValue(nameof(Amount), ref _Amount, value);
         }  
-        private Single _Balance;
-        public Single Balance
+        private Single? _Balance;
+        public Single? Balance
         {
             get => _Balance;
             set => SetPropertyValue(nameof(Balance), ref _Balance, value);
         }
-        public const string QueriableProperties="Label,Type,Date,Num,Name,Memo,Class,Clr,Split,Amount,Balance";
+        public const string QueryableProperties="Label,Type,Date,Num,Name,Memo,Class,Clr,Split,Amount,Balance";
     }
 }

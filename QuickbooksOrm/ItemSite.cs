@@ -42,138 +42,129 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _ItemInventoryAssemblyRefListId;
-        public String? ItemInventoryAssemblyRefListId
+        private String _ItemInventoryAssemblyRefListId;
+        [Size(300)]
+        public String ItemInventoryAssemblyRefListId
         {
             get => _ItemInventoryAssemblyRefListId;
             set => SetPropertyValue(nameof(ItemInventoryAssemblyRefListId), ref _ItemInventoryAssemblyRefListId, value);
         }  
-        private String? _ItemInventoryAssemblyRefFullName;
-        public String? ItemInventoryAssemblyRefFullName
+        private String _ItemInventoryAssemblyRefFullName;
+        [Size(300)]
+        public String ItemInventoryAssemblyRefFullName
         {
             get => _ItemInventoryAssemblyRefFullName;
             set => SetPropertyValue(nameof(ItemInventoryAssemblyRefFullName), ref _ItemInventoryAssemblyRefFullName, value);
         }  
-        private String? _ItemInventoryRefListId;
-        public String? ItemInventoryRefListId
+        private String _ItemInventoryRefListId;
+        [Size(300)]
+        public String ItemInventoryRefListId
         {
             get => _ItemInventoryRefListId;
             set => SetPropertyValue(nameof(ItemInventoryRefListId), ref _ItemInventoryRefListId, value);
         }  
-        private String? _ItemInventoryRefFullName;
-        public String? ItemInventoryRefFullName
+        private String _ItemInventoryRefFullName;
+        [Size(300)]
+        public String ItemInventoryRefFullName
         {
             get => _ItemInventoryRefFullName;
             set => SetPropertyValue(nameof(ItemInventoryRefFullName), ref _ItemInventoryRefFullName, value);
         }  
-        private String? _InventorySiteRefListId;
-        public String? InventorySiteRefListId
+        private String _InventorySiteRefListId;
+        [Size(300)]
+        public String InventorySiteRefListId
         {
             get => _InventorySiteRefListId;
             set => SetPropertyValue(nameof(InventorySiteRefListId), ref _InventorySiteRefListId, value);
         }  
-        private String? _InventorySiteRefFullName;
-        public String? InventorySiteRefFullName
+        private String _InventorySiteRefFullName;
+        [Size(300)]
+        public String InventorySiteRefFullName
         {
             get => _InventorySiteRefFullName;
             set => SetPropertyValue(nameof(InventorySiteRefFullName), ref _InventorySiteRefFullName, value);
         }  
-        private String? _InventorySiteLocationRefListId;
-        public String? InventorySiteLocationRefListId
+        private String _InventorySiteLocationRefListId;
+        [Size(300)]
+        public String InventorySiteLocationRefListId
         {
             get => _InventorySiteLocationRefListId;
             set => SetPropertyValue(nameof(InventorySiteLocationRefListId), ref _InventorySiteLocationRefListId, value);
         }  
-        private String? _InventorySiteLocationRefFullName;
-        public String? InventorySiteLocationRefFullName
+        private String _InventorySiteLocationRefFullName;
+        [Size(300)]
+        public String InventorySiteLocationRefFullName
         {
             get => _InventorySiteLocationRefFullName;
             set => SetPropertyValue(nameof(InventorySiteLocationRefFullName), ref _InventorySiteLocationRefFullName, value);
         }  
-        private Single _ReorderLevel;
-        public Single ReorderLevel
+        private Single? _ReorderLevel;
+        public Single? ReorderLevel
         {
             get => _ReorderLevel;
             set => SetPropertyValue(nameof(ReorderLevel), ref _ReorderLevel, value);
         }  
-        private Single _QuantityOnHand;
-        public Single QuantityOnHand
+        private Single? _QuantityOnHand;
+        public Single? QuantityOnHand
         {
             get => _QuantityOnHand;
             set => SetPropertyValue(nameof(QuantityOnHand), ref _QuantityOnHand, value);
         }  
-        private Single _QuantityOnPurchaseOrders;
-        public Single QuantityOnPurchaseOrders
+        private Single? _QuantityOnPurchaseOrders;
+        public Single? QuantityOnPurchaseOrders
         {
             get => _QuantityOnPurchaseOrders;
             set => SetPropertyValue(nameof(QuantityOnPurchaseOrders), ref _QuantityOnPurchaseOrders, value);
         }  
-        private Single _QuantityOnSalesOrders;
-        public Single QuantityOnSalesOrders
+        private Single? _QuantityOnSalesOrders;
+        public Single? QuantityOnSalesOrders
         {
             get => _QuantityOnSalesOrders;
             set => SetPropertyValue(nameof(QuantityOnSalesOrders), ref _QuantityOnSalesOrders, value);
         }  
-        private Single _QuantityToBeBuiltByPendingBuildTxns;
-        public Single QuantityToBeBuiltByPendingBuildTxns
+        private Single? _QuantityToBeBuiltByPendingBuildTxns;
+        public Single? QuantityToBeBuiltByPendingBuildTxns
         {
             get => _QuantityToBeBuiltByPendingBuildTxns;
             set => SetPropertyValue(nameof(QuantityToBeBuiltByPendingBuildTxns), ref _QuantityToBeBuiltByPendingBuildTxns, value);
         }  
-        private Single _QuantityRequiredByPendingBuildTxns;
-        public Single QuantityRequiredByPendingBuildTxns
+        private Single? _QuantityRequiredByPendingBuildTxns;
+        public Single? QuantityRequiredByPendingBuildTxns
         {
             get => _QuantityRequiredByPendingBuildTxns;
             set => SetPropertyValue(nameof(QuantityRequiredByPendingBuildTxns), ref _QuantityRequiredByPendingBuildTxns, value);
         }  
-        private Single _QuantityOnPendingTransfers;
-        public Single QuantityOnPendingTransfers
+        private Single? _QuantityOnPendingTransfers;
+        public Single? QuantityOnPendingTransfers
         {
             get => _QuantityOnPendingTransfers;
             set => SetPropertyValue(nameof(QuantityOnPendingTransfers), ref _QuantityOnPendingTransfers, value);
         }  
-        private Single _AssemblyBuildPoint;
-        public Single AssemblyBuildPoint
+        private Single? _AssemblyBuildPoint;
+        public Single? AssemblyBuildPoint
         {
             get => _AssemblyBuildPoint;
             set => SetPropertyValue(nameof(AssemblyBuildPoint), ref _AssemblyBuildPoint, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
-        }  
-        private string _InventorySiteRefList;
-        public string InventorySiteRefList
-        {
-            get => _InventorySiteRefList;
-            set => SetPropertyValue(nameof(InventorySiteRefList), ref _InventorySiteRefList, value);
-        }  
-        private string _ItemInventoryAssemblyRefList;
-        public string ItemInventoryAssemblyRefList
-        {
-            get => _ItemInventoryAssemblyRefList;
-            set => SetPropertyValue(nameof(ItemInventoryAssemblyRefList), ref _ItemInventoryAssemblyRefList, value);
-        }  
-        private string _ItemInventoryRefList;
-        public string ItemInventoryRefList
-        {
-            get => _ItemInventoryRefList;
-            set => SetPropertyValue(nameof(ItemInventoryRefList), ref _ItemInventoryRefList, value);
         }
-        public const string QueriableProperties="Id,ItemInventoryAssemblyRefListId,ItemInventoryAssemblyRefFullName,ItemInventoryRefListId,ItemInventoryRefFullName,InventorySiteRefListId,InventorySiteRefFullName,InventorySiteLocationRefListId,InventorySiteLocationRefFullName,ReorderLevel,QuantityOnHand,QuantityOnPurchaseOrders,QuantityOnSalesOrders,QuantityToBeBuiltByPendingBuildTxns,QuantityRequiredByPendingBuildTxns,QuantityOnPendingTransfers,AssemblyBuildPoint,EditSequence,TimeCreated,TimeModified,InventorySiteRefList,ItemInventoryAssemblyRefList,ItemInventoryRefList";
+        public const string QueryableProperties="Id,ItemInventoryAssemblyRefListId,ItemInventoryAssemblyRefFullName,ItemInventoryRefListId,ItemInventoryRefFullName,InventorySiteRefListId,InventorySiteRefFullName,InventorySiteLocationRefListId,InventorySiteLocationRefFullName,ReorderLevel,QuantityOnHand,QuantityOnPurchaseOrders,QuantityOnSalesOrders,QuantityToBeBuiltByPendingBuildTxns,QuantityRequiredByPendingBuildTxns,QuantityOnPendingTransfers,AssemblyBuildPoint,EditSequence,TimeCreated,TimeModified";
     }
 }

@@ -42,72 +42,73 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private String? _PayPeriod;
-        public String? PayPeriod
+        private String _PayPeriod;
+        [Size(300)]
+        public String PayPeriod
         {
             get => _PayPeriod;
             set => SetPropertyValue(nameof(PayPeriod), ref _PayPeriod, value);
         }  
-        private String? _EmployeeId;
-        public String? EmployeeId
+        private String _EmployeeId;
+        [Size(300)]
+        public String EmployeeId
         {
             get => _EmployeeId;
             set => SetPropertyValue(nameof(EmployeeId), ref _EmployeeId, value);
         }  
-        private String? _EarningsId;
-        public String? EarningsId
+        private String _EarningsId;
+        [Size(300)]
+        public String EarningsId
         {
             get => _EarningsId;
             set => SetPropertyValue(nameof(EarningsId), ref _EarningsId, value);
         }  
-        private String? _EarningsWageName;
-        public String? EarningsWageName
+        private String _EarningsWageName;
+        [Size(300)]
+        public String EarningsWageName
         {
             get => _EarningsWageName;
             set => SetPropertyValue(nameof(EarningsWageName), ref _EarningsWageName, value);
         }  
-        private String? _EarningsWageId;
-        public String? EarningsWageId
+        private String _EarningsWageId;
+        [Size(300)]
+        public String EarningsWageId
         {
             get => _EarningsWageId;
             set => SetPropertyValue(nameof(EarningsWageId), ref _EarningsWageId, value);
         }  
-        private Single _EarningsRate;
-        public Single EarningsRate
+        private Single? _EarningsRate;
+        public Single? EarningsRate
         {
             get => _EarningsRate;
             set => SetPropertyValue(nameof(EarningsRate), ref _EarningsRate, value);
         }  
-        private String? _EarningsRatePercent;
-        public String? EarningsRatePercent
+        private String _EarningsRatePercent;
+        [Size(300)]
+        public String EarningsRatePercent
         {
             get => _EarningsRatePercent;
             set => SetPropertyValue(nameof(EarningsRatePercent), ref _EarningsRatePercent, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _Employee;
-        public string Employee
-        {
-            get => _Employee;
-            set => SetPropertyValue(nameof(Employee), ref _Employee, value);
         }
-        public const string QueriableProperties="Id,Name,PayPeriod,EmployeeId,EarningsId,EarningsWageName,EarningsWageId,EarningsRate,EarningsRatePercent,TimeModified,TimeCreated,Employee";
+        public const string QueryableProperties="Id,Name,PayPeriod,EmployeeId,EarningsId,EarningsWageName,EarningsWageId,EarningsRate,EarningsRatePercent,TimeModified,TimeCreated";
     }
 }

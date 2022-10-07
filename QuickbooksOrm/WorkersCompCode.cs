@@ -42,72 +42,76 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _Name;
-        public String? Name
+        private String _Name;
+        [Size(300)]
+        public String Name
         {
             get => _Name;
             set => SetPropertyValue(nameof(Name), ref _Name, value);
         }  
-        private String? _Desc;
-        public String? Desc
+        private String _Desc;
+        [Size(300)]
+        public String Desc
         {
             get => _Desc;
             set => SetPropertyValue(nameof(Desc), ref _Desc, value);
         }  
-        private Single _CurrentRate;
-        public Single CurrentRate
+        private Single? _CurrentRate;
+        public Single? CurrentRate
         {
             get => _CurrentRate;
             set => SetPropertyValue(nameof(CurrentRate), ref _CurrentRate, value);
         }  
-        private DateTime _CurrentEffectiveDate;
-        public DateTime CurrentEffectiveDate
+        private DateTime? _CurrentEffectiveDate;
+        public DateTime? CurrentEffectiveDate
         {
             get => _CurrentEffectiveDate;
             set => SetPropertyValue(nameof(CurrentEffectiveDate), ref _CurrentEffectiveDate, value);
         }  
-        private Single _NextRate;
-        public Single NextRate
+        private Single? _NextRate;
+        public Single? NextRate
         {
             get => _NextRate;
             set => SetPropertyValue(nameof(NextRate), ref _NextRate, value);
         }  
-        private DateTime _NextEffectiveDate;
-        public DateTime NextEffectiveDate
+        private DateTime? _NextEffectiveDate;
+        public DateTime? NextEffectiveDate
         {
             get => _NextEffectiveDate;
             set => SetPropertyValue(nameof(NextEffectiveDate), ref _NextEffectiveDate, value);
         }  
-        private String? _RateHistory;
-        public String? RateHistory
+        private String _RateHistory;
+        [Size(300)]
+        public String RateHistory
         {
             get => _RateHistory;
             set => SetPropertyValue(nameof(RateHistory), ref _RateHistory, value);
         }  
-        private Boolean _IsActive;
-        public Boolean IsActive
+        private Boolean? _IsActive;
+        public Boolean? IsActive
         {
             get => _IsActive;
             set => SetPropertyValue(nameof(IsActive), ref _IsActive, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
-        public const string QueriableProperties="Id,Name,Desc,CurrentRate,CurrentEffectiveDate,NextRate,NextEffectiveDate,RateHistory,IsActive,TimeCreated,TimeModified,EditSequence";
+        public const string QueryableProperties="Id,Name,Desc,CurrentRate,CurrentEffectiveDate,NextRate,NextEffectiveDate,RateHistory,IsActive,TimeCreated,TimeModified,EditSequence";
     }
 }

@@ -42,144 +42,143 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private Int32 _TxnNumber;
-        public Int32 TxnNumber
+        private Int32? _TxnNumber;
+        public Int32? TxnNumber
         {
             get => _TxnNumber;
             set => SetPropertyValue(nameof(TxnNumber), ref _TxnNumber, value);
         }  
-        private String? _ItemInventoryAssemblyRefListId;
-        public String? ItemInventoryAssemblyRefListId
+        private String _ItemInventoryAssemblyRefListId;
+        [Size(300)]
+        public String ItemInventoryAssemblyRefListId
         {
             get => _ItemInventoryAssemblyRefListId;
             set => SetPropertyValue(nameof(ItemInventoryAssemblyRefListId), ref _ItemInventoryAssemblyRefListId, value);
         }  
-        private String? _ItemInventoryAssemblyRefFullName;
-        public String? ItemInventoryAssemblyRefFullName
+        private String _ItemInventoryAssemblyRefFullName;
+        [Size(300)]
+        public String ItemInventoryAssemblyRefFullName
         {
             get => _ItemInventoryAssemblyRefFullName;
             set => SetPropertyValue(nameof(ItemInventoryAssemblyRefFullName), ref _ItemInventoryAssemblyRefFullName, value);
         }  
-        private String? _InventorySiteRefListId;
-        public String? InventorySiteRefListId
+        private String _InventorySiteRefListId;
+        [Size(300)]
+        public String InventorySiteRefListId
         {
             get => _InventorySiteRefListId;
             set => SetPropertyValue(nameof(InventorySiteRefListId), ref _InventorySiteRefListId, value);
         }  
-        private String? _InventorySiteRefFullName;
-        public String? InventorySiteRefFullName
+        private String _InventorySiteRefFullName;
+        [Size(300)]
+        public String InventorySiteRefFullName
         {
             get => _InventorySiteRefFullName;
             set => SetPropertyValue(nameof(InventorySiteRefFullName), ref _InventorySiteRefFullName, value);
         }  
-        private String? _SerialNumber;
-        public String? SerialNumber
+        private String _SerialNumber;
+        [Size(300)]
+        public String SerialNumber
         {
             get => _SerialNumber;
             set => SetPropertyValue(nameof(SerialNumber), ref _SerialNumber, value);
         }  
-        private String? _LotNumber;
-        public String? LotNumber
+        private String _LotNumber;
+        [Size(300)]
+        public String LotNumber
         {
             get => _LotNumber;
             set => SetPropertyValue(nameof(LotNumber), ref _LotNumber, value);
         }  
-        private DateTime _TxnDate;
-        public DateTime TxnDate
+        private DateTime? _TxnDate;
+        public DateTime? TxnDate
         {
             get => _TxnDate;
             set => SetPropertyValue(nameof(TxnDate), ref _TxnDate, value);
         }  
-        private String? _RefNumber;
-        public String? RefNumber
+        private String _RefNumber;
+        [Size(300)]
+        public String RefNumber
         {
             get => _RefNumber;
             set => SetPropertyValue(nameof(RefNumber), ref _RefNumber, value);
         }  
-        private String? _Memo;
-        public String? Memo
+        private String _Memo;
+        [Size(300)]
+        public String Memo
         {
             get => _Memo;
             set => SetPropertyValue(nameof(Memo), ref _Memo, value);
         }  
-        private Boolean _IsPending;
-        public Boolean IsPending
+        private Boolean? _IsPending;
+        public Boolean? IsPending
         {
             get => _IsPending;
             set => SetPropertyValue(nameof(IsPending), ref _IsPending, value);
         }  
-        private Single _QuantityToBuild;
-        public Single QuantityToBuild
+        private Single? _QuantityToBuild;
+        public Single? QuantityToBuild
         {
             get => _QuantityToBuild;
             set => SetPropertyValue(nameof(QuantityToBuild), ref _QuantityToBuild, value);
         }  
-        private Single _QuantityCanBuild;
-        public Single QuantityCanBuild
+        private Single? _QuantityCanBuild;
+        public Single? QuantityCanBuild
         {
             get => _QuantityCanBuild;
             set => SetPropertyValue(nameof(QuantityCanBuild), ref _QuantityCanBuild, value);
         }  
-        private Single _QuantityOnHand;
-        public Single QuantityOnHand
+        private Single? _QuantityOnHand;
+        public Single? QuantityOnHand
         {
             get => _QuantityOnHand;
             set => SetPropertyValue(nameof(QuantityOnHand), ref _QuantityOnHand, value);
         }  
-        private Single _QuantityOnSalesOrder;
-        public Single QuantityOnSalesOrder
+        private Single? _QuantityOnSalesOrder;
+        public Single? QuantityOnSalesOrder
         {
             get => _QuantityOnSalesOrder;
             set => SetPropertyValue(nameof(QuantityOnSalesOrder), ref _QuantityOnSalesOrder, value);
         }  
-        private Boolean _MarkPendingIfRequired;
-        public Boolean MarkPendingIfRequired
+        private Boolean? _MarkPendingIfRequired;
+        public Boolean? MarkPendingIfRequired
         {
             get => _MarkPendingIfRequired;
             set => SetPropertyValue(nameof(MarkPendingIfRequired), ref _MarkPendingIfRequired, value);
         }  
-        private String? _ExternalGuid;
-        public String? ExternalGuid
+        private String _ExternalGuid;
+        [Size(300)]
+        public String ExternalGuid
         {
             get => _ExternalGuid;
             set => SetPropertyValue(nameof(ExternalGuid), ref _ExternalGuid, value);
         }  
-        private String? _BuildAssemblyLineAggregate;
-        public String? BuildAssemblyLineAggregate
+        private String _BuildAssemblyLineAggregate;
+        [Size(300)]
+        public String BuildAssemblyLineAggregate
         {
             get => _BuildAssemblyLineAggregate;
             set => SetPropertyValue(nameof(BuildAssemblyLineAggregate), ref _BuildAssemblyLineAggregate, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
-        }  
-        private string _InventorySiteRefList;
-        public string InventorySiteRefList
-        {
-            get => _InventorySiteRefList;
-            set => SetPropertyValue(nameof(InventorySiteRefList), ref _InventorySiteRefList, value);
-        }  
-        private string _ItemInventoryAssemblyRefList;
-        public string ItemInventoryAssemblyRefList
-        {
-            get => _ItemInventoryAssemblyRefList;
-            set => SetPropertyValue(nameof(ItemInventoryAssemblyRefList), ref _ItemInventoryAssemblyRefList, value);
         }
-        public const string QueriableProperties="Id,TxnNumber,ItemInventoryAssemblyRefListId,ItemInventoryAssemblyRefFullName,InventorySiteRefListId,InventorySiteRefFullName,SerialNumber,LotNumber,TxnDate,RefNumber,Memo,IsPending,QuantityToBuild,QuantityCanBuild,QuantityOnHand,QuantityOnSalesOrder,MarkPendingIfRequired,ExternalGuid,BuildAssemblyLineAggregate,TimeCreated,TimeModified,EditSequence,InventorySiteRefList,ItemInventoryAssemblyRefList";
+        public const string QueryableProperties="Id,TxnNumber,ItemInventoryAssemblyRefListId,ItemInventoryAssemblyRefFullName,InventorySiteRefListId,InventorySiteRefFullName,SerialNumber,LotNumber,TxnDate,RefNumber,Memo,IsPending,QuantityToBuild,QuantityCanBuild,QuantityOnHand,QuantityOnSalesOrder,MarkPendingIfRequired,ExternalGuid,BuildAssemblyLineAggregate,TimeCreated,TimeModified,EditSequence";
     }
 }

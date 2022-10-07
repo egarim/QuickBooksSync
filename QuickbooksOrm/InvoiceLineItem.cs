@@ -42,726 +42,701 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _InvoiceId;
-        public String? InvoiceId
+        private String _InvoiceId;
+        [Size(300)]
+        public String InvoiceId
         {
             get => _InvoiceId;
             set => SetPropertyValue(nameof(InvoiceId), ref _InvoiceId, value);
         }  
-        private String? _ReferenceNumber;
-        public String? ReferenceNumber
+        private String _ReferenceNumber;
+        [Size(300)]
+        public String ReferenceNumber
         {
             get => _ReferenceNumber;
             set => SetPropertyValue(nameof(ReferenceNumber), ref _ReferenceNumber, value);
         }  
-        private Int32 _TxnNumber;
-        public Int32 TxnNumber
+        private Int32? _TxnNumber;
+        public Int32? TxnNumber
         {
             get => _TxnNumber;
             set => SetPropertyValue(nameof(TxnNumber), ref _TxnNumber, value);
         }  
-        private String? _CustomerName;
-        public String? CustomerName
+        private String _CustomerName;
+        [Size(300)]
+        public String CustomerName
         {
             get => _CustomerName;
             set => SetPropertyValue(nameof(CustomerName), ref _CustomerName, value);
         }  
-        private String? _CustomerId;
-        public String? CustomerId
+        private String _CustomerId;
+        [Size(300)]
+        public String CustomerId
         {
             get => _CustomerId;
             set => SetPropertyValue(nameof(CustomerId), ref _CustomerId, value);
         }  
-        private String? _Account;
-        public String? Account
+        private String _Account;
+        [Size(300)]
+        public String Account
         {
             get => _Account;
             set => SetPropertyValue(nameof(Account), ref _Account, value);
         }  
-        private String? _AccountId;
-        public String? AccountId
+        private String _AccountId;
+        [Size(300)]
+        public String AccountId
         {
             get => _AccountId;
             set => SetPropertyValue(nameof(AccountId), ref _AccountId, value);
         }  
-        private DateTime _Date;
-        public DateTime Date
+        private DateTime? _Date;
+        public DateTime? Date
         {
             get => _Date;
             set => SetPropertyValue(nameof(Date), ref _Date, value);
         }  
-        private String? _ShipMethod;
-        public String? ShipMethod
+        private String _ShipMethod;
+        [Size(300)]
+        public String ShipMethod
         {
             get => _ShipMethod;
             set => SetPropertyValue(nameof(ShipMethod), ref _ShipMethod, value);
         }  
-        private String? _ShipMethodId;
-        public String? ShipMethodId
+        private String _ShipMethodId;
+        [Size(300)]
+        public String ShipMethodId
         {
             get => _ShipMethodId;
             set => SetPropertyValue(nameof(ShipMethodId), ref _ShipMethodId, value);
         }  
-        private DateTime _ShipDate;
-        public DateTime ShipDate
+        private DateTime? _ShipDate;
+        public DateTime? ShipDate
         {
             get => _ShipDate;
             set => SetPropertyValue(nameof(ShipDate), ref _ShipDate, value);
         }  
-        private String? _Memo;
-        public String? Memo
+        private String _Memo;
+        [Size(300)]
+        public String Memo
         {
             get => _Memo;
             set => SetPropertyValue(nameof(Memo), ref _Memo, value);
         }  
-        private String? _Class;
-        public String? Class
+        private String _Class;
+        [Size(300)]
+        public String Class
         {
             get => _Class;
             set => SetPropertyValue(nameof(Class), ref _Class, value);
         }  
-        private String? _ClassId;
-        public String? ClassId
+        private String _ClassId;
+        [Size(300)]
+        public String ClassId
         {
             get => _ClassId;
             set => SetPropertyValue(nameof(ClassId), ref _ClassId, value);
         }  
-        private Decimal _Amount;
-        public Decimal Amount
+        private Decimal? _Amount;
+        public Decimal? Amount
         {
             get => _Amount;
             set => SetPropertyValue(nameof(Amount), ref _Amount, value);
         }  
-        private String? _Message;
-        public String? Message
+        private String _Message;
+        [Size(300)]
+        public String Message
         {
             get => _Message;
             set => SetPropertyValue(nameof(Message), ref _Message, value);
         }  
-        private String? _MessageId;
-        public String? MessageId
+        private String _MessageId;
+        [Size(300)]
+        public String MessageId
         {
             get => _MessageId;
             set => SetPropertyValue(nameof(MessageId), ref _MessageId, value);
         }  
-        private String? _SalesRep;
-        public String? SalesRep
+        private String _SalesRep;
+        [Size(300)]
+        public String SalesRep
         {
             get => _SalesRep;
             set => SetPropertyValue(nameof(SalesRep), ref _SalesRep, value);
         }  
-        private String? _SalesRepId;
-        public String? SalesRepId
+        private String _SalesRepId;
+        [Size(300)]
+        public String SalesRepId
         {
             get => _SalesRepId;
             set => SetPropertyValue(nameof(SalesRepId), ref _SalesRepId, value);
         }  
-        private String? _Fob;
-        public String? Fob
+        private String _Fob;
+        [Size(300)]
+        public String Fob
         {
             get => _Fob;
             set => SetPropertyValue(nameof(Fob), ref _Fob, value);
         }  
-        private String? _BillingAddress;
-        public String? BillingAddress
+        private String _BillingAddress;
+        [Size(300)]
+        public String BillingAddress
         {
             get => _BillingAddress;
             set => SetPropertyValue(nameof(BillingAddress), ref _BillingAddress, value);
         }  
-        private String? _BillingLine1;
-        public String? BillingLine1
+        private String _BillingLine1;
+        [Size(300)]
+        public String BillingLine1
         {
             get => _BillingLine1;
             set => SetPropertyValue(nameof(BillingLine1), ref _BillingLine1, value);
         }  
-        private String? _BillingLine2;
-        public String? BillingLine2
+        private String _BillingLine2;
+        [Size(300)]
+        public String BillingLine2
         {
             get => _BillingLine2;
             set => SetPropertyValue(nameof(BillingLine2), ref _BillingLine2, value);
         }  
-        private String? _BillingLine3;
-        public String? BillingLine3
+        private String _BillingLine3;
+        [Size(300)]
+        public String BillingLine3
         {
             get => _BillingLine3;
             set => SetPropertyValue(nameof(BillingLine3), ref _BillingLine3, value);
         }  
-        private String? _BillingLine4;
-        public String? BillingLine4
+        private String _BillingLine4;
+        [Size(300)]
+        public String BillingLine4
         {
             get => _BillingLine4;
             set => SetPropertyValue(nameof(BillingLine4), ref _BillingLine4, value);
         }  
-        private String? _BillingLine5;
-        public String? BillingLine5
+        private String _BillingLine5;
+        [Size(300)]
+        public String BillingLine5
         {
             get => _BillingLine5;
             set => SetPropertyValue(nameof(BillingLine5), ref _BillingLine5, value);
         }  
-        private String? _BillingCity;
-        public String? BillingCity
+        private String _BillingCity;
+        [Size(300)]
+        public String BillingCity
         {
             get => _BillingCity;
             set => SetPropertyValue(nameof(BillingCity), ref _BillingCity, value);
         }  
-        private String? _BillingState;
-        public String? BillingState
+        private String _BillingState;
+        [Size(300)]
+        public String BillingState
         {
             get => _BillingState;
             set => SetPropertyValue(nameof(BillingState), ref _BillingState, value);
         }  
-        private String? _BillingPostalCode;
-        public String? BillingPostalCode
+        private String _BillingPostalCode;
+        [Size(300)]
+        public String BillingPostalCode
         {
             get => _BillingPostalCode;
             set => SetPropertyValue(nameof(BillingPostalCode), ref _BillingPostalCode, value);
         }  
-        private String? _BillingCountry;
-        public String? BillingCountry
+        private String _BillingCountry;
+        [Size(300)]
+        public String BillingCountry
         {
             get => _BillingCountry;
             set => SetPropertyValue(nameof(BillingCountry), ref _BillingCountry, value);
         }  
-        private String? _BillingNote;
-        public String? BillingNote
+        private String _BillingNote;
+        [Size(300)]
+        public String BillingNote
         {
             get => _BillingNote;
             set => SetPropertyValue(nameof(BillingNote), ref _BillingNote, value);
         }  
-        private String? _ShippingAddress;
-        public String? ShippingAddress
+        private String _ShippingAddress;
+        [Size(300)]
+        public String ShippingAddress
         {
             get => _ShippingAddress;
             set => SetPropertyValue(nameof(ShippingAddress), ref _ShippingAddress, value);
         }  
-        private String? _ShippingLine1;
-        public String? ShippingLine1
+        private String _ShippingLine1;
+        [Size(300)]
+        public String ShippingLine1
         {
             get => _ShippingLine1;
             set => SetPropertyValue(nameof(ShippingLine1), ref _ShippingLine1, value);
         }  
-        private String? _ShippingLine2;
-        public String? ShippingLine2
+        private String _ShippingLine2;
+        [Size(300)]
+        public String ShippingLine2
         {
             get => _ShippingLine2;
             set => SetPropertyValue(nameof(ShippingLine2), ref _ShippingLine2, value);
         }  
-        private String? _ShippingLine3;
-        public String? ShippingLine3
+        private String _ShippingLine3;
+        [Size(300)]
+        public String ShippingLine3
         {
             get => _ShippingLine3;
             set => SetPropertyValue(nameof(ShippingLine3), ref _ShippingLine3, value);
         }  
-        private String? _ShippingLine4;
-        public String? ShippingLine4
+        private String _ShippingLine4;
+        [Size(300)]
+        public String ShippingLine4
         {
             get => _ShippingLine4;
             set => SetPropertyValue(nameof(ShippingLine4), ref _ShippingLine4, value);
         }  
-        private String? _ShippingLine5;
-        public String? ShippingLine5
+        private String _ShippingLine5;
+        [Size(300)]
+        public String ShippingLine5
         {
             get => _ShippingLine5;
             set => SetPropertyValue(nameof(ShippingLine5), ref _ShippingLine5, value);
         }  
-        private String? _ShippingCity;
-        public String? ShippingCity
+        private String _ShippingCity;
+        [Size(300)]
+        public String ShippingCity
         {
             get => _ShippingCity;
             set => SetPropertyValue(nameof(ShippingCity), ref _ShippingCity, value);
         }  
-        private String? _ShippingState;
-        public String? ShippingState
+        private String _ShippingState;
+        [Size(300)]
+        public String ShippingState
         {
             get => _ShippingState;
             set => SetPropertyValue(nameof(ShippingState), ref _ShippingState, value);
         }  
-        private String? _ShippingPostalCode;
-        public String? ShippingPostalCode
+        private String _ShippingPostalCode;
+        [Size(300)]
+        public String ShippingPostalCode
         {
             get => _ShippingPostalCode;
             set => SetPropertyValue(nameof(ShippingPostalCode), ref _ShippingPostalCode, value);
         }  
-        private String? _ShippingCountry;
-        public String? ShippingCountry
+        private String _ShippingCountry;
+        [Size(300)]
+        public String ShippingCountry
         {
             get => _ShippingCountry;
             set => SetPropertyValue(nameof(ShippingCountry), ref _ShippingCountry, value);
         }  
-        private String? _ShippingNote;
-        public String? ShippingNote
+        private String _ShippingNote;
+        [Size(300)]
+        public String ShippingNote
         {
             get => _ShippingNote;
             set => SetPropertyValue(nameof(ShippingNote), ref _ShippingNote, value);
         }  
-        private Decimal _Subtotal;
-        public Decimal Subtotal
+        private Decimal? _Subtotal;
+        public Decimal? Subtotal
         {
             get => _Subtotal;
             set => SetPropertyValue(nameof(Subtotal), ref _Subtotal, value);
         }  
-        private Single _Tax;
-        public Single Tax
+        private Single? _Tax;
+        public Single? Tax
         {
             get => _Tax;
             set => SetPropertyValue(nameof(Tax), ref _Tax, value);
         }  
-        private String? _TaxItem;
-        public String? TaxItem
+        private String _TaxItem;
+        [Size(300)]
+        public String TaxItem
         {
             get => _TaxItem;
             set => SetPropertyValue(nameof(TaxItem), ref _TaxItem, value);
         }  
-        private String? _TaxItemId;
-        public String? TaxItemId
+        private String _TaxItemId;
+        [Size(300)]
+        public String TaxItemId
         {
             get => _TaxItemId;
             set => SetPropertyValue(nameof(TaxItemId), ref _TaxItemId, value);
         }  
-        private Single _TaxPercent;
-        public Single TaxPercent
+        private Single? _TaxPercent;
+        public Single? TaxPercent
         {
             get => _TaxPercent;
             set => SetPropertyValue(nameof(TaxPercent), ref _TaxPercent, value);
         }  
-        private String? _Ponumber;
-        public String? Ponumber
+        private String _Ponumber;
+        [Size(300)]
+        public String Ponumber
         {
             get => _Ponumber;
             set => SetPropertyValue(nameof(Ponumber), ref _Ponumber, value);
         }  
-        private DateTime _DueDate;
-        public DateTime DueDate
+        private DateTime? _DueDate;
+        public DateTime? DueDate
         {
             get => _DueDate;
             set => SetPropertyValue(nameof(DueDate), ref _DueDate, value);
         }  
-        private String? _Terms;
-        public String? Terms
+        private String _Terms;
+        [Size(300)]
+        public String Terms
         {
             get => _Terms;
             set => SetPropertyValue(nameof(Terms), ref _Terms, value);
         }  
-        private String? _TermsId;
-        public String? TermsId
+        private String _TermsId;
+        [Size(300)]
+        public String TermsId
         {
             get => _TermsId;
             set => SetPropertyValue(nameof(TermsId), ref _TermsId, value);
         }  
-        private String? _CustomFields;
-        public String? CustomFields
+        private String _CustomFields;
+        [Size(300)]
+        public String CustomFields
         {
             get => _CustomFields;
             set => SetPropertyValue(nameof(CustomFields), ref _CustomFields, value);
         }  
-        private String? _ItemLineId;
-        public String? ItemLineId
+        private String _ItemLineId;
+        [Size(300)]
+        public String ItemLineId
         {
             get => _ItemLineId;
             set => SetPropertyValue(nameof(ItemLineId), ref _ItemLineId, value);
         }  
-        private String? _ItemLineNumber;
-        public String? ItemLineNumber
+        private String _ItemLineNumber;
+        [Size(300)]
+        public String ItemLineNumber
         {
             get => _ItemLineNumber;
             set => SetPropertyValue(nameof(ItemLineNumber), ref _ItemLineNumber, value);
         }  
-        private String? _ItemName;
-        public String? ItemName
+        private String _ItemName;
+        [Size(300)]
+        public String ItemName
         {
             get => _ItemName;
             set => SetPropertyValue(nameof(ItemName), ref _ItemName, value);
         }  
-        private String? _ItemId;
-        public String? ItemId
+        private String _ItemId;
+        [Size(300)]
+        public String ItemId
         {
             get => _ItemId;
             set => SetPropertyValue(nameof(ItemId), ref _ItemId, value);
         }  
-        private String? _ItemGroup;
-        public String? ItemGroup
+        private String _ItemGroup;
+        [Size(300)]
+        public String ItemGroup
         {
             get => _ItemGroup;
             set => SetPropertyValue(nameof(ItemGroup), ref _ItemGroup, value);
         }  
-        private String? _ItemGroupId;
-        public String? ItemGroupId
+        private String _ItemGroupId;
+        [Size(300)]
+        public String ItemGroupId
         {
             get => _ItemGroupId;
             set => SetPropertyValue(nameof(ItemGroupId), ref _ItemGroupId, value);
         }  
-        private String? _ItemDescription;
-        public String? ItemDescription
+        private String _ItemDescription;
+        [Size(300)]
+        public String ItemDescription
         {
             get => _ItemDescription;
             set => SetPropertyValue(nameof(ItemDescription), ref _ItemDescription, value);
         }  
-        private String? _ItemUnitOfMeasure;
-        public String? ItemUnitOfMeasure
+        private String _ItemUnitOfMeasure;
+        [Size(300)]
+        public String ItemUnitOfMeasure
         {
             get => _ItemUnitOfMeasure;
             set => SetPropertyValue(nameof(ItemUnitOfMeasure), ref _ItemUnitOfMeasure, value);
         }  
-        private Single _ItemQuantity;
-        public Single ItemQuantity
+        private Single? _ItemQuantity;
+        public Single? ItemQuantity
         {
             get => _ItemQuantity;
             set => SetPropertyValue(nameof(ItemQuantity), ref _ItemQuantity, value);
         }  
-        private Single _ItemRate;
-        public Single ItemRate
+        private Single? _ItemRate;
+        public Single? ItemRate
         {
             get => _ItemRate;
             set => SetPropertyValue(nameof(ItemRate), ref _ItemRate, value);
         }  
-        private Single _ItemRatePercent;
-        public Single ItemRatePercent
+        private Single? _ItemRatePercent;
+        public Single? ItemRatePercent
         {
             get => _ItemRatePercent;
             set => SetPropertyValue(nameof(ItemRatePercent), ref _ItemRatePercent, value);
         }  
-        private String? _ItemTaxCode;
-        public String? ItemTaxCode
+        private String _ItemTaxCode;
+        [Size(300)]
+        public String ItemTaxCode
         {
             get => _ItemTaxCode;
             set => SetPropertyValue(nameof(ItemTaxCode), ref _ItemTaxCode, value);
         }  
-        private String? _ItemTaxCodeId;
-        public String? ItemTaxCodeId
+        private String _ItemTaxCodeId;
+        [Size(300)]
+        public String ItemTaxCodeId
         {
             get => _ItemTaxCodeId;
             set => SetPropertyValue(nameof(ItemTaxCodeId), ref _ItemTaxCodeId, value);
         }  
-        private Decimal _ItemAmount;
-        public Decimal ItemAmount
+        private Decimal? _ItemAmount;
+        public Decimal? ItemAmount
         {
             get => _ItemAmount;
             set => SetPropertyValue(nameof(ItemAmount), ref _ItemAmount, value);
         }  
-        private String? _ItemClass;
-        public String? ItemClass
+        private String _ItemClass;
+        [Size(300)]
+        public String ItemClass
         {
             get => _ItemClass;
             set => SetPropertyValue(nameof(ItemClass), ref _ItemClass, value);
         }  
-        private String? _ItemClassId;
-        public String? ItemClassId
+        private String _ItemClassId;
+        [Size(300)]
+        public String ItemClassId
         {
             get => _ItemClassId;
             set => SetPropertyValue(nameof(ItemClassId), ref _ItemClassId, value);
         }  
-        private DateTime _ItemServiceDate;
-        public DateTime ItemServiceDate
+        private DateTime? _ItemServiceDate;
+        public DateTime? ItemServiceDate
         {
             get => _ItemServiceDate;
             set => SetPropertyValue(nameof(ItemServiceDate), ref _ItemServiceDate, value);
         }  
-        private String? _ItemInventorySiteId;
-        public String? ItemInventorySiteId
+        private String _ItemInventorySiteId;
+        [Size(300)]
+        public String ItemInventorySiteId
         {
             get => _ItemInventorySiteId;
             set => SetPropertyValue(nameof(ItemInventorySiteId), ref _ItemInventorySiteId, value);
         }  
-        private String? _ItemInventorySiteName;
-        public String? ItemInventorySiteName
+        private String _ItemInventorySiteName;
+        [Size(300)]
+        public String ItemInventorySiteName
         {
             get => _ItemInventorySiteName;
             set => SetPropertyValue(nameof(ItemInventorySiteName), ref _ItemInventorySiteName, value);
         }  
-        private String? _ItemInventorySiteLocationId;
-        public String? ItemInventorySiteLocationId
+        private String _ItemInventorySiteLocationId;
+        [Size(300)]
+        public String ItemInventorySiteLocationId
         {
             get => _ItemInventorySiteLocationId;
             set => SetPropertyValue(nameof(ItemInventorySiteLocationId), ref _ItemInventorySiteLocationId, value);
         }  
-        private String? _ItemInventorySiteLocationName;
-        public String? ItemInventorySiteLocationName
+        private String _ItemInventorySiteLocationName;
+        [Size(300)]
+        public String ItemInventorySiteLocationName
         {
             get => _ItemInventorySiteLocationName;
             set => SetPropertyValue(nameof(ItemInventorySiteLocationName), ref _ItemInventorySiteLocationName, value);
         }  
-        private String? _ItemSerialNumber;
-        public String? ItemSerialNumber
+        private String _ItemSerialNumber;
+        [Size(300)]
+        public String ItemSerialNumber
         {
             get => _ItemSerialNumber;
             set => SetPropertyValue(nameof(ItemSerialNumber), ref _ItemSerialNumber, value);
         }  
-        private String? _ItemLotNumber;
-        public String? ItemLotNumber
+        private String _ItemLotNumber;
+        [Size(300)]
+        public String ItemLotNumber
         {
             get => _ItemLotNumber;
             set => SetPropertyValue(nameof(ItemLotNumber), ref _ItemLotNumber, value);
         }  
-        private String? _ItemOther1;
-        public String? ItemOther1
+        private String _ItemOther1;
+        [Size(300)]
+        public String ItemOther1
         {
             get => _ItemOther1;
             set => SetPropertyValue(nameof(ItemOther1), ref _ItemOther1, value);
         }  
-        private String? _ItemOther2;
-        public String? ItemOther2
+        private String _ItemOther2;
+        [Size(300)]
+        public String ItemOther2
         {
             get => _ItemOther2;
             set => SetPropertyValue(nameof(ItemOther2), ref _ItemOther2, value);
         }  
-        private String? _ItemCustomFields;
-        public String? ItemCustomFields
+        private String _ItemCustomFields;
+        [Size(300)]
+        public String ItemCustomFields
         {
             get => _ItemCustomFields;
             set => SetPropertyValue(nameof(ItemCustomFields), ref _ItemCustomFields, value);
         }  
-        private String? _ItemUomsetFullName;
-        public String? ItemUomsetFullName
+        private String _ItemUomsetFullName;
+        [Size(300)]
+        public String ItemUomsetFullName
         {
             get => _ItemUomsetFullName;
             set => SetPropertyValue(nameof(ItemUomsetFullName), ref _ItemUomsetFullName, value);
         }  
-        private String? _ItemUomsetListId;
-        public String? ItemUomsetListId
+        private String _ItemUomsetListId;
+        [Size(300)]
+        public String ItemUomsetListId
         {
             get => _ItemUomsetListId;
             set => SetPropertyValue(nameof(ItemUomsetListId), ref _ItemUomsetListId, value);
         }  
-        private String? _ItemIsGetPrintItemsInGroup;
-        public String? ItemIsGetPrintItemsInGroup
+        private String _ItemIsGetPrintItemsInGroup;
+        [Size(300)]
+        public String ItemIsGetPrintItemsInGroup
         {
             get => _ItemIsGetPrintItemsInGroup;
             set => SetPropertyValue(nameof(ItemIsGetPrintItemsInGroup), ref _ItemIsGetPrintItemsInGroup, value);
         }  
-        private Decimal _AppliedAmount;
-        public Decimal AppliedAmount
+        private Decimal? _AppliedAmount;
+        public Decimal? AppliedAmount
         {
             get => _AppliedAmount;
             set => SetPropertyValue(nameof(AppliedAmount), ref _AppliedAmount, value);
         }  
-        private Decimal _Balance;
-        public Decimal Balance
+        private Decimal? _Balance;
+        public Decimal? Balance
         {
             get => _Balance;
             set => SetPropertyValue(nameof(Balance), ref _Balance, value);
         }  
-        private String? _CustomerTaxCode;
-        public String? CustomerTaxCode
+        private String _CustomerTaxCode;
+        [Size(300)]
+        public String CustomerTaxCode
         {
             get => _CustomerTaxCode;
             set => SetPropertyValue(nameof(CustomerTaxCode), ref _CustomerTaxCode, value);
         }  
-        private String? _CustomerTaxCodeId;
-        public String? CustomerTaxCodeId
+        private String _CustomerTaxCodeId;
+        [Size(300)]
+        public String CustomerTaxCodeId
         {
             get => _CustomerTaxCodeId;
             set => SetPropertyValue(nameof(CustomerTaxCodeId), ref _CustomerTaxCodeId, value);
         }  
-        private Boolean _IsToBePrinted;
-        public Boolean IsToBePrinted
+        private Boolean? _IsToBePrinted;
+        public Boolean? IsToBePrinted
         {
             get => _IsToBePrinted;
             set => SetPropertyValue(nameof(IsToBePrinted), ref _IsToBePrinted, value);
         }  
-        private Boolean _IsToBeEmailed;
-        public Boolean IsToBeEmailed
+        private Boolean? _IsToBeEmailed;
+        public Boolean? IsToBeEmailed
         {
             get => _IsToBeEmailed;
             set => SetPropertyValue(nameof(IsToBeEmailed), ref _IsToBeEmailed, value);
         }  
-        private Boolean _IsPaid;
-        public Boolean IsPaid
+        private Boolean? _IsPaid;
+        public Boolean? IsPaid
         {
             get => _IsPaid;
             set => SetPropertyValue(nameof(IsPaid), ref _IsPaid, value);
         }  
-        private Boolean _IsTaxIncluded;
-        public Boolean IsTaxIncluded
+        private Boolean? _IsTaxIncluded;
+        public Boolean? IsTaxIncluded
         {
             get => _IsTaxIncluded;
             set => SetPropertyValue(nameof(IsTaxIncluded), ref _IsTaxIncluded, value);
         }  
-        private Boolean _IsPending;
-        public Boolean IsPending
+        private Boolean? _IsPending;
+        public Boolean? IsPending
         {
             get => _IsPending;
             set => SetPropertyValue(nameof(IsPending), ref _IsPending, value);
         }  
-        private String? _IsFinanceCharge;
-        public String? IsFinanceCharge
+        private String _IsFinanceCharge;
+        [Size(300)]
+        public String IsFinanceCharge
         {
             get => _IsFinanceCharge;
             set => SetPropertyValue(nameof(IsFinanceCharge), ref _IsFinanceCharge, value);
         }  
-        private String? _Template;
-        public String? Template
+        private String _Template;
+        [Size(300)]
+        public String Template
         {
             get => _Template;
             set => SetPropertyValue(nameof(Template), ref _Template, value);
         }  
-        private String? _TemplateId;
-        public String? TemplateId
+        private String _TemplateId;
+        [Size(300)]
+        public String TemplateId
         {
             get => _TemplateId;
             set => SetPropertyValue(nameof(TemplateId), ref _TemplateId, value);
         }  
-        private Decimal _SuggestedDiscountAmount;
-        public Decimal SuggestedDiscountAmount
+        private Decimal? _SuggestedDiscountAmount;
+        public Decimal? SuggestedDiscountAmount
         {
             get => _SuggestedDiscountAmount;
             set => SetPropertyValue(nameof(SuggestedDiscountAmount), ref _SuggestedDiscountAmount, value);
         }  
-        private DateTime _SuggestedDiscountDate;
-        public DateTime SuggestedDiscountDate
+        private DateTime? _SuggestedDiscountDate;
+        public DateTime? SuggestedDiscountDate
         {
             get => _SuggestedDiscountDate;
             set => SetPropertyValue(nameof(SuggestedDiscountDate), ref _SuggestedDiscountDate, value);
         }  
-        private Single _ExchangeRate;
-        public Single ExchangeRate
+        private Single? _ExchangeRate;
+        public Single? ExchangeRate
         {
             get => _ExchangeRate;
             set => SetPropertyValue(nameof(ExchangeRate), ref _ExchangeRate, value);
         }  
-        private Single _BalanceInHomeCurrency;
-        public Single BalanceInHomeCurrency
+        private Single? _BalanceInHomeCurrency;
+        public Single? BalanceInHomeCurrency
         {
             get => _BalanceInHomeCurrency;
             set => SetPropertyValue(nameof(BalanceInHomeCurrency), ref _BalanceInHomeCurrency, value);
         }  
-        private String? _CurrencyName;
-        public String? CurrencyName
+        private String _CurrencyName;
+        [Size(300)]
+        public String CurrencyName
         {
             get => _CurrencyName;
             set => SetPropertyValue(nameof(CurrencyName), ref _CurrencyName, value);
         }  
-        private String? _CurrencyId;
-        public String? CurrencyId
+        private String _CurrencyId;
+        [Size(300)]
+        public String CurrencyId
         {
             get => _CurrencyId;
             set => SetPropertyValue(nameof(CurrencyId), ref _CurrencyId, value);
         }  
-        private String? _Other;
-        public String? Other
+        private String _Other;
+        [Size(300)]
+        public String Other
         {
             get => _Other;
             set => SetPropertyValue(nameof(Other), ref _Other, value);
         }  
-        private String? _EditSequence;
-        public String? EditSequence
+        private String _EditSequence;
+        [Size(300)]
+        public String EditSequence
         {
             get => _EditSequence;
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _AccountNavigation;
-        public string AccountNavigation
-        {
-            get => _AccountNavigation;
-            set => SetPropertyValue(nameof(AccountNavigation), ref _AccountNavigation, value);
-        }  
-        private string _ClassNavigation;
-        public string ClassNavigation
-        {
-            get => _ClassNavigation;
-            set => SetPropertyValue(nameof(ClassNavigation), ref _ClassNavigation, value);
-        }  
-        private string _Currency;
-        public string Currency
-        {
-            get => _Currency;
-            set => SetPropertyValue(nameof(Currency), ref _Currency, value);
-        }  
-        private string _Customer;
-        public string Customer
-        {
-            get => _Customer;
-            set => SetPropertyValue(nameof(Customer), ref _Customer, value);
-        }  
-        private string _CustomerTaxCodeNavigation;
-        public string CustomerTaxCodeNavigation
-        {
-            get => _CustomerTaxCodeNavigation;
-            set => SetPropertyValue(nameof(CustomerTaxCodeNavigation), ref _CustomerTaxCodeNavigation, value);
-        }  
-        private string _Invoice;
-        public string Invoice
-        {
-            get => _Invoice;
-            set => SetPropertyValue(nameof(Invoice), ref _Invoice, value);
-        }  
-        private string _Item;
-        public string Item
-        {
-            get => _Item;
-            set => SetPropertyValue(nameof(Item), ref _Item, value);
-        }  
-        private string _ItemClassNavigation;
-        public string ItemClassNavigation
-        {
-            get => _ItemClassNavigation;
-            set => SetPropertyValue(nameof(ItemClassNavigation), ref _ItemClassNavigation, value);
-        }  
-        private string _ItemGroupNavigation;
-        public string ItemGroupNavigation
-        {
-            get => _ItemGroupNavigation;
-            set => SetPropertyValue(nameof(ItemGroupNavigation), ref _ItemGroupNavigation, value);
-        }  
-        private string _ItemInventorySite;
-        public string ItemInventorySite
-        {
-            get => _ItemInventorySite;
-            set => SetPropertyValue(nameof(ItemInventorySite), ref _ItemInventorySite, value);
-        }  
-        private string _ItemTaxCodeNavigation;
-        public string ItemTaxCodeNavigation
-        {
-            get => _ItemTaxCodeNavigation;
-            set => SetPropertyValue(nameof(ItemTaxCodeNavigation), ref _ItemTaxCodeNavigation, value);
-        }  
-        private string _ItemUomsetList;
-        public string ItemUomsetList
-        {
-            get => _ItemUomsetList;
-            set => SetPropertyValue(nameof(ItemUomsetList), ref _ItemUomsetList, value);
-        }  
-        private string _MessageNavigation;
-        public string MessageNavigation
-        {
-            get => _MessageNavigation;
-            set => SetPropertyValue(nameof(MessageNavigation), ref _MessageNavigation, value);
-        }  
-        private string _SalesRepNavigation;
-        public string SalesRepNavigation
-        {
-            get => _SalesRepNavigation;
-            set => SetPropertyValue(nameof(SalesRepNavigation), ref _SalesRepNavigation, value);
-        }  
-        private string _ShipMethodNavigation;
-        public string ShipMethodNavigation
-        {
-            get => _ShipMethodNavigation;
-            set => SetPropertyValue(nameof(ShipMethodNavigation), ref _ShipMethodNavigation, value);
-        }  
-        private string _TaxItemNavigation;
-        public string TaxItemNavigation
-        {
-            get => _TaxItemNavigation;
-            set => SetPropertyValue(nameof(TaxItemNavigation), ref _TaxItemNavigation, value);
-        }  
-        private string _TemplateNavigation;
-        public string TemplateNavigation
-        {
-            get => _TemplateNavigation;
-            set => SetPropertyValue(nameof(TemplateNavigation), ref _TemplateNavigation, value);
         }
-        public const string QueriableProperties="Id,InvoiceId,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Account,AccountId,Date,ShipMethod,ShipMethodId,ShipDate,Memo,Class,ClassId,Amount,Message,MessageId,SalesRep,SalesRepId,Fob,BillingAddress,BillingLine1,BillingLine2,BillingLine3,BillingLine4,BillingLine5,BillingCity,BillingState,BillingPostalCode,BillingCountry,BillingNote,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,Subtotal,Tax,TaxItem,TaxItemId,TaxPercent,Ponumber,DueDate,Terms,TermsId,CustomFields,ItemLineId,ItemLineNumber,ItemName,ItemId,ItemGroup,ItemGroupId,ItemDescription,ItemUnitOfMeasure,ItemQuantity,ItemRate,ItemRatePercent,ItemTaxCode,ItemTaxCodeId,ItemAmount,ItemClass,ItemClassId,ItemServiceDate,ItemInventorySiteId,ItemInventorySiteName,ItemInventorySiteLocationId,ItemInventorySiteLocationName,ItemSerialNumber,ItemLotNumber,ItemOther1,ItemOther2,ItemCustomFields,ItemUomsetFullName,ItemUomsetListId,ItemIsGetPrintItemsInGroup,AppliedAmount,Balance,CustomerTaxCode,CustomerTaxCodeId,IsToBePrinted,IsToBeEmailed,IsPaid,IsTaxIncluded,IsPending,IsFinanceCharge,Template,TemplateId,SuggestedDiscountAmount,SuggestedDiscountDate,ExchangeRate,BalanceInHomeCurrency,CurrencyName,CurrencyId,Other,EditSequence,TimeModified,TimeCreated,AccountNavigation,ClassNavigation,Currency,Customer,CustomerTaxCodeNavigation,Invoice,Item,ItemClassNavigation,ItemGroupNavigation,ItemInventorySite,ItemTaxCodeNavigation,ItemUomsetList,MessageNavigation,SalesRepNavigation,ShipMethodNavigation,TaxItemNavigation,TemplateNavigation";
+        public const string QueryableProperties="Id,InvoiceId,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Account,AccountId,Date,ShipMethod,ShipMethodId,ShipDate,Memo,Class,ClassId,Amount,Message,MessageId,SalesRep,SalesRepId,Fob,BillingAddress,BillingLine1,BillingLine2,BillingLine3,BillingLine4,BillingLine5,BillingCity,BillingState,BillingPostalCode,BillingCountry,BillingNote,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,Subtotal,Tax,TaxItem,TaxItemId,TaxPercent,Ponumber,DueDate,Terms,TermsId,CustomFields,ItemLineId,ItemLineNumber,ItemName,ItemId,ItemGroup,ItemGroupId,ItemDescription,ItemUnitOfMeasure,ItemQuantity,ItemRate,ItemRatePercent,ItemTaxCode,ItemTaxCodeId,ItemAmount,ItemClass,ItemClassId,ItemServiceDate,ItemInventorySiteId,ItemInventorySiteName,ItemInventorySiteLocationId,ItemInventorySiteLocationName,ItemSerialNumber,ItemLotNumber,ItemOther1,ItemOther2,ItemCustomFields,ItemUomsetFullName,ItemUomsetListId,ItemIsGetPrintItemsInGroup,AppliedAmount,Balance,CustomerTaxCode,CustomerTaxCodeId,IsToBePrinted,IsToBeEmailed,IsPaid,IsTaxIncluded,IsPending,IsFinanceCharge,Template,TemplateId,SuggestedDiscountAmount,SuggestedDiscountDate,ExchangeRate,BalanceInHomeCurrency,CurrencyName,CurrencyId,Other,EditSequence,TimeModified,TimeCreated";
     }
 }

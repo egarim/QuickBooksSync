@@ -35,24 +35,26 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
          
-        private String? _Label;
-        public String? Label
+        private String _Label;
+        [Size(300)]
+        public String Label
         {
             get => _Label;
             set => SetPropertyValue(nameof(Label), ref _Label, value);
         }  
-        private Single _Amount;
-        public Single Amount
+        private Single? _Amount;
+        public Single? Amount
         {
             get => _Amount;
             set => SetPropertyValue(nameof(Amount), ref _Amount, value);
         }  
-        private String? _RowType;
-        public String? RowType
+        private String _RowType;
+        [Size(300)]
+        public String RowType
         {
             get => _RowType;
             set => SetPropertyValue(nameof(RowType), ref _RowType, value);
         }
-        public const string QueriableProperties="Label,Amount,RowType";
+        public const string QueryableProperties="Label,Amount,RowType";
     }
 }

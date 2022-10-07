@@ -42,120 +42,118 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => _Id;
             set => SetPropertyValue(nameof(Id), ref _Id, value);
         }  
-        private String? _PayeeName;
-        public String? PayeeName
+        private String _PayeeName;
+        [Size(300)]
+        public String PayeeName
         {
             get => _PayeeName;
             set => SetPropertyValue(nameof(PayeeName), ref _PayeeName, value);
         }  
-        private String? _PayeeId;
-        public String? PayeeId
+        private String _PayeeId;
+        [Size(300)]
+        public String PayeeId
         {
             get => _PayeeId;
             set => SetPropertyValue(nameof(PayeeId), ref _PayeeId, value);
         }  
-        private String? _ReferenceNumber;
-        public String? ReferenceNumber
+        private String _ReferenceNumber;
+        [Size(300)]
+        public String ReferenceNumber
         {
             get => _ReferenceNumber;
             set => SetPropertyValue(nameof(ReferenceNumber), ref _ReferenceNumber, value);
         }  
-        private Int32 _TxnNumber;
-        public Int32 TxnNumber
+        private Int32? _TxnNumber;
+        public Int32? TxnNumber
         {
             get => _TxnNumber;
             set => SetPropertyValue(nameof(TxnNumber), ref _TxnNumber, value);
         }  
-        private DateTime _Date;
-        public DateTime Date
+        private DateTime? _Date;
+        public DateTime? Date
         {
             get => _Date;
             set => SetPropertyValue(nameof(Date), ref _Date, value);
         }  
-        private Decimal _Amount;
-        public Decimal Amount
+        private Decimal? _Amount;
+        public Decimal? Amount
         {
             get => _Amount;
             set => SetPropertyValue(nameof(Amount), ref _Amount, value);
         }  
-        private String? _AccountsPayable;
-        public String? AccountsPayable
+        private String _AccountsPayable;
+        [Size(300)]
+        public String AccountsPayable
         {
             get => _AccountsPayable;
             set => SetPropertyValue(nameof(AccountsPayable), ref _AccountsPayable, value);
         }  
-        private String? _AccountsPayableId;
-        public String? AccountsPayableId
+        private String _AccountsPayableId;
+        [Size(300)]
+        public String AccountsPayableId
         {
             get => _AccountsPayableId;
             set => SetPropertyValue(nameof(AccountsPayableId), ref _AccountsPayableId, value);
         }  
-        private String? _CreditCardName;
-        public String? CreditCardName
+        private String _CreditCardName;
+        [Size(300)]
+        public String CreditCardName
         {
             get => _CreditCardName;
             set => SetPropertyValue(nameof(CreditCardName), ref _CreditCardName, value);
         }  
-        private String? _CreditCardId;
-        public String? CreditCardId
+        private String _CreditCardId;
+        [Size(300)]
+        public String CreditCardId
         {
             get => _CreditCardId;
             set => SetPropertyValue(nameof(CreditCardId), ref _CreditCardId, value);
         }  
-        private String? _Memo;
-        public String? Memo
+        private String _Memo;
+        [Size(300)]
+        public String Memo
         {
             get => _Memo;
             set => SetPropertyValue(nameof(Memo), ref _Memo, value);
         }  
-        private String? _AppliedToAggregate;
-        public String? AppliedToAggregate
+        private String _AppliedToAggregate;
+        [Size(300)]
+        public String AppliedToAggregate
         {
             get => _AppliedToAggregate;
             set => SetPropertyValue(nameof(AppliedToAggregate), ref _AppliedToAggregate, value);
         }  
-        private Single _ExchangeRate;
-        public Single ExchangeRate
+        private Single? _ExchangeRate;
+        public Single? ExchangeRate
         {
             get => _ExchangeRate;
             set => SetPropertyValue(nameof(ExchangeRate), ref _ExchangeRate, value);
         }  
-        private Single _AmountInHomeCurrency;
-        public Single AmountInHomeCurrency
+        private Single? _AmountInHomeCurrency;
+        public Single? AmountInHomeCurrency
         {
             get => _AmountInHomeCurrency;
             set => SetPropertyValue(nameof(AmountInHomeCurrency), ref _AmountInHomeCurrency, value);
         }  
-        private String? _CustomFields;
-        public String? CustomFields
+        private String _CustomFields;
+        [Size(300)]
+        public String CustomFields
         {
             get => _CustomFields;
             set => SetPropertyValue(nameof(CustomFields), ref _CustomFields, value);
         }  
-        private DateTime _TimeModified;
-        public DateTime TimeModified
+        private DateTime? _TimeModified;
+        public DateTime? TimeModified
         {
             get => _TimeModified;
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }  
-        private DateTime _TimeCreated;
-        public DateTime TimeCreated
+        private DateTime? _TimeCreated;
+        public DateTime? TimeCreated
         {
             get => _TimeCreated;
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
-        }  
-        private string _AccountsPayableNavigation;
-        public string AccountsPayableNavigation
-        {
-            get => _AccountsPayableNavigation;
-            set => SetPropertyValue(nameof(AccountsPayableNavigation), ref _AccountsPayableNavigation, value);
-        }  
-        private string _Payee;
-        public string Payee
-        {
-            get => _Payee;
-            set => SetPropertyValue(nameof(Payee), ref _Payee, value);
         }
-        public const string QueriableProperties="Id,PayeeName,PayeeId,ReferenceNumber,TxnNumber,Date,Amount,AccountsPayable,AccountsPayableId,CreditCardName,CreditCardId,Memo,AppliedToAggregate,ExchangeRate,AmountInHomeCurrency,CustomFields,TimeModified,TimeCreated,AccountsPayableNavigation,Payee";
+        public const string QueryableProperties="Id,PayeeName,PayeeId,ReferenceNumber,TxnNumber,Date,Amount,AccountsPayable,AccountsPayableId,CreditCardName,CreditCardId,Memo,AppliedToAggregate,ExchangeRate,AmountInHomeCurrency,CustomFields,TimeModified,TimeCreated";
     }
 }
