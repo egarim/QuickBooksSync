@@ -117,7 +117,9 @@ namespace QuickBooksSync.Module.Controllers
             Entities.Add("Account", "Accounts");
             Entities.Add("Class", "Class");
             Entities.Add("Customer", "Customers");
-            //Entities.Add("CreditCardCharge", "CreditCardCharges");
+            Entities.Add("CreditCardChargeExpenseItem", "CreditCardChargeExpenseItems");
+            Entities.Add("CreditCardChargeLineItem", "CreditCardChargeLineItems");
+            Entities.Add("CreditCardCharge", "CreditCardCharges");
             foreach (var entity in Entities)
             {
                 var EntityType = this.Application.TypesInfo.FindTypeInfo("QuickBooksSync.Module.BusinessObjects." + entity.Key);
@@ -176,45 +178,54 @@ namespace QuickBooksSync.Module.Controllers
                         accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
                         QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
                         int currentRecord = 0;
-                        while (rdr.Read())
+                        try
                         {
-                            if (worker.CancellationPending == true)
+                            while (rdr.Read())
                             {
-                                BW_e.Cancel = true;
-                                break;
-                            }
-                            else
-                            {
-                                Dictionary<string, object> values = new Dictionary<string, object>();
-                                var PropList = WorkerArgs.Properties.Split(',');
-                                foreach (var property in PropList)
+                                if (worker.CancellationPending == true)
                                 {
-                                    object value = rdr.GetValue(property);
-                                    //Debug.WriteLine(value.GetType());
-                                    if (value.GetType() == typeof(Double))
+                                    BW_e.Cancel = true;
+                                    break;
+                                }
+                                else
+                                {
+                                    Dictionary<string, object> values = new Dictionary<string, object>();
+                                    var PropList = WorkerArgs.Properties.Split(',');
+                                    foreach (var property in PropList)
                                     {
-                                        value = Convert.ChangeType(value, typeof(float));
-                                    }
-                                    if (value.GetType() == typeof(DBNull))
+                                        object value = rdr.GetValue(property);
+                                        //Debug.WriteLine(value.GetType());
+                                        if (value.GetType() == typeof(Double))
+                                        {
+                                            value = Convert.ChangeType(value, typeof(float));
+                                        }
+                                        if (value.GetType() == typeof(DBNull))
 
-                                    {
+                                        {
 
-                                        value = null;
+                                            value = null;
+                                        }
+                                        values.Add(property, value);
                                     }
-                                    values.Add(property, value);
+
+                                    //Debug.WriteLine($"record:{currentRecord} val count:{values.Count}");
+                                    currentRecord++;
+                                    var ProgressArgs = (values, WorkerArgs.Entity, WorkerArgs.Properties, WorkerArgs.EntityType);
+                                    System.Threading.Thread.Sleep(50);
+                                    worker.ReportProgress(0, ProgressArgs);
+
+                                    //if (rdr.VisibleFieldCount > 0)
+                                    //    worker.ReportProgress(0, ProgressArgs);
                                 }
 
-                                //Debug.WriteLine($"record:{currentRecord} val count:{values.Count}");
-                                currentRecord++;
-                                var ProgressArgs = (values, WorkerArgs.Entity, WorkerArgs.Properties, WorkerArgs.EntityType);
-                                System.Threading.Thread.Sleep(50);
-                                worker.ReportProgress(0, ProgressArgs);
-
-                                //if (rdr.VisibleFieldCount > 0)
-                                //    worker.ReportProgress(0, ProgressArgs);
                             }
-
                         }
+                        catch (Exception ex)
+                        {
+                            Debug.WriteLine("Read Exception");
+                            Debug.WriteLine(ex.Message);
+                        }
+                       
 
 
                     }
