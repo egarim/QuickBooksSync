@@ -10,6 +10,7 @@ using DevExpress.ExpressApp.Utils;
 using DevExpress.Persistent.Base;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.Persistent.Validation;
+using DevExpress.Xpo;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using QuickBooksSync.Module.BusinessObjects;
 using System;
@@ -19,6 +20,7 @@ using System.Data;
 using System.Data.CData.QuickBooks;
 using System.Data.Common;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using XafWinBackgroundWorker.Module.BusinessObjects;
@@ -45,6 +47,8 @@ namespace QuickBooksSync.Module.Controllers
             ActiveALl = new SimpleAction(this, "SelectAll", "View");
             ActiveALl.Execute += ActiveALl_Execute;
 
+            this.TargetObjectType = typeof(Company);
+
 
 
             // Target required Views (via the TargetXXX properties) and create their Actions.
@@ -68,7 +72,7 @@ namespace QuickBooksSync.Module.Controllers
         }
         protected virtual void ExecuteDoEvents()
         {
-            
+
         }
         protected virtual void backgroundWorker_ProgressChanged(object RP_sender, ProgressChangedEventArgs RP_e)
         {
@@ -82,10 +86,10 @@ namespace QuickBooksSync.Module.Controllers
 
             //HACK here we are back to the main thread so we can use the object space to create objects
 
-            (Dictionary<string, object> Reader, string Entity, string Properties) WorkerArgs = ((Dictionary<string, object> Reader, string Entity, string Properties))RP_e.UserState;
+            (Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs = ((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType))RP_e.UserState;
 
 
-            var Instance = this.View.ObjectSpace.CreateObject<Account>();
+            var Instance = this.View.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPLiteObject;
             //var PropList = WorkerArgs.Properties.Split(',');
             foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
             {
@@ -98,104 +102,134 @@ namespace QuickBooksSync.Module.Controllers
 
 
         }
+        int RunningWorkers;
+        DateTime StartTime;
         private void Sybc_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
+            RunningWorkers = 0;
+            StartTime = DateTime.Now;
             currentCompany = this.View.CurrentObject as Company;
             currentCompany.Progress = 0;
-            var bWorker = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true };
-            bWorker.DoWork += backgroundWorker_DoWork;
-            bWorker.ProgressChanged += backgroundWorker_ProgressChanged;
-            bWorker.RunWorkerCompleted += BWorker_RunWorkerCompleted;
-            using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = currentCompany.FilePath, PoolWaitTime = 600 }))
-            {
 
-                connection.Open();
-                var CountCommand = connection.CreateCommand();
-               
-            
-                CountCommand.CommandText = "SELECT COUNT(id) from Accounts";
-                int RecordCount;
-                RecordCount = (int)CountCommand.ExecuteScalar();
-                currentCompany.Max = RecordCount;
-               
-            }
-       
-            void BWorker_RunWorkerCompleted(object WC_sender, RunWorkerCompletedEventArgs WC_e)
+            //List<string> Entities = new List<string>() { "Account", "BalanceSheetDetail", "BalanceSheetStandard", "BalanceSheetSummary", "Bill" };
+            Dictionary<string,string> Entities = new Dictionary<string, string>();
+            Entities.Add("Bill", "Bills");
+            Entities.Add("Account", "Accounts");
+            Entities.Add("Class", "Class");
+            Entities.Add("Customer", "Customers");
+            //Entities.Add("CreditCardCharge", "CreditCardCharges");
+            foreach (var entity in Entities)
             {
-                BackgroundWorker worker = WC_sender as BackgroundWorker;
-                if (worker.CancellationPending)
-                    return;
+                var EntityType = this.Application.TypesInfo.FindTypeInfo("QuickBooksSync.Module.BusinessObjects." + entity.Key);
+                string QueryableProperties = EntityType.Type.GetAllPublicConstantValues<string>()[0];
+                var bWorker = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true };
+                bWorker.DoWork += backgroundWorker_DoWork;
+                bWorker.ProgressChanged += backgroundWorker_ProgressChanged;
+                bWorker.RunWorkerCompleted += BWorker_RunWorkerCompleted;
+                //using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = currentCompany.FilePath, PoolWaitTime = 600 }))
+                //{
 
-                if (this.View == null)
-                    return;
+                //    connection.Open();
+                //    var CountCommand = connection.CreateCommand();
 
-                this.View.ObjectSpace.CommitChanges();
-            }
-        
-           
-            void backgroundWorker_DoWork(object BW_sender, DoWorkEventArgs BW_e)
-            {
-                BackgroundWorker worker = BW_sender as BackgroundWorker;
-                var WorkerArgs = ((string FileName, string Entity,string Properties))BW_e.Argument;
-                using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = WorkerArgs.FileName, PoolWaitTime = 600 }))
+
+                //    CountCommand.CommandText = "SELECT COUNT(id) from Accounts";
+                //    int RecordCount;
+                //    RecordCount = (int)CountCommand.ExecuteScalar();
+                //    currentCompany.Max = RecordCount;
+
+                //}
+
+                void BWorker_RunWorkerCompleted(object WC_sender, RunWorkerCompletedEventArgs WC_e)
                 {
+                    BackgroundWorker worker = WC_sender as BackgroundWorker;
+                    if (worker.CancellationPending)
+                        return;
 
-                    connection.Open();
+                    if (this.View == null)
+                        return;
+                    RunningWorkers--;
 
-                    var accountsCommand = connection.CreateCommand();
-                    accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
-                    QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
-                    int currentRecord = 0;
-                    while (rdr.Read())
+                    if(RunningWorkers==0)
                     {
-                        if (worker.CancellationPending == true)
+                        Debug.Write("Commiting");
+                        currentCompany.SyncTime= DateTime.Now.Subtract(StartTime).TotalSeconds.ToString();
+                        this.View.ObjectSpace.CommitChanges();
+                        this.View.Refresh();
+                    }
+
+
+                  
+                }
+
+
+                void backgroundWorker_DoWork(object BW_sender, DoWorkEventArgs BW_e)
+                {
+                    BackgroundWorker worker = BW_sender as BackgroundWorker;
+                    var WorkerArgs = ((string FileName, string Entity, string Properties, Type EntityType))BW_e.Argument;
+                    using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = WorkerArgs.FileName, PoolWaitTime = 600 }))
+                    {
+
+                        connection.Open();
+
+                        var accountsCommand = connection.CreateCommand();
+                        accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
+                        QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
+                        int currentRecord = 0;
+                        while (rdr.Read())
                         {
-                            BW_e.Cancel = true;
-                            break;
-                        }
-                        else
-                        {
-                            Dictionary<string, object> values = new Dictionary<string, object>();
-                            var PropList = WorkerArgs.Properties.Split(',');
-                            foreach (var property in PropList)
+                            if (worker.CancellationPending == true)
                             {
-                                object value = rdr.GetValue(property);
-                                //Debug.WriteLine(value.GetType());
-                                if (value.GetType() == typeof(Double))
-                                {
-                                    value = Convert.ChangeType(value, typeof(float));
-                                }
-                                if (value.GetType() == typeof(DBNull))
-
-                                {
-
-                                    value = null;
-                                }
-                                values.Add(property, value);
+                                BW_e.Cancel = true;
+                                break;
                             }
-                           
-                            //Debug.WriteLine($"record:{currentRecord} val count:{values.Count}");
-                            currentRecord++;
-                            var ProgressArgs = (values, WorkerArgs.Entity, WorkerArgs.Properties);
-                            worker.ReportProgress(0, ProgressArgs);
-                           
-                            //if (rdr.VisibleFieldCount > 0)
-                            //    worker.ReportProgress(0, ProgressArgs);
+                            else
+                            {
+                                Dictionary<string, object> values = new Dictionary<string, object>();
+                                var PropList = WorkerArgs.Properties.Split(',');
+                                foreach (var property in PropList)
+                                {
+                                    object value = rdr.GetValue(property);
+                                    //Debug.WriteLine(value.GetType());
+                                    if (value.GetType() == typeof(Double))
+                                    {
+                                        value = Convert.ChangeType(value, typeof(float));
+                                    }
+                                    if (value.GetType() == typeof(DBNull))
+
+                                    {
+
+                                        value = null;
+                                    }
+                                    values.Add(property, value);
+                                }
+
+                                //Debug.WriteLine($"record:{currentRecord} val count:{values.Count}");
+                                currentRecord++;
+                                var ProgressArgs = (values, WorkerArgs.Entity, WorkerArgs.Properties, WorkerArgs.EntityType);
+                                System.Threading.Thread.Sleep(50);
+                                worker.ReportProgress(0, ProgressArgs);
+
+                                //if (rdr.VisibleFieldCount > 0)
+                                //    worker.ReportProgress(0, ProgressArgs);
+                            }
+
                         }
-                        
+
+
                     }
 
 
                 }
 
-             
+
+                //Using tuples to pass arguments to the backgrown worker
+                var WokerArgs = (currentCompany.FilePath, entity.Value, QueryableProperties, EntityType.Type);
+
+                bWorker.RunWorkerAsync(WokerArgs);
+                RunningWorkers++;
             }
 
-
-            //Using tuples to pass arguments to the backgrown worker
-            var WokerArgs = (currentCompany.FilePath, "Accounts",Account.QueryableProperties);
-
-            bWorker.RunWorkerAsync(WokerArgs);
         }
         protected override void OnActivated()
         {

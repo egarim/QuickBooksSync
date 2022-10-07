@@ -60,6 +60,9 @@ public sealed class QuickBooksSyncModule : ModuleBase {
         AdditionalExportedTypes.Add(typeof(BalanceSheetStandard));
         AdditionalExportedTypes.Add(typeof(BalanceSheetSummary));
         AdditionalExportedTypes.Add(typeof(Bill));
+        AdditionalExportedTypes.Add(typeof(Class));
+        AdditionalExportedTypes.Add(typeof(CreditCardCharge));
+        AdditionalExportedTypes.Add(typeof(Customer));
 
     }
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {

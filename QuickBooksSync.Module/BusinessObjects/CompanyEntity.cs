@@ -15,6 +15,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Configuration")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]

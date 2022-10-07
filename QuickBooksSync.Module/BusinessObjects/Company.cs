@@ -17,6 +17,7 @@ using XafWinBackgroundWorker.Module.BusinessObjects;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Configuration")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -36,6 +37,7 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        string syncTime;
         int max;
         int progress;
         ScheduleBase schedule;
@@ -50,13 +52,19 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(Name), ref name, value);
         }
 
-       
+
         public string FilePath
         {
             get => filePath;
             set => SetPropertyValue(nameof(FilePath), ref filePath, value);
         }
-
+        
+        [Size(SizeAttribute.DefaultStringMappingFieldSize)]
+        public string SyncTime
+        {
+            get => syncTime;
+            set => SetPropertyValue(nameof(SyncTime), ref syncTime, value);
+        }
         //[ModelDefault("RowCount","3")]
         [Size(100)]
         public string TargetDb
