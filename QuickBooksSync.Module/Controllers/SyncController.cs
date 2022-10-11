@@ -113,13 +113,13 @@ namespace QuickBooksSync.Module.Controllers
             //HACK tables list
             //List<string> Entities = new List<string>() { "Account", "BalanceSheetDetail", "BalanceSheetStandard", "BalanceSheetSummary", "Bill" };
             Dictionary<string,string> Entities = new Dictionary<string, string>();
-            //Entities.Add("Bill", "Bills");
-            //Entities.Add("Account", "Accounts");
-            //Entities.Add("Class", "Class");
-            //Entities.Add("Customer", "Customers");
-            //Entities.Add("CreditCardChargeExpenseItem", "CreditCardChargeExpenseItems");
-            //Entities.Add("CreditCardChargeLineItem", "CreditCardChargeLineItems");
-            //Entities.Add("CreditCardCharge", "CreditCardCharges");
+            Entities.Add("Bill", "Bills");
+            Entities.Add("Account", "Accounts");
+            Entities.Add("Class", "Class");
+            Entities.Add("Customer", "Customers");
+            Entities.Add("CreditCardChargeExpenseItem", "CreditCardChargeExpenseItems");
+            Entities.Add("CreditCardChargeLineItem", "CreditCardChargeLineItems");
+            Entities.Add("CreditCardCharge", "CreditCardCharges");
             Entities.Add("JournalEntry", "JournalEntries");
             Entities.Add("JournalEntryLine", "JournalEntryLines");
             foreach (var entity in Entities)
@@ -130,19 +130,7 @@ namespace QuickBooksSync.Module.Controllers
                 bWorker.DoWork += backgroundWorker_DoWork;
                 bWorker.ProgressChanged += backgroundWorker_ProgressChanged;
                 bWorker.RunWorkerCompleted += BWorker_RunWorkerCompleted;
-                //using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = currentCompany.FilePath, PoolWaitTime = 600 }))
-                //{
-
-                //    connection.Open();
-                //    var CountCommand = connection.CreateCommand();
-
-
-                //    CountCommand.CommandText = "SELECT COUNT(id) from Accounts";
-                //    int RecordCount;
-                //    RecordCount = (int)CountCommand.ExecuteScalar();
-                //    currentCompany.Max = RecordCount;
-
-                //}
+               
 
                 void BWorker_RunWorkerCompleted(object WC_sender, RunWorkerCompletedEventArgs WC_e)
                 {
