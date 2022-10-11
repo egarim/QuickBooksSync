@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -166,5 +167,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }
         public const string QueryableProperties="Id,ItemInventoryAssemblyRefListId,ItemInventoryAssemblyRefFullName,ItemInventoryRefListId,ItemInventoryRefFullName,InventorySiteRefListId,InventorySiteRefFullName,InventorySiteLocationRefListId,InventorySiteLocationRefFullName,ReorderLevel,QuantityOnHand,QuantityOnPurchaseOrders,QuantityOnSalesOrders,QuantityToBeBuiltByPendingBuildTxns,QuantityRequiredByPendingBuildTxns,QuantityOnPendingTransfers,AssemblyBuildPoint,EditSequence,TimeCreated,TimeModified";
+        public const string QuickbooksTableName="ItemSites";
     }
 }

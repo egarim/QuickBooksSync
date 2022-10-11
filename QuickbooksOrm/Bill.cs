@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -219,5 +220,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(OpenAmount), ref _OpenAmount, value);
         }
         public const string QueryableProperties="Id,VendorName,VendorId,ReferenceNumber,Date,Amount,TxnNumber,DueDate,Terms,TermsId,AccountsPayable,AccountsPayableId,Memo,IsPaid,ExchangeRate,IsTaxIncluded,ItemCount,ItemAggregate,ExpenseItemCount,ExpenseItemAggregate,TransactionCount,TransactionAggregate,CurrencyName,CurrencyId,CustomFields,TimeModified,TimeCreated,OpenAmount";
+        public const string QuickbooksTableName="Bills";
     }
 }

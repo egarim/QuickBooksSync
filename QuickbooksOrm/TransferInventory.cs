@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -130,5 +131,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
         public const string QueryableProperties="Id,TxnDate,TxnNumber,RefNumber,FromInventorySiteRefListId,FromInventorySiteRefFullName,ToInventorySiteRefListId,ToInventorySiteRefFullName,Memo,ExternalGuid,TransferInventoryLineAggregate,TimeCreated,TimeModified,EditSequence";
+        public const string QuickbooksTableName="TransferInventory";
     }
 }

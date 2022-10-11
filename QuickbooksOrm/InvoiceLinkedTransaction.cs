@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -149,5 +150,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,InvoiceId,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Account,AccountId,Date,TransactionId,TransactionAmount,TransactionDate,TransactionReferenceNumber,TransactionType,TransactionLinkType,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="InvoiceLinkedTransactions";
     }
 }

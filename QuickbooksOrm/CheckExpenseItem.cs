@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -335,5 +336,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,CheckId,ReferenceNumber,TxnNumber,Account,AccountId,Payee,PayeeId,Date,Amount,Memo,Address,Line1,Line2,Line3,Line4,Line5,City,State,PostalCode,Country,Note,CustomFields,ExpenseLineId,ExpenseLineNumber,ExpenseAccount,ExpenseAccountId,ExpenseAmount,ExpenseBillableStatus,ExpenseCustomer,ExpenseCustomerId,ExpenseClass,ExpenseClassId,ExpenseTaxCode,ExpenseTaxCodeId,ExpenseMemo,ExpenseCustomFields,IsToBePrinted,IsTaxIncluded,CurrencyName,CurrencyId,ExchangeRate,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="CheckExpenseItems";
     }
 }

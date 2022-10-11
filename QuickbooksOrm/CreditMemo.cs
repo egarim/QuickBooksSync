@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -501,5 +502,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,ReferenceNumber,TxnNumber,Date,CustomerName,CustomerId,AccountsReceivable,AccountsReceivableId,ShipMethod,ShipMethodId,ShipDate,Memo,Amount,Message,MessageId,SalesRep,SalesRepId,Fob,BillingAddress,BillingLine1,BillingLine2,BillingLine3,BillingLine4,BillingLine5,BillingCity,BillingState,BillingPostalCode,BillingCountry,BillingNote,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,Subtotal,Tax,TaxItem,TaxItemId,TaxPercent,IsPending,IsToBeEmailed,IsToBePrinted,IsTaxIncluded,Ponumber,Terms,TermsId,CreditRemaining,DueDate,Template,TemplateId,CustomerSalesTax,CustomerSalesTaxId,Class,ClassId,ExchangeRate,ItemCount,ItemAggregate,TransactionCount,TransactionAggregate,CustomFields,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="CreditMemos";
     }
 }

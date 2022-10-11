@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -521,5 +522,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Date,ShipMethod,ShipMethodId,ShipDate,Memo,Class,ClassId,TotalAmount,DueDate,Message,MessageId,SalesRep,SalesRepId,Template,TemplateId,CurrencyName,CurrencyId,ExchangeRate,TotalAmountInHomeCurrency,Fob,BillingAddress,BillingLine1,BillingLine2,BillingLine3,BillingLine4,BillingLine5,BillingCity,BillingState,BillingPostalCode,BillingCountry,BillingNote,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,Subtotal,Tax,TaxItem,TaxItemId,TaxPercent,Ponumber,Terms,TermsId,ItemCount,ItemAggregate,TransactionCount,TransactionAggregate,CustomerTaxCode,CustomerTaxCodeId,IsPrinted,IsManuallyClosed,IsFullyInvoiced,IsTaxIncluded,IsToBePrinted,IsToBeEmailed,Other,CustomFields,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="SalesOrders";
     }
 }

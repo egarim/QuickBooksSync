@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -216,5 +217,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,JournalEntryId,ReferenceNumber,TxnNumber,Date,CreditLineCount,DebitLineCount,LineId,LineType,LineAccount,LineAccountId,LineAmount,LineEntityName,LineEntityId,LineMemo,LineClass,LineClassId,LineStatus,LineTaxItem,LineTaxItemId,CurrencyName,CurrencyId,ExchangeRate,IsHomeCurrencyAdjustment,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="JournalEntryLines";
     }
 }

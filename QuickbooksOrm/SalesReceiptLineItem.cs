@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -633,5 +634,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,SalesReceiptId,ReferenceNumber,TxnNumber,CustomerName,CustomerId,Date,ShipMethod,ShipMethodId,ShipDate,Memo,Class,ClassId,DueDate,TotalAmount,Message,MessageId,SalesRep,SalesRepId,Template,TemplateId,ExchangeRate,Fob,BillingAddress,BillingLine1,BillingLine2,BillingLine3,BillingLine4,BillingLine5,BillingCity,BillingState,BillingPostalCode,BillingCountry,BillingNote,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,Subtotal,Tax,TaxItem,TaxItemId,TaxPercent,IsPending,IsToBePrinted,IsTaxIncluded,IsToBeEmailed,ItemLineId,ItemLineNumber,ItemName,ItemId,ItemGroup,ItemGroupId,ItemDescription,ItemQuantity,ItemUnitOfMeasure,ItemRate,ItemRatePercent,ItemTaxCode,ItemTaxCodeId,ItemAmount,ItemInventorySiteName,ItemInventorySiteId,ItemSerialNumber,ItemLotNumber,ItemClass,ItemClassId,ItemUomsetFullName,ItemUomsetListId,ItemIsGetPrintItemsInGroup,CheckNumber,PaymentMethod,PaymentMethodId,DepositAccount,DepositAccountId,CustomerTaxCode,CustomerTaxCodeId,CustomFields,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="SalesReceiptLineItems";
     }
 }

@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -250,5 +251,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
         public const string QueryableProperties="Id,Name,IsActive,CompanyName,Salutation,FirstName,MiddleName,LastName,OtherNameAddressAddr1,OtherNameAddressAddr2,OtherNameAddressAddr3,OtherNameAddressAddr4,OtherNameAddressAddr5,OtherNameAddressCity,OtherNameAddressState,OtherNameAddressPostalCode,OtherNameAddressCountry,OtherNameAddressNote,Phone,AltPhone,Fax,Email,Contact,AltContact,AccountNumber,Notes,ExternalGuid,CustomFields,TimeCreated,TimeModified,EditSequence";
+        public const string QuickbooksTableName="OtherNames";
     }
 }

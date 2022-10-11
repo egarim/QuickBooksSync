@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -214,5 +215,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,TxnNumber,ReferenceNumber,CustomerName,CustomerId,Date,ItemName,ItemId,Quantity,UnitOfMeasure,OverrideUnitOfMeasure,OverrideUnitOfMeasureId,Rate,Amount,Balance,Description,AccountsReceivable,AccountsReceivableId,Class,ClassId,BilledDate,DueDate,IsPaid,CustomFields,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="StatementCharges";
     }
 }

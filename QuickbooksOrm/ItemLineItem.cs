@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -258,5 +259,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,ItemId,Name,FullName,Type,Barcode,Account,AccountId,Cogsaccount,CogsaccountId,AssetAccount,AssetAccountId,LineItemNumber,LineItemId,LineItemName,LineItemQuantity,LineItemUnitOfMeasure,ParentName,ParentId,Description,Price,AverageCost,IsActive,PurchaseCost,PurchaseDescription,PreferredVendor,PreferredVendorId,TaxCode,TaxCodeId,IsTaxIncluded,CustomFields,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="ItemLineItems";
     }
 }

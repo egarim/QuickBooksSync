@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -142,5 +143,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
         public const string QueryableProperties="Id,TxnNumber,TxnDate,TransferFromAccountRefListId,TransferFromAccountRefFullName,FromAccountBalance,TransferToAccountRefListId,TransferToAccountRefFullName,ToAccountBalance,ClassRefListId,ClassRefFullName,Amount,Memo,TimeCreated,TimeModified,EditSequence";
+        public const string QuickbooksTableName="Transfers";
     }
 }

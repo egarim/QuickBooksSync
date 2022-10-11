@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -99,5 +100,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeModified), ref _TimeModified, value);
         }
         public const string QueryableProperties="Id,Name,IsActive,DayOfMonthDue,DueNextMonthDays,DiscountDayOfMonth,DiscountPct,EditSequence,TimeCreated,TimeModified";
+        public const string QuickbooksTableName="DateDrivenTerms";
     }
 }

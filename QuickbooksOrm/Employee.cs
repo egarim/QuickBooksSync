@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -439,5 +440,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,Name,Salutation,FirstName,MiddleInitial,LastName,JobTitle,AccountNumber,Ssn,EmployeeType,Gender,Address,Line1,Line2,City,State,PostalCode,AlternatePhone,Email,PrintAs,MobilePhone,Pager,PagerPin,Fax,BirthDate,Uscitizen,Ethnicity,Disabled,DisabilityDescription,FormOnFile,Usveteran,MilitaryStatus,HiredDate,IsActive,Notes,PayPeriod,PayrollClassName,PayrollClassId,Phone,ReleasedDate,TimeDataForPaychecks,SickTimeAccrualPeriod,SickTimeAccrualStartDate,SickTimeAccrued,SickTimeAvailable,SickTimeMaximum,SickTimeYearlyReset,SickTimeUsed,VacationTimeAccrualPeriod,VacationTimeAccrualStartDate,VacationTimeAccrued,VacationTimeAvailable,VacationTimeMaximum,VacationTimeYearlyReset,VacationTimeUsed,CustomFields,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="Employees";
     }
 }

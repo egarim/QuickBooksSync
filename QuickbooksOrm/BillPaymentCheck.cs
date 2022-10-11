@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -161,5 +162,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,PayeeName,PayeeId,ReferenceNumber,TxnNumber,Date,Amount,AccountsPayable,AccountsPayableId,BankAccountName,BankAccountId,IsToBePrinted,Memo,AppliedToAggregate,ExchangeRate,AmountInHomeCurrency,CustomFields,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="BillPaymentChecks";
     }
 }

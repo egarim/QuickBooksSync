@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -90,5 +91,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(DataExtFormatString), ref _DataExtFormatString, value);
         }
         public const string QueryableProperties="DataExtId,OwnerId,DataExtName,DataExtType,AssignToObject,DataExtListRequire,DataExtTxnRequire,DataExtFormatString";
+        public const string QuickbooksTableName="CustomColumns";
     }
 }

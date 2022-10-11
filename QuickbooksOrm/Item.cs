@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -489,5 +490,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,Name,FullName,Type,Account,AccountId,Cogsaccount,CogsaccountId,AssetAccount,AssetAccountId,Class,ClassId,DateSold,PurchaseDate,ItemCount,ParentName,ParentId,Description,Price,PricePercent,AverageCost,IsActive,PurchaseCost,PurchaseDescription,ExpenseAccount,ExpenseAccountId,PreferredVendor,PreferredVendorId,QuantityOnHand,QuantityOnOrder,QuantityOnSalesOrder,InventoryDate,ReorderPoint,Barcode,TaxCode,TaxCodeId,IsTaxIncluded,PurchaseTaxCode,PurchaseTaxCodeId,PartNumber,PaymentMethodName,PaymentMethodId,TaxRate,TaxVendorName,TaxVendorId,SpecialItemType,VendorOrPayeeName,IsPrintItemsInGroup,SalesExpense,AssetAcquiredAs,AssetDescription,AssetLocation,AssetPonumber,AssetSerialNumber,AssetWarrantyExpires,AssetNotes,AssetNumber,AssetCostBasis,AssetDepreciation,AssetBookValue,UnitOfMeasure,UnitOfMeasureId,Sublevel,LineAggregate,CustomFields,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="Items";
     }
 }

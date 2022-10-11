@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -110,5 +111,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(Balance), ref _Balance, value);
         }
         public const string QueryableProperties="Label,Type,Date,Num,Name,Memo,Class,Clr,Split,Amount,Balance";
+        public const string QuickbooksTableName="BalanceSheetDetail";
     }
 }

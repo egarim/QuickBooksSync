@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -316,5 +317,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(OpenedCompanyFile), ref _OpenedCompanyFile, value);
         }
         public const string QueryableProperties="Id,Name,Type,Address,Line1,Line2,Line3,Line4,Line5,City,State,PostalCode,Country,Note,Email,Phone,Fax,Ssn,Taxform,Website,FirstMonthFiscal,FirstMonthTax,LegalAddress,LegalCity,LegalCountry,LegalState,LegalZip,LegalName,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,OpenedCompanyFile";
+        public const string QuickbooksTableName="CompanyInfo";
     }
 }

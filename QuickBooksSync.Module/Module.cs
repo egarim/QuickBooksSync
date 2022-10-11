@@ -14,11 +14,14 @@ using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.Xpo;
 using DevExpress.ExpressApp.Xpo;
 using QuickBooksSync.Module.BusinessObjects;
+using XafWinBackgroundWorker.Module.BusinessObjects;
 
 namespace QuickBooksSync.Module;
 
 // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.
 public sealed class QuickBooksSyncModule : ModuleBase {
+
+    public static Dictionary<Type, string> QuickbooksTables = new Dictionary<Type, string>();
     public QuickBooksSyncModule() {
 		// 
 		// QuickBooksSyncModule
@@ -55,18 +58,27 @@ public sealed class QuickBooksSyncModule : ModuleBase {
 		RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Validation.ValidationModule));
 		RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ViewVariantsModule.ViewVariantsModule));
 
-        AdditionalExportedTypes.Add(typeof(Account));
-        AdditionalExportedTypes.Add(typeof(BalanceSheetDetail));
-        AdditionalExportedTypes.Add(typeof(BalanceSheetStandard));
-        AdditionalExportedTypes.Add(typeof(BalanceSheetSummary));
-        AdditionalExportedTypes.Add(typeof(Bill));
-        AdditionalExportedTypes.Add(typeof(Class));
-        AdditionalExportedTypes.Add(typeof(CreditCardCharge));
-        AdditionalExportedTypes.Add(typeof(Customer));
-        AdditionalExportedTypes.Add(typeof(CreditCardChargeExpenseItem));
-        AdditionalExportedTypes.Add(typeof(CreditCardChargeLineItem));
-        AdditionalExportedTypes.Add(typeof(JournalEntry));
-        AdditionalExportedTypes.Add(typeof(JournalEntryLine));
+
+        var QuickbooksPersistentTypes = typeof(Account).Assembly.GetTypes().Where(t => t.BaseType == typeof(XPLiteObject));
+        foreach (var item in QuickbooksPersistentTypes)
+        {
+            AdditionalExportedTypes.Add(item);
+            string TableName = item.GetAllPublicConstantValues<string>()[1];
+            QuickbooksTables.Add(item, TableName);
+        }
+
+        //AdditionalExportedTypes.Add(typeof(Account));
+        //AdditionalExportedTypes.Add(typeof(BalanceSheetDetail));
+        //AdditionalExportedTypes.Add(typeof(BalanceSheetStandard));
+        //AdditionalExportedTypes.Add(typeof(BalanceSheetSummary));
+        //AdditionalExportedTypes.Add(typeof(Bill));
+        //AdditionalExportedTypes.Add(typeof(Class));
+        //AdditionalExportedTypes.Add(typeof(CreditCardCharge));
+        //AdditionalExportedTypes.Add(typeof(Customer));
+        //AdditionalExportedTypes.Add(typeof(CreditCardChargeExpenseItem));
+        //AdditionalExportedTypes.Add(typeof(CreditCardChargeLineItem));
+        //AdditionalExportedTypes.Add(typeof(JournalEntry));
+        //AdditionalExportedTypes.Add(typeof(JournalEntryLine));
 
     }
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {

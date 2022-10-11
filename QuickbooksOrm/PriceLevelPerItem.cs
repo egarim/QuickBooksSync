@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -129,5 +130,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
         public const string QueryableProperties="Id,PriceLevelId,Name,PriceLevelType,IsActive,PriceLevelPerItemRetItemRefListId,PriceLevelPerItemRetItemRefFullName,PriceLevelPerItemRetCustomPrice,PriceLevelPerItemRetCustomPricePercent,PriceLevelPerItemRetCurrencyRefListId,PriceLevelPerItemRetCurrencyRefFullName,TimeCreated,TimeModified,EditSequence";
+        public const string QuickbooksTableName="PriceLevelPerItem";
     }
 }

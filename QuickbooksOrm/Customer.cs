@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -640,5 +641,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TimeCreated), ref _TimeCreated, value);
         }
         public const string QueryableProperties="Id,Name,FullName,Salutation,FirstName,MiddleInitial,LastName,AccountNumber,Company,Balance,CustomerBalance,Contact,Type,TypeId,Phone,Fax,AlternateContact,AlternatePhone,Email,Cc,AdditionalContactInfo,ContactsAggregate,ClassName,ClassId,Notes,NotesAggregate,ParentName,ParentId,Sublevel,JobStatus,JobStartDate,JobProjectedEndDate,JobEndDate,JobDescription,JobType,JobTypeId,CreditCardAddress,CreditCardExpMonth,CreditCardExpYear,CreditCardNameOnCard,CreditCardNumber,CreditCardPostalCode,CreditLimit,BillingAddress,BillingLine1,BillingLine2,BillingLine3,BillingLine4,BillingLine5,BillingCity,BillingState,BillingPostalCode,BillingCountry,BillingNote,ShippingAddress,ShippingLine1,ShippingLine2,ShippingLine3,ShippingLine4,ShippingLine5,ShippingCity,ShippingState,ShippingPostalCode,ShippingCountry,ShippingNote,ShippingAggregate,ResaleNumber,SalesRep,SalesRepId,Terms,TermsId,CurrencyName,CurrencyId,TaxCode,TaxCodeId,TaxItem,TaxItemId,SalesTaxCountry,PriceLevel,PriceLevelId,PreferredDeliveryMethod,PreferredPaymentMethodName,PreferredPaymentMethodId,IsActive,CustomFields,EditSequence,TimeModified,TimeCreated";
+        public const string QuickbooksTableName="Customers";
     }
 }

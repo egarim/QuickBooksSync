@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -287,5 +288,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(PayeeId), ref _PayeeId, value);
         }
         public const string QueryableProperties="Id,DepositId,TxnNumber,Date,CashBackAccount,CashBackAccountId,CashBackAmount,CashBackId,CashBackMemo,DepositToAccount,DepositToAccountId,Memo,TotalDeposit,CustomFields,ItemLineId,ItemAccount,ItemAccountId,ItemAmount,ItemCheckNumber,ItemClass,ItemClassId,ItemEntityName,ItemEntityId,ItemMemo,ItemPaymentMethod,ItemPaymentMethodId,ItemPaymentId,ItemPaymentLineId,ItemRefId,ItemTxnType,CurrencyName,CurrencyId,ExchangeRate,TimeModified,TimeCreated,Payee,PayeeId";
+        public const string QuickbooksTableName="DepositLineItems";
     }
 }

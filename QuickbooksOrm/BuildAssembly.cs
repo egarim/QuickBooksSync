@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -180,5 +181,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
         public const string QueryableProperties="Id,TxnNumber,ItemInventoryAssemblyRefListId,ItemInventoryAssemblyRefFullName,InventorySiteRefListId,InventorySiteRefFullName,SerialNumber,LotNumber,TxnDate,RefNumber,Memo,IsPending,QuantityToBuild,QuantityCanBuild,QuantityOnHand,QuantityOnSalesOrder,MarkPendingIfRequired,ExternalGuid,BuildAssemblyLineAggregate,TimeCreated,TimeModified,EditSequence";
+        public const string QuickbooksTableName="BuildAssemblies";
     }
 }

@@ -16,6 +16,7 @@ using System.Text;
 namespace QuickBooksSync.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Quickbooks Data")]
     //[ImageName("BO_Contact")]
     //[DefaultProperty("DisplayMemberNameForLookupEditorsOfThisType")]
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
@@ -382,5 +383,6 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(EditSequence), ref _EditSequence, value);
         }
         public const string QueryableProperties="Id,TxnDate,TxnNumber,RefNumber,CustomerRefListId,CustomerRefFullName,RefundFromAccountRefListId,RefundFromAccountRefFullName,AraccountRefListId,AraccountRefFullName,TotalAmount,TotalAmountInHomeCurrency,AddressAddr1,AddressAddr2,AddressAddr3,AddressAddr4,AddressAddr5,AddressCity,AddressState,AddressPostalCode,AddressCountry,AddressNote,PaymentMethodRefListId,PaymentMethodRefFullName,Memo,RefundAppliedToTxnAggregate,CreditCardTxnInfoCreditCardTxnInputInfoCreditCardNumber,CreditCardTxnInfoCreditCardTxnInputInfoExpirationMonth,CreditCardTxnInfoCreditCardTxnInputInfoExpirationYear,CreditCardTxnInfoCreditCardTxnInputInfoNameOnCard,CreditCardTxnInfoCreditCardTxnInputInfoCreditCardAddress,CreditCardTxnInfoCreditCardTxnInputInfoCreditCardPostalCode,CreditCardTxnInfoCreditCardTxnInputInfoCommercialCardCode,CreditCardTxnInfoCreditCardTxnInputInfoTransactionMode,CreditCardTxnInfoCreditCardTxnInputInfoCreditCardTxnType,CreditCardTxnInfoCreditCardTxnResultInfoResultCode,CreditCardTxnInfoCreditCardTxnResultInfoResultMessage,CreditCardTxnInfoCreditCardTxnResultInfoCreditCardTransId,CreditCardTxnInfoCreditCardTxnResultInfoMerchantAccountNumber,CreditCardTxnInfoCreditCardTxnResultInfoAuthorizationCode,CreditCardTxnInfoCreditCardTxnResultInfoAvsstreet,CreditCardTxnInfoCreditCardTxnResultInfoAvszip,CreditCardTxnInfoCreditCardTxnResultInfoCardSecurityCodeMatch,CreditCardTxnInfoCreditCardTxnResultInfoTxnAuthorizationTime,CustomFields,CurrencyRefListId,CurrencyRefName,ExchangeRate,TimeCreated,TimeModified,EditSequence";
+        public const string QuickbooksTableName="CreditCardRefunds";
     }
 }
