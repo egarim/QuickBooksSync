@@ -66,6 +66,7 @@ public class Updater : ModuleUpdater {
         {
             var Company = this.ObjectSpace.CreateObject<Company>();
             Company.Name = "Test";
+            Company.MaxConcurrentThreads = 10;
             Company.FilePath = "C:\\Users\\User\\Desktop\\exe logistics incTesting\\exe lines incTesting.qbw";
         }
        

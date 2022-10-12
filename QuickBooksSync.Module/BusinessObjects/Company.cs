@@ -23,7 +23,7 @@ namespace QuickBooksSync.Module.BusinessObjects
     //[DefaultListViewOptions(MasterDetailMode.ListViewOnly, false, NewItemRowPosition.None)]
     //[Persistent("DatabaseTableName")]
     // Specify more UI options using a declarative approach (https://documentation.devexpress.com/#eXpressAppFramework/CustomDocument112701).
-    public class Company : BaseObject, IReportProgress
+    public class Company : BaseObject
     { // Inherit from a different class to provide a custom primary key, concurrency and deletion behavior, etc. (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument113146.aspx).
         // Use CodeRush to create XPO classes and properties with a few keystrokes.
         // https://docs.devexpress.com/CodeRushForRoslyn/118557
@@ -37,6 +37,8 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        string log;
+        int maxConcurrentThreads;
         string syncTime;
         int max;
         int progress;
@@ -58,7 +60,7 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => filePath;
             set => SetPropertyValue(nameof(FilePath), ref filePath, value);
         }
-        
+
         [Size(SizeAttribute.DefaultStringMappingFieldSize)]
         public string SyncTime
         {
@@ -73,17 +75,22 @@ namespace QuickBooksSync.Module.BusinessObjects
             set => SetPropertyValue(nameof(TargetDb), ref targetDb, value);
         }
 
+        public int MaxConcurrentThreads
+        {
+            get => maxConcurrentThreads;
+            set => SetPropertyValue(nameof(MaxConcurrentThreads), ref maxConcurrentThreads, value);
+        }
         public ScheduleBase Schedule
         {
             get => schedule;
             set => SetPropertyValue(nameof(Schedule), ref schedule, value);
         }
-        [ModelDefault(nameof(IModelCommonMemberViewItem.PropertyEditorType), "XafWinBackgroundWorker.Module.Win.Editors.ProgressBarPropertyEditor")]
-        public int Progress
-        {
-            get => progress;
-            set => SetPropertyValue(nameof(Progress), ref progress, value);
-        }
+        //[ModelDefault(nameof(IModelCommonMemberViewItem.PropertyEditorType), "XafWinBackgroundWorker.Module.Win.Editors.ProgressBarPropertyEditor")]
+        //public int Progress
+        //{
+        //    get => progress;
+        //    set => SetPropertyValue(nameof(Progress), ref progress, value);
+        //}
         [Browsable(false)]
         [NonPersistent()]
         public int Max
@@ -91,7 +98,13 @@ namespace QuickBooksSync.Module.BusinessObjects
             get => max;
             set => SetPropertyValue(nameof(Max), ref max, value);
         }
-
+        
+        [Size(SizeAttribute.Unlimited)]
+        public string Log
+        {
+            get => log;
+            set => SetPropertyValue(nameof(Log), ref log, value);
+        }
         //private string _PersistentProperty;
         //[XafDisplayName("My display name"), ToolTip("My hint message")]
         //[ModelDefault("EditMask", "(000)-00"), Index(0), VisibleInListView(false)]

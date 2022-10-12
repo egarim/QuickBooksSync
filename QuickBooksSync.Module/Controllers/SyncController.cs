@@ -24,6 +24,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using XafWinBackgroundWorker.Module.BusinessObjects;
+using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 
 namespace QuickBooksSync.Module.Controllers
 {
@@ -83,6 +84,7 @@ namespace QuickBooksSync.Module.Controllers
                 return;
 
 
+      
 
             //HACK here we are back to the main thread so we can use the object space to create objects
 
@@ -96,41 +98,39 @@ namespace QuickBooksSync.Module.Controllers
 
                 Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
             }
-
+ 
             //ExecuteDoEvents();
-            currentCompany.Progress = currentCompany.Progress + 1; ;
+            //currentCompany.Progress = currentCompany.Progress + 1; ;
 
 
         }
         int RunningWorkers;
         DateTime StartTime;
+        int Pages=0
+            ;
+        int CurrentPage = 0;
+        Dictionary<string, KeyValuePair<BackgroundWorker,object>> Workers = new Dictionary<string, KeyValuePair<BackgroundWorker, object>>();
+        int pages;
         private void Sybc_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             RunningWorkers = 0;
             StartTime = DateTime.Now;
             currentCompany = this.View.CurrentObject as Company;
-            currentCompany.Progress = 0;
+            //currentCompany.Progress = 0;
             //HACK tables list
             //List<string> Entities = new List<string>() { "Account", "BalanceSheetDetail", "BalanceSheetStandard", "BalanceSheetSummary", "Bill" };
-            Dictionary<string,string> Entities = new Dictionary<string, string>();
-            Entities.Add("Bill", "Bills");
-            Entities.Add("Account", "Accounts");
-            Entities.Add("Class", "Class");
-            Entities.Add("Customer", "Customers");
-            Entities.Add("CreditCardChargeExpenseItem", "CreditCardChargeExpenseItems");
-            Entities.Add("CreditCardChargeLineItem", "CreditCardChargeLineItems");
-            Entities.Add("CreditCardCharge", "CreditCardCharges");
-            Entities.Add("JournalEntry", "JournalEntries");
-            Entities.Add("JournalEntryLine", "JournalEntryLines");
+            Dictionary<Type, string> Entities = QuickBooksSyncModule.QuickbooksTables;
+
+            Workers.Clear();
             foreach (var entity in Entities)
             {
-                var EntityType = this.Application.TypesInfo.FindTypeInfo("QuickBooksSync.Module.BusinessObjects." + entity.Key);
+                var EntityType = this.Application.TypesInfo.FindTypeInfo(entity.Key);
                 string QueryableProperties = EntityType.Type.GetAllPublicConstantValues<string>()[0];
                 var bWorker = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true };
                 bWorker.DoWork += backgroundWorker_DoWork;
                 bWorker.ProgressChanged += backgroundWorker_ProgressChanged;
                 bWorker.RunWorkerCompleted += BWorker_RunWorkerCompleted;
-               
+
 
                 void BWorker_RunWorkerCompleted(object WC_sender, RunWorkerCompletedEventArgs WC_e)
                 {
@@ -142,16 +142,26 @@ namespace QuickBooksSync.Module.Controllers
                         return;
                     RunningWorkers--;
 
-                    if(RunningWorkers==0)
+
+                    (string Entity, string ExceptionMessage, DateTime StartTime) Result=((string, string, DateTime))WC_e.Result;
+
+                   var LogLine = $"{(Result.Entity).ToString().PadRight(40,'.')}  done in:{DateTime.Now.Subtract(Result.StartTime).ToString(@"hh\:mm\:ss")} {Result.ExceptionMessage}" + System.Environment.NewLine;
+                   currentCompany.Log = currentCompany.Log + LogLine;
+
+                    if (RunningWorkers == 0)
                     {
                         Debug.Write("Commiting");
-                        currentCompany.SyncTime= DateTime.Now.Subtract(StartTime).ToString("g");
+                        currentCompany.SyncTime = DateTime.Now.Subtract(StartTime).ToString(@"hh\:mm\:ss");
                         this.View.ObjectSpace.CommitChanges();
                         this.View.Refresh();
+                        if (CurrentPage <= pages)
+                        {
+                            ProcessPage(CurrentPage + 1);
+                        }
                     }
 
 
-                  
+
                 }
 
 
@@ -159,17 +169,20 @@ namespace QuickBooksSync.Module.Controllers
                 {
                     BackgroundWorker worker = BW_sender as BackgroundWorker;
                     var WorkerArgs = ((string FileName, string Entity, string Properties, Type EntityType))BW_e.Argument;
+                    (string Entity, string ExceptionMessage,DateTime StartTime) Result = (WorkerArgs.Entity, "",DateTime.Now);
                     using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = WorkerArgs.FileName, PoolWaitTime = 600 }))
                     {
 
-                        connection.Open();
-
-                        var accountsCommand = connection.CreateCommand();
-                        accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
-                        QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
-                        int currentRecord = 0;
+                     
                         try
                         {
+                            
+                            connection.Open();
+
+                            var accountsCommand = connection.CreateCommand();
+                            accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
+                            QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
+                            int currentRecord = 0;
                             while (rdr.Read())
                             {
                                 if (worker.CancellationPending == true)
@@ -201,9 +214,9 @@ namespace QuickBooksSync.Module.Controllers
                                     //Debug.WriteLine($"record:{currentRecord} val count:{values.Count}");
                                     currentRecord++;
                                     var ProgressArgs = (values, WorkerArgs.Entity, WorkerArgs.Properties, WorkerArgs.EntityType);
-                                    System.Threading.Thread.Sleep(50);
+                                    //System.Threading.Thread.Sleep(50);
                                     worker.ReportProgress(0, ProgressArgs);
-
+                              
                                     //if (rdr.VisibleFieldCount > 0)
                                     //    worker.ReportProgress(0, ProgressArgs);
                                 }
@@ -212,26 +225,59 @@ namespace QuickBooksSync.Module.Controllers
                         }
                         catch (Exception ex)
                         {
+                            Result.ExceptionMessage = ex.Message;
                             Debug.WriteLine("Read Exception");
                             Debug.WriteLine(ex.Message);
                         }
-                       
 
+                     
 
                     }
 
 
+
+                    BW_e.Result = Result;
                 }
 
-
+                
                 //Using tuples to pass arguments to the backgrown worker
                 var WokerArgs = (currentCompany.FilePath, entity.Value, QueryableProperties, EntityType.Type);
 
-                bWorker.RunWorkerAsync(WokerArgs);
-                RunningWorkers++;
+                //bWorker.RunWorkerAsync(WokerArgs);
+                Workers.Add(entity.Value, new KeyValuePair<BackgroundWorker, object>(bWorker, WokerArgs));
+
             }
 
+            int WorkersCount = Workers.Count();
+            var ExtranPage = WorkersCount % currentCompany.MaxConcurrentThreads;
+            pages = WorkersCount / currentCompany.MaxConcurrentThreads;
+            if (ExtranPage > 0)
+            {
+                pages = pages + 1;
+            }
+
+            ProcessPage(1);
+
         }
+
+        private void ProcessPage(int PageNumber)
+        {
+            var PageData = GetPage(Workers, PageNumber, currentCompany.MaxConcurrentThreads);
+            CurrentPage = PageNumber;
+            foreach (var item in PageData)
+            {
+                item.Value.Key.RunWorkerAsync(item.Value.Value);
+                RunningWorkers++;
+            }
+        }
+
+        static Dictionary<string, KeyValuePair<BackgroundWorker, object>> GetPage(Dictionary<string, KeyValuePair<BackgroundWorker, object>> list, int pageNumber, int pageSize = 10)
+        {
+           
+            return new Dictionary<string, KeyValuePair<BackgroundWorker, object>>(list.Skip((pageNumber - 1) * pageSize).Take(pageSize));
+          
+        }
+
         protected override void OnActivated()
         {
             base.OnActivated();
