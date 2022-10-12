@@ -145,7 +145,7 @@ namespace QuickBooksSync.Module.Controllers
 
                     (string Entity, string ExceptionMessage, DateTime StartTime) Result=((string, string, DateTime))WC_e.Result;
 
-                   var LogLine = $"{(Result.Entity).ToString().PadRight(40,'.')}  done in:{DateTime.Now.Subtract(Result.StartTime).ToString(@"hh\:mm\:ss")} {Result.ExceptionMessage}" + System.Environment.NewLine;
+                   var LogLine = $"{(Result.Entity).ToString().PadRight(50,'.')}done in:{DateTime.Now.Subtract(Result.StartTime).ToString(@"hh\:mm\:ss")} {Result.ExceptionMessage}" + System.Environment.NewLine;
                    currentCompany.Log = currentCompany.Log + LogLine;
 
                     if (RunningWorkers == 0)
