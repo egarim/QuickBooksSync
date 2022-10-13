@@ -75,41 +75,13 @@ namespace QuickBooksSync.Module.Controllers
         {
 
         }
-        protected virtual void backgroundWorker_ProgressChanged(object RP_sender, ProgressChangedEventArgs RP_e)
-        {
 
-
-            BackgroundWorker worker = RP_sender as BackgroundWorker;
-            if (worker.CancellationPending)
-                return;
-
-
-      
-
-            //HACK here we are back to the main thread so we can use the object space to create objects
-
-            (Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs = ((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType))RP_e.UserState;
-
-
-            var Instance = this.View.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPLiteObject;
-            //var PropList = WorkerArgs.Properties.Split(',');
-            foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
-            {
-
-                Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
-            }
- 
-            //ExecuteDoEvents();
-            //currentCompany.Progress = currentCompany.Progress + 1; ;
-
-
-        }
         int RunningWorkers;
         DateTime StartTime;
-        int Pages=0
+        int Pages = 0
             ;
         int CurrentPage = 0;
-        Dictionary<string, KeyValuePair<BackgroundWorker,object>> Workers = new Dictionary<string, KeyValuePair<BackgroundWorker, object>>();
+        Dictionary<string, KeyValuePair<BackgroundWorker, object>> Workers = new Dictionary<string, KeyValuePair<BackgroundWorker, object>>();
         int pages;
         private void Sybc_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
@@ -121,12 +93,19 @@ namespace QuickBooksSync.Module.Controllers
             //List<string> Entities = new List<string>() { "Account", "BalanceSheetDetail", "BalanceSheetStandard", "BalanceSheetSummary", "Bill" };
             Dictionary<Type, string> Entities = QuickBooksSyncModule.QuickbooksTables;
 
+
+             var SingleEntity = Entities.FirstOrDefault(e => e.Key == typeof(InventorySite));
+            Entities.Clear();
+            Entities.Add(SingleEntity.Key, SingleEntity.Value);
+
             Workers.Clear();
             foreach (var entity in Entities)
             {
                 var EntityType = this.Application.TypesInfo.FindTypeInfo(entity.Key);
                 string QueryableProperties = EntityType.Type.GetAllPublicConstantValues<string>()[0];
+
                 var bWorker = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true };
+                
                 bWorker.DoWork += backgroundWorker_DoWork;
                 bWorker.ProgressChanged += backgroundWorker_ProgressChanged;
                 bWorker.RunWorkerCompleted += BWorker_RunWorkerCompleted;
@@ -143,11 +122,11 @@ namespace QuickBooksSync.Module.Controllers
                     RunningWorkers--;
 
 
-                    (string Entity, string ExceptionMessage, DateTime StartTime) Result=((string, string, DateTime))WC_e.Result;
+                    (string Entity, string ExceptionMessage, DateTime StartTime) Result = ((string, string, DateTime))WC_e.Result;
 
-                   
-                   var LogLine = $"{Result.Entity.PadRight(50,'.')}done in:{DateTime.Now.Subtract(Result.StartTime).ToString(@"hh\:mm\:ss")} {Result.ExceptionMessage}" + System.Environment.NewLine;
-                   currentCompany.Log = currentCompany.Log + LogLine;
+
+                    var LogLine = $"{Result.Entity.PadRight(50, '.')}done in:{DateTime.Now.Subtract(Result.StartTime).ToString(@"hh\:mm\:ss")} {Result.ExceptionMessage}" + System.Environment.NewLine;
+                    currentCompany.Log = currentCompany.Log + LogLine;
 
                     if (RunningWorkers == 0)
                     {
@@ -164,24 +143,54 @@ namespace QuickBooksSync.Module.Controllers
 
 
                 }
+                void backgroundWorker_ProgressChanged(object RP_sender, ProgressChangedEventArgs RP_e)
+                {
 
 
+                    BackgroundWorker worker = RP_sender as BackgroundWorker;
+                    if (worker.CancellationPending)
+                        return;
+
+
+
+
+                    //HACK here we are back to the main thread so we can use the object space to create objects
+
+                    (Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs = ((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType))RP_e.UserState;
+
+
+                    var Instance = this.View.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPLiteObject;
+                    //var PropList = WorkerArgs.Properties.Split(',');
+                    foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
+                    {
+
+                        Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
+                    }
+
+                    //ExecuteDoEvents();
+                    //currentCompany.Progress = currentCompany.Progress + 1; ;
+
+
+                }
                 void backgroundWorker_DoWork(object BW_sender, DoWorkEventArgs BW_e)
                 {
                     BackgroundWorker worker = BW_sender as BackgroundWorker;
                     var WorkerArgs = ((string FileName, string Entity, string Properties, Type EntityType))BW_e.Argument;
-                    (string Entity, string ExceptionMessage,DateTime StartTime) Result = (WorkerArgs.Entity, "",DateTime.Now);
+
+                    (string Entity, string ExceptionMessage, DateTime StartTime) Result = (WorkerArgs.Entity, "", DateTime.Now);
+
                     using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = WorkerArgs.FileName, PoolWaitTime = 600 }))
                     {
 
-                     
+
                         try
                         {
-                            
+
                             connection.Open();
 
                             var accountsCommand = connection.CreateCommand();
-                            accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
+                            //accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
+                            accountsCommand.CommandText = $"SELECT * FROM {WorkerArgs.Entity}";
                             QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
                             int currentRecord = 0;
                             while (rdr.Read())
@@ -217,7 +226,7 @@ namespace QuickBooksSync.Module.Controllers
                                     var ProgressArgs = (values, WorkerArgs.Entity, WorkerArgs.Properties, WorkerArgs.EntityType);
                                     //System.Threading.Thread.Sleep(50);
                                     worker.ReportProgress(0, ProgressArgs);
-                              
+
                                     //if (rdr.VisibleFieldCount > 0)
                                     //    worker.ReportProgress(0, ProgressArgs);
                                 }
@@ -231,7 +240,7 @@ namespace QuickBooksSync.Module.Controllers
                             Debug.WriteLine(ex.Message);
                         }
 
-                     
+
 
                     }
 
@@ -240,7 +249,7 @@ namespace QuickBooksSync.Module.Controllers
                     BW_e.Result = Result;
                 }
 
-                
+
                 //Using tuples to pass arguments to the backgrown worker
                 var WokerArgs = (currentCompany.FilePath, entity.Value, QueryableProperties, EntityType.Type);
 
@@ -274,9 +283,9 @@ namespace QuickBooksSync.Module.Controllers
 
         static Dictionary<string, KeyValuePair<BackgroundWorker, object>> GetPage(Dictionary<string, KeyValuePair<BackgroundWorker, object>> list, int pageNumber, int pageSize = 10)
         {
-           
+
             return new Dictionary<string, KeyValuePair<BackgroundWorker, object>>(list.Skip((pageNumber - 1) * pageSize).Take(pageSize));
-          
+
         }
 
         protected override void OnActivated()
