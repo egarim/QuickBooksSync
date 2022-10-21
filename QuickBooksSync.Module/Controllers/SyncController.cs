@@ -41,7 +41,7 @@ namespace QuickBooksSync.Module.Controllers
         {
             InitializeComponent();
             Sync = new SimpleAction(this, "Sync", "View");
-            Sync.Execute += Sybc_Execute;
+            Sync.Execute += Sync_Execute;
             GenerateEntities = new SimpleAction(this, "GenerateEntites", "View");
             GenerateEntities.Execute += GenerateEntities_Execute;
 
@@ -83,7 +83,7 @@ namespace QuickBooksSync.Module.Controllers
         int CurrentPage = 0;
         Dictionary<string, KeyValuePair<BackgroundWorker, object>> Workers = new Dictionary<string, KeyValuePair<BackgroundWorker, object>>();
         int pages;
-        private void Sybc_Execute(object sender, SimpleActionExecuteEventArgs e)
+        protected void Sync_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
             RunningWorkers = 0;
             StartTime = DateTime.Now;
@@ -280,6 +280,7 @@ namespace QuickBooksSync.Module.Controllers
 
                 Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
             }
+            
         }
 
         protected virtual Dictionary<Type, string> GetEntities()

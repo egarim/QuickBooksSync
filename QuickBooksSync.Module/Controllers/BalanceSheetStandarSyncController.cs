@@ -21,7 +21,7 @@ namespace QuickBooksSync.Module.Controllers
 
         protected override string BuildCommand((string FileName, string Entity, string Properties, Type EntityType) WorkerArgs)
         {
-            string Select = base.BuildCommand(WorkerArgs);
+            string Select = base.BuildCommand(WorkerArgs)+ " WHERE ReportPeriod = '2022-01-08:2022-01-14'";
             return Select;
         }
 
@@ -29,7 +29,7 @@ namespace QuickBooksSync.Module.Controllers
         {
 
             Dictionary<Type, string> keyValuePairs = new Dictionary<Type, string>();
-            keyValuePairs.Add(typeof(BalanceSheetDetail), "BalanceSheetDetail");
+            //keyValuePairs.Add(typeof(BalanceSheetDetail), "BalanceSheetDetail");
             keyValuePairs.Add(typeof(BalanceSheetStandard), "BalanceSheetStandard");
             return keyValuePairs;
         }
@@ -37,10 +37,12 @@ namespace QuickBooksSync.Module.Controllers
         protected override void SetObjectValues((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs, XPBaseObject Instance)
         {
             base.SetObjectValues(WorkerArgs, Instance);
+            Instance.SetMemberValue("Week", 2);
         }
 
         private void GetBalanceSheets_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
+            this.Sync_Execute(sender, e);
             // Execute your business logic (https://docs.devexpress.com/eXpressAppFramework/112737/).
         }
 

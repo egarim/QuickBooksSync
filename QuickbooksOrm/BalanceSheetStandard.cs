@@ -39,6 +39,7 @@ namespace QuickBooksSync.Module.BusinessObjects
             // Place your initialization code here (https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112834.aspx).
         }
 
+        int week;
         private String _Label;
         [Size(300)]
         public String Label
@@ -51,6 +52,12 @@ namespace QuickBooksSync.Module.BusinessObjects
         {
             get => _Total;
             set => SetPropertyValue(nameof(Total), ref _Total, value);
+        }
+        
+        public int Week
+        {
+            get => week;
+            set => SetPropertyValue(nameof(Week), ref week, value);
         }
         public const string QueryableProperties = "Label,Total";
         public const string QuickbooksTableName = "BalanceSheetStandard";
