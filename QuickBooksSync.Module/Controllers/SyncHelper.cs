@@ -1,107 +1,56 @@
-﻿using DevExpress.Data.Filtering;
-using DevExpress.ExpressApp;
-using DevExpress.ExpressApp.Actions;
-using DevExpress.ExpressApp.DC;
-using DevExpress.ExpressApp.Editors;
-using DevExpress.ExpressApp.Layout;
-using DevExpress.ExpressApp.Model.NodeGenerators;
-using DevExpress.ExpressApp.SystemModule;
-using DevExpress.ExpressApp.Templates;
-using DevExpress.ExpressApp.Utils;
-using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
-using DevExpress.Persistent.Validation;
+﻿using DevExpress.ExpressApp;
 using DevExpress.Xpo;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using QuickBooksSync.Module.BusinessObjects;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Data.CData.QuickBooks;
-using System.Data.Common;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Text;
 using XafWinBackgroundWorker.Module.BusinessObjects;
-using static DevExpress.Xpo.Helpers.AssociatedCollectionCriteriaHelper;
 
 namespace QuickBooksSync.Module.Controllers
 {
-    public partial class SyncController : ViewController
+    // For more typical usage scenarios, be sure to check out https://documentation.devexpress.com/eXpressAppFramework/clsDevExpressExpressAppViewControllertopic.aspx.
+
+    public class SyncHelper
     {
-        SimpleAction ActiveALl;
-        SimpleAction GenerateEntities;
-        SimpleAction Sync;
-        Company currentCompany;
-        // Use CodeRush to create Controllers and Actions with a few keystrokes.
-        // https://docs.devexpress.com/CodeRushForRoslyn/403133/
-        public SyncController()
-        {
-            InitializeComponent();
-            Sync = new SimpleAction(this, "Sync", "View");
-            Sync.Execute += Sync_Execute;
-            GenerateEntities = new SimpleAction(this, "GenerateEntites", "View");
-            GenerateEntities.Execute += GenerateEntities_Execute;
-
-            ActiveALl = new SimpleAction(this, "SelectAll", "View");
-            ActiveALl.Execute += ActiveALl_Execute;
-
-            this.TargetObjectType = typeof(Company);
-
-
-
-            // Target required Views (via the TargetXXX properties) and create their Actions.
-        }
-        private void ActiveALl_Execute(object sender, SimpleActionExecuteEventArgs e)
-        {
-            // Execute your business logic (https://docs.devexpress.com/eXpressAppFramework/112737/).
-        }
-        private void GenerateEntities_Execute(object sender, SimpleActionExecuteEventArgs e)
-        {
-            DirectoryInfo directoryInfo = new DirectoryInfo("C:\\Users\\manu_\\source\\repos\\QuickBooksSync\\EFConsoleQb\\EFConsoleQb\\Models");
-            var Files = directoryInfo.GetFiles();
-            foreach (FileInfo fileInfo in Files)
-            {
-                CompanyEntity entity = this.View.ObjectSpace.CreateObject<CompanyEntity>();
-                entity.Name = fileInfo.Name.Replace(".cs", "");
-            }
-            this.View.ObjectSpace.CommitChanges();
-
-            // Execute your business logic (https://docs.devexpress.com/eXpressAppFramework/112737/).
-        }
-        protected virtual void ExecuteDoEvents()
-        {
-
-        }
-
         int RunningWorkers;
         DateTime StartTime;
         int Pages = 0;
         int CurrentPage = 0;
         Dictionary<string, KeyValuePair<BackgroundWorker, object>> Workers = new Dictionary<string, KeyValuePair<BackgroundWorker, object>>();
         int pages;
-        protected void Sync_Execute(object sender, SimpleActionExecuteEventArgs e)
+        Company currentCompany;
+        IObjectSpace ObjectSpace;
+        Action OnFinish;
+        Dictionary<Type, string> Entities;
+        Dictionary<Type, string> EntityQueryParamters;
+        public SyncHelper(Company Company , Dictionary<Type, string> entities, IObjectSpace objectSpace,Action onFinish, Dictionary<Type, string> entityQueryParamters)
+        {
+            currentCompany = Company;
+            ObjectSpace = objectSpace;
+            OnFinish = onFinish;
+            Entities = entities;
+            EntityQueryParamters = entityQueryParamters;
+        }
+        public string Log { get; set; }
+        public void Sync()
         {
             RunningWorkers = 0;
             StartTime = DateTime.Now;
-            currentCompany = this.View.CurrentObject as Company;
-            //currentCompany.Progress = 0;
+
+            
             //HACK tables list
-            //List<string> Entities = new List<string>() { "Account", "BalanceSheetDetail", "BalanceSheetStandard", "BalanceSheetSummary", "Bill" };
+          
             Dictionary<Type, string> Entities = GetEntities();
 
 
-            // var SingleEntity = Entities.FirstOrDefault(e => e.Key == typeof(CreditCardRefund));
-            //Entities.Clear();
-            //Entities.Add(SingleEntity.Key, SingleEntity.Value);
-
+          
             Workers.Clear();
             foreach (var entity in Entities)
             {
-                ITypeInfo EntityType = this.Application.TypesInfo.FindTypeInfo(entity.Key);
-                string QueryableProperties = EntityType.Type.GetAllPublicConstantValues<string>()[0];
+
+                string QueryableProperties = entity.Key.GetAllPublicConstantValues<string>()[0];
 
                 var bWorker = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true };
 
@@ -116,26 +65,31 @@ namespace QuickBooksSync.Module.Controllers
                     if (worker.CancellationPending)
                         return;
 
-                    if (this.View == null)
-                        return;
+
                     RunningWorkers--;
 
 
                     (string Entity, string ExceptionMessage, DateTime StartTime) Result = ((string, string, DateTime))WC_e.Result;
 
 
-                    var LogLine = $"{Result.Entity.PadRight(50, '.')}done in:{DateTime.Now.Subtract(Result.StartTime).ToString(@"hh\:mm\:ss")} {Result.ExceptionMessage}" + System.Environment.NewLine;
-                    currentCompany.Log = currentCompany.Log + LogLine;
+                    var LogLine = $"{Result.Entity.PadRight(50, '.')}done in:{DateTime.Now.Subtract(Result.StartTime).ToString(@"hh\:mm\:ss")} {Result.ExceptionMessage}" + Environment.NewLine;
+                    Log = Log + LogLine;
 
                     if (RunningWorkers == 0)
                     {
                         Debug.Write("Commiting");
                         currentCompany.SyncTime = DateTime.Now.Subtract(StartTime).ToString(@"hh\:mm\:ss");
-                        this.View.ObjectSpace.CommitChanges();
-                        this.View.Refresh();
+                        //TODO add action here
+                        this.ObjectSpace.CommitChanges();
+                        //this.View.Refresh();
                         if (CurrentPage <= pages)
                         {
                             ProcessPage(CurrentPage + 1);
+                        }
+                        else
+                        { 
+                            if(OnFinish!=null)
+                                OnFinish.Invoke();
                         }
                     }
 
@@ -158,7 +112,7 @@ namespace QuickBooksSync.Module.Controllers
                     (Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs = ((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType))RP_e.UserState;
 
 
-                    var Instance = this.View.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPBaseObject;//XPLiteObject;
+                    var Instance = this.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPBaseObject;//XPLiteObject;
                                                                                                              //var PropList = WorkerArgs.Properties.Split(',');
 
                     SetObjectValues(WorkerArgs, Instance);
@@ -205,7 +159,7 @@ namespace QuickBooksSync.Module.Controllers
                                     {
                                         object value = rdr.GetValue(property);
                                         //Debug.WriteLine(value.GetType());
-                                        if (value.GetType() == typeof(Double))
+                                        if (value.GetType() == typeof(double))
                                         {
                                             value = Convert.ChangeType(value, typeof(float));
                                         }
@@ -248,7 +202,7 @@ namespace QuickBooksSync.Module.Controllers
 
 
                 //Using tuples to pass arguments to the backgrown worker
-                var WokerArgs = (currentCompany.FilePath, entity.Value, QueryableProperties, EntityType.Type);
+                var WokerArgs = (currentCompany.FilePath, entity.Value, QueryableProperties, entity.Key);
 
                 //bWorker.RunWorkerAsync(WokerArgs);
                 Workers.Add(entity.Value, new KeyValuePair<BackgroundWorker, object>(bWorker, WokerArgs));
@@ -266,12 +220,17 @@ namespace QuickBooksSync.Module.Controllers
             ProcessPage(1);
 
         }
-
         protected virtual string BuildCommand((string FileName, string Entity, string Properties, Type EntityType) WorkerArgs)
         {
-            return $"SELECT * FROM {WorkerArgs.Entity}";
+            return $"SELECT * FROM {WorkerArgs.Entity} {GetQueryParameters(WorkerArgs.EntityType)}";
         }
-
+        protected virtual string GetQueryParameters(Type EntityType)
+        {
+            if (this.EntityQueryParamters != null)
+                return this.EntityQueryParamters[EntityType];
+            else
+                return "";
+        }
         protected virtual void SetObjectValues((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs, XPBaseObject Instance)
         {
             foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
@@ -279,12 +238,12 @@ namespace QuickBooksSync.Module.Controllers
 
                 Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
             }
-            
+
         }
 
         protected virtual Dictionary<Type, string> GetEntities()
         {
-            return QuickBooksSyncModule.QuickbooksTables;
+            return Entities;
         }
 
         private void ProcessPage(int PageNumber)
@@ -298,27 +257,11 @@ namespace QuickBooksSync.Module.Controllers
             }
         }
 
-        static Dictionary<string, KeyValuePair<BackgroundWorker, object>> GetPage(Dictionary<string, KeyValuePair<BackgroundWorker, object>> list, int pageNumber, int pageSize = 10)
+        protected Dictionary<string, KeyValuePair<BackgroundWorker, object>> GetPage(Dictionary<string, KeyValuePair<BackgroundWorker, object>> list, int pageNumber, int pageSize = 10)
         {
 
             return new Dictionary<string, KeyValuePair<BackgroundWorker, object>>(list.Skip((pageNumber - 1) * pageSize).Take(pageSize));
 
-        }
-
-        protected override void OnActivated()
-        {
-            base.OnActivated();
-            // Perform various tasks depending on the target View.
-        }
-        protected override void OnViewControlsCreated()
-        {
-            base.OnViewControlsCreated();
-            // Access and customize the target View control.
-        }
-        protected override void OnDeactivated()
-        {
-            // Unsubscribe from previously subscribed events and release other references and resources.
-            base.OnDeactivated();
         }
     }
 }
