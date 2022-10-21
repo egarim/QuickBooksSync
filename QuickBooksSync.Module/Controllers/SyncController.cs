@@ -94,9 +94,9 @@ namespace QuickBooksSync.Module.Controllers
             Dictionary<Type, string> Entities = QuickBooksSyncModule.QuickbooksTables;
 
 
-             var SingleEntity = Entities.FirstOrDefault(e => e.Key == typeof(InventorySite));
-            Entities.Clear();
-            Entities.Add(SingleEntity.Key, SingleEntity.Value);
+            // var SingleEntity = Entities.FirstOrDefault(e => e.Key == typeof(CreditCardRefund));
+            //Entities.Clear();
+            //Entities.Add(SingleEntity.Key, SingleEntity.Value);
 
             Workers.Clear();
             foreach (var entity in Entities)
@@ -159,7 +159,7 @@ namespace QuickBooksSync.Module.Controllers
                     (Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs = ((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType))RP_e.UserState;
 
 
-                    var Instance = this.View.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPLiteObject;
+                    var Instance = this.View.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPBaseObject;//XPLiteObject;
                     //var PropList = WorkerArgs.Properties.Split(',');
                     foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
                     {

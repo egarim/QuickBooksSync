@@ -18,6 +18,7 @@ using XafWinBackgroundWorker.Module.BusinessObjects;
 using DevExpress.Xpo.Metadata;
 using System.Reflection;
 using System.Diagnostics;
+using DevExpress.Xpo.DB.Helpers;
 
 namespace QuickBooksSync.Module;
 
@@ -64,28 +65,34 @@ public sealed class QuickBooksSyncModule : ModuleBase {
       
         var QuickbooksPersistentTypes = typeof(Account).Assembly.GetTypes().Where(t => t.BaseType == typeof(XPLiteObject)).ToList();
 
-       var ObjectsWithoutKey=  QuickbooksPersistentTypes.Where(t => t.GetProperties().Count(p => p.GetCustomAttribute<KeyAttribute>() != null) == 0).ToList();
+       //var ObjectsWithoutKey=  QuickbooksPersistentTypes.Where(t => t.GetProperties().Count(p => p.GetCustomAttribute<KeyAttribute>() != null) == 0).ToList();
 
-        foreach (var item in ObjectsWithoutKey)
-        {
-            Debug.WriteLine($"missing key {item}");
-            QuickbooksPersistentTypes.Remove(item);
-        }
+       // foreach (var item in ObjectsWithoutKey)
+       // {
+       //     Debug.WriteLine($"missing key {item}");
+       //     QuickbooksPersistentTypes.Remove(item);
+       // }
 
-        foreach (var item in QuickbooksPersistentTypes)
-        {
+       // foreach (var item in QuickbooksPersistentTypes)
+       // {
 
          
 
-            AdditionalExportedTypes.Add(item);
-            string TableName = item.GetAllPublicConstantValues<string>()[1];
-            QuickbooksTables.Add(item, TableName);
-        }
+       //     AdditionalExportedTypes.Add(item);
+       //     string TableName = item.GetAllPublicConstantValues<string>()[1];
+       //     QuickbooksTables.Add(item, TableName);
+       // }
 
         //AdditionalExportedTypes.Add(typeof(Account));
-        //AdditionalExportedTypes.Add(typeof(BalanceSheetDetail));
-        //AdditionalExportedTypes.Add(typeof(BalanceSheetStandard));
-        //AdditionalExportedTypes.Add(typeof(BalanceSheetSummary));
+        AdditionalExportedTypes.Add(typeof(BalanceSheetDetail));
+        AdditionalExportedTypes.Add(typeof(BalanceSheetStandard));
+        AdditionalExportedTypes.Add(typeof(BalanceSheetSummary));
+
+
+        QuickbooksTables.Add(typeof(BalanceSheetDetail), "BalanceSheetDetail");
+        QuickbooksTables.Add(typeof(BalanceSheetStandard), "BalanceSheetStandard");
+        //QuickbooksTables.Add(typeof(BalanceSheetSummary), "BalanceSheetSummary");
+
         //AdditionalExportedTypes.Add(typeof(Bill));
         //AdditionalExportedTypes.Add(typeof(Class));
         //AdditionalExportedTypes.Add(typeof(CreditCardCharge));

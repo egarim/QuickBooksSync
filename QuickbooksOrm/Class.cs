@@ -105,8 +105,8 @@ namespace QuickBooksSync.Module.BusinessObjects
 
         //TODO fix ParentRefFullName
 
-        public const string QueryableProperties = "Id,Name,FullName,IsActive,Sublevel,EditSequence,TimeCreated,TimeModified";
-        //public const string QueryableProperties="Id,Name,FullName,IsActive,ParentRefFullName,ParentRefListId,Sublevel,EditSequence,TimeCreated,TimeModified";
+        //public const string QueryableProperties = "Id,Name,FullName,IsActive,Sublevel,EditSequence,TimeCreated,TimeModified";
+        public const string QueryableProperties="Id,Name,FullName,IsActive,ParentRefFullName,ParentRefListId,Sublevel,EditSequence,TimeCreated,TimeModified";
         public const string QuickbooksTableName="Class";
     }
 }
