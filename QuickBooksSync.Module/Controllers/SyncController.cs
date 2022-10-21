@@ -91,7 +91,7 @@ namespace QuickBooksSync.Module.Controllers
             //currentCompany.Progress = 0;
             //HACK tables list
             //List<string> Entities = new List<string>() { "Account", "BalanceSheetDetail", "BalanceSheetStandard", "BalanceSheetSummary", "Bill" };
-            Dictionary<Type, string> Entities = QuickBooksSyncModule.QuickbooksTables;
+            Dictionary<Type, string> Entities = GetEntities();
 
 
             // var SingleEntity = Entities.FirstOrDefault(e => e.Key == typeof(CreditCardRefund));
@@ -105,7 +105,7 @@ namespace QuickBooksSync.Module.Controllers
                 string QueryableProperties = EntityType.Type.GetAllPublicConstantValues<string>()[0];
 
                 var bWorker = new BackgroundWorker() { WorkerReportsProgress = true, WorkerSupportsCancellation = true };
-                
+
                 bWorker.DoWork += backgroundWorker_DoWork;
                 bWorker.ProgressChanged += backgroundWorker_ProgressChanged;
                 bWorker.RunWorkerCompleted += BWorker_RunWorkerCompleted;
@@ -160,12 +160,10 @@ namespace QuickBooksSync.Module.Controllers
 
 
                     var Instance = this.View.ObjectSpace.CreateObject(WorkerArgs.EntityType) as XPBaseObject;//XPLiteObject;
-                    //var PropList = WorkerArgs.Properties.Split(',');
-                    foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
-                    {
+                                                                                                             //var PropList = WorkerArgs.Properties.Split(',');
 
-                        Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
-                    }
+                    SetObjectValues(WorkerArgs, Instance);
+
 
                     //ExecuteDoEvents();
                     //currentCompany.Progress = currentCompany.Progress + 1; ;
@@ -190,7 +188,7 @@ namespace QuickBooksSync.Module.Controllers
 
                             var accountsCommand = connection.CreateCommand();
                             //accountsCommand.CommandText = $"SELECT {WorkerArgs.Properties} FROM {WorkerArgs.Entity}";
-                            accountsCommand.CommandText = $"SELECT * FROM {WorkerArgs.Entity}";
+                            accountsCommand.CommandText = BuildCommand(WorkerArgs);
                             QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
                             int currentRecord = 0;
                             while (rdr.Read())
@@ -268,6 +266,25 @@ namespace QuickBooksSync.Module.Controllers
 
             ProcessPage(1);
 
+        }
+
+        protected virtual string BuildCommand((string FileName, string Entity, string Properties, Type EntityType) WorkerArgs)
+        {
+            return $"SELECT * FROM {WorkerArgs.Entity}";
+        }
+
+        protected virtual void SetObjectValues((Dictionary<string, object> Reader, string Entity, string Properties, Type EntityType) WorkerArgs, XPBaseObject Instance)
+        {
+            foreach (KeyValuePair<string, object> CurrentItem in WorkerArgs.Reader)
+            {
+
+                Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
+            }
+        }
+
+        protected virtual Dictionary<Type, string> GetEntities()
+        {
+            return QuickBooksSyncModule.QuickbooksTables;
         }
 
         private void ProcessPage(int PageNumber)
