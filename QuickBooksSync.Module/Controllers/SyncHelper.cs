@@ -25,13 +25,15 @@ namespace QuickBooksSync.Module.Controllers
         Action OnFinish;
         Dictionary<Type, string> Entities;
         Dictionary<Type, string> EntityQueryParamters;
-        public SyncHelper(Company Company , Dictionary<Type, string> entities, IObjectSpace objectSpace,Action onFinish, Dictionary<Type, string> entityQueryParamters)
+        Action<XPBaseObject> AfterSetValues;
+        public SyncHelper(Company Company , Dictionary<Type, string> entities, IObjectSpace objectSpace,Action onFinish, Dictionary<Type, string> entityQueryParamters,Action<XPBaseObject> afterSetValues=null)
         {
             currentCompany = Company;
             ObjectSpace = objectSpace;
             OnFinish = onFinish;
             Entities = entities;
             EntityQueryParamters = entityQueryParamters;
+            AfterSetValues = afterSetValues;
         }
         public string Log { get; set; }
         public void Sync()
@@ -238,6 +240,8 @@ namespace QuickBooksSync.Module.Controllers
 
                 Instance.SetMemberValue(CurrentItem.Key, CurrentItem.Value);
             }
+            if (AfterSetValues != null)
+                AfterSetValues.Invoke(Instance);
 
         }
 
