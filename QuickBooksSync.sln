@@ -11,9 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBooksSync.Blazor.Serve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBooksSync.E2E.Tests", "QuickBooksSync.E2E.Tests\QuickBooksSync.E2E.Tests.csproj", "{B8E63E0A-185D-4542-9AEC-2FDBE75EC538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickbooksOrm", "QuickbooksOrm\QuickbooksOrm.csproj", "{7D42B61E-4DC7-43D3-BEE5-16E6F52D33A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickbooksOrm", "QuickbooksOrm\QuickbooksOrm.csproj", "{7D42B61E-4DC7-43D3-BEE5-16E6F52D33A4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFConsoleQb", "EFConsoleQb\EFConsoleQb\EFConsoleQb.csproj", "{96D0E0E2-6E17-4743-A6F4-08078B56F327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{AC84CB93-9692-4184-B8A6-4D012023C148}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +60,12 @@ Global
 		{96D0E0E2-6E17-4743-A6F4-08078B56F327}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
 		{96D0E0E2-6E17-4743-A6F4-08078B56F327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96D0E0E2-6E17-4743-A6F4-08078B56F327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC84CB93-9692-4184-B8A6-4D012023C148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC84CB93-9692-4184-B8A6-4D012023C148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC84CB93-9692-4184-B8A6-4D012023C148}.EasyTest|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC84CB93-9692-4184-B8A6-4D012023C148}.EasyTest|Any CPU.Build.0 = Debug|Any CPU
+		{AC84CB93-9692-4184-B8A6-4D012023C148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC84CB93-9692-4184-B8A6-4D012023C148}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
