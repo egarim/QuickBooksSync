@@ -123,10 +123,11 @@ namespace TestProject1
             ///get schema
             var SchemaCommand = connection.CreateCommand();
             var xml = File.ReadAllText("ConfigReport.xml");
-            SchemaCommand.CommandText = $"EXECUTE CreateReportSchema @SendQBXML = '{xml}'";
+            SchemaCommand.CommandText = $"EXECUTE SendQBXML @RawXML = '{xml}'";
             SchemaCommand.CommandType = System.Data.CommandType.Text;
             var affected = SchemaCommand.ExecuteNonQuery();
             var output=SchemaCommand.Parameters["OutputRawResponse"];
+
             //Debug.WriteLine(accountsCommand.Parameters["@OutputRawResponse"].Value);
             //accountsCommand.CommandText = $"EXECUTE SendQBXML";
             //accountsCommand.CommandType = System.Data.CommandType.StoredProcedure;
