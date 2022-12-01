@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?qbxml version="13.0"?>
+<QBXML>
+	<QBXMLMsgsRq onError="stopOnError">
+		<GeneralSummaryReportQueryRq>
+
+			<GeneralSummaryReportType>BalanceSheetStandard</GeneralSummaryReportType>
+
+			<DisplayReport>false</DisplayReport>
+			<ReportPeriod>
+				<FromReportDate>2013-01-01</FromReportDate>
+				<ToReportDate>2023-01-01</ToReportDate>
+			</ReportPeriod>
+
+		</GeneralSummaryReportQueryRq>
+	</QBXMLMsgsRq>
+</QBXML>

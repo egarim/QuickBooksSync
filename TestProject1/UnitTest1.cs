@@ -1,5 +1,6 @@
 using System.Data;
 using System.Data.CData.QuickBooks;
+using System.Data.Common;
 using System.Diagnostics;
 
 namespace TestProject1
@@ -15,6 +16,9 @@ namespace TestProject1
         public void Test1()
 
         {
+
+            //TODO test https://developer.intuit.com/app/developer/qbdesktop/docs/api-reference/qbdesktop/generaldetailreportquery
+
             //HACk https://cdn.cdata.com/help/RQH/ado/pg_exec.htm
             var CompanyFile = "C:\\Users\\User\\Desktop\\exe logistics incTesting\\exe lines incTesting.qbw";
             using (QuickBooksConnection connection = new QuickBooksConnection(new QuickBooksConnectionStringBuilder() { CompanyFile = CompanyFile, PoolWaitTime = 600 }))
@@ -29,58 +33,11 @@ namespace TestProject1
                     //CreateCustomerSchema(connection);
                     //CreateReportSchema(connection);
                     //CreateReportSchema1(connection);
-                    SendQbXml(connection);
+                    //SendQbXml(connection);
+                    //SendQbXml1(connection);
+                    SendQbXml2(connection);
 
 
-
-                    //using (IDataReader reader = SchemaCommand.ExecuteReader())
-                    //{
-                    //    var data = reader.GetSchemaTable();
-
-                    //}                    ///
-                    var accountsCommand = connection.CreateCommand();
-                   
-                    
-                    
-                    //Debug.WriteLine(accountsCommand.Parameters["@OutputRawResponse"].Value);
-                    //accountsCommand.CommandText = $"EXECUTE SendQBXML";
-                    //accountsCommand.CommandType = System.Data.CommandType.StoredProcedure;
-                    //var xml = File.ReadAllText("ConfigReport.xml");
-                    //accountsCommand.Parameters.Add("@RawXML", DbType.String).Value = xml;
-
-                    //QuickBooksParameter outparameter = new QuickBooksParameter("@OutputRawResponse", DbType.String);
-                    //ReportType.Direction = ParameterDirection.Output;
-
-                    //accountsCommand.Parameters.Add(ReportType);
-
-                    ////QuickBooksParameter outparameter = accountsCommand.Parameters.Add("@OutputRawResponse", SqlDbType.Text);
-                    ////outparameter.Direction = ParameterDirection.Output;
-                    //int affected = accountsCommand.ExecuteNonQuery();
-
-                    //var outvalue=  outparameter.Value.ToString();
-
-                    //using (IDataReader reader = accountsCommand.ExecuteReader())
-                    //{
-                    //    var data = reader.GetSchemaTable();
-                    //    while (reader.Read())
-                    //    {
-
-                    //        //read in data
-                    //    }
-
-                    //}
-                    //SqlParameter outputIdParam = new SqlParameter("@ID", SqlDbType.Int)
-                    //{
-                    //    Direction = ParameterDirection.Output
-                    //};
-
-                    //QuickBooksDataReader rdr = accountsCommand.ExecuteReader();
-                    //int currentRecord = 0;
-                    //while (rdr.Read())
-                    //{
-
-
-                    //}
                 }
                 catch (Exception ex)
                 {
@@ -122,11 +79,80 @@ namespace TestProject1
         {
             ///get schema
             var SchemaCommand = connection.CreateCommand();
-            var xml = File.ReadAllText("ConfigReport.xml");
+            //var xml = File.ReadAllText("ConfigReport.xml");
+
+            
+            //Link for the examplehttps://stackoverflow.com/questions/22615711/qbxml-can-i-get-the-balance-sheet-or-do-i-have-to-calculate-it
+            var xml = File.ReadAllText("newBalancesheet.xml");
             SchemaCommand.CommandText = $"EXECUTE SendQBXML @RawXML = '{xml}'";
             SchemaCommand.CommandType = System.Data.CommandType.Text;
+            QuickBooksParameter OutputRawResponse = new QuickBooksParameter("@OutputRawResponse", DbType.String);
+            OutputRawResponse.Direction = ParameterDirection.Output;
+            SchemaCommand.Parameters.Add(OutputRawResponse);
+
             var affected = SchemaCommand.ExecuteNonQuery();
-            var output=SchemaCommand.Parameters["OutputRawResponse"];
+            var output=SchemaCommand.Parameters["@OutputRawResponse"];
+
+            //Debug.WriteLine(accountsCommand.Parameters["@OutputRawResponse"].Value);
+            //accountsCommand.CommandText = $"EXECUTE SendQBXML";
+            //accountsCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            //var xml = File.ReadAllText("ConfigReport.xml");
+            //accountsCommand.Parameters.Add("@RawXML", DbType.String).Value = xml;
+            //var affectedschema = SchemaCommand.ExecuteNonQuery();
+        }
+        void SendQbXml1(QuickBooksConnection connection)
+        {
+            ///get schema
+            var SchemaCommand = connection.CreateCommand();
+            //var xml = File.ReadAllText("ConfigReport.xml");
+
+
+            //Link for the examplehttps://stackoverflow.com/questions/22615711/qbxml-can-i-get-the-balance-sheet-or-do-i-have-to-calculate-it
+            var xml = File.ReadAllText("newBalancesheet.xml");
+            SchemaCommand.CommandText = $"EXECUTE SendQBXML @RawXML = '{xml}', @OutputRawResponse=''";
+            SchemaCommand.CommandType = System.Data.CommandType.Text;
+            //QuickBooksParameter OutputRawResponse = new QuickBooksParameter("@OutputRawResponse", DbType.String);
+            //OutputRawResponse.Direction = ParameterDirection.Output;
+            //SchemaCommand.Parameters.Add(OutputRawResponse);
+
+            //var affected = SchemaCommand.ExecuteNonQuery();
+            using (IDataReader reader = SchemaCommand.ExecuteReader())
+            {
+
+             
+                var data = reader.GetSchemaTable();
+                DataTable table = new DataTable();
+                table.Load(reader);
+                table.WriteXml("BalancesheetSp.xml");
+            }
+
+            var output = SchemaCommand.Parameters["@OutputRawResponse"];
+
+            //Debug.WriteLine(accountsCommand.Parameters["@OutputRawResponse"].Value);
+            //accountsCommand.CommandText = $"EXECUTE SendQBXML";
+            //accountsCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            //var xml = File.ReadAllText("ConfigReport.xml");
+            //accountsCommand.Parameters.Add("@RawXML", DbType.String).Value = xml;
+            //var affectedschema = SchemaCommand.ExecuteNonQuery();
+        }
+        void SendQbXml2(QuickBooksConnection connection)
+        {
+            ///get schema
+            var SchemaCommand = connection.CreateCommand();
+            //var xml = File.ReadAllText("ConfigReport.xml");
+
+
+            //Link for the examplehttps://stackoverflow.com/questions/22615711/qbxml-can-i-get-the-balance-sheet-or-do-i-have-to-calculate-it
+            var xml = File.ReadAllText("newBalancesheet.xml");
+            SchemaCommand.CommandText = $"EXECUTE SendQBXML @RawXML = '{xml}'";
+            SchemaCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            QuickBooksParameter OutputRawResponse = new QuickBooksParameter("OutputRawResponse", DbType.String);
+            OutputRawResponse.Direction = ParameterDirection.Output;
+            SchemaCommand.Parameters.Add(OutputRawResponse);
+
+            SchemaCommand.ExecuteNonQuery();
+            var output = SchemaCommand.Parameters["OutputRawResponse"];
+
 
             //Debug.WriteLine(accountsCommand.Parameters["@OutputRawResponse"].Value);
             //accountsCommand.CommandText = $"EXECUTE SendQBXML";
